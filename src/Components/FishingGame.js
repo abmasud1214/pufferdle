@@ -13,6 +13,12 @@ fish_img.src = require('./../Art/fish.png')
 const treasure_img = new Image();
 treasure_img.src = require('./../Art/treasure.png')
 
+const MainLoop = require('mainloop.js')
+
+function randRange(low, high){
+    return Math.floor(Math.random() * (high-low)) + low;
+}
+
 export default function FishingGame(props){
 
     const canvasRef = React.useRef(null);
@@ -48,9 +54,47 @@ export default function FishingGame(props){
 
     let fishPos = 254; // Original: 254; Min: 6 -> Max: 269;
     let fishTargetPos = ((100 - difficulty) / 100) * 274; 
+    
+    let fishAcceleration;
+    let fishSpeed = 0;
 
     const update = (time) => {
+        if (Math.random() < (difficulty * ((motionType != 2) ? 1 : 20) / 4000) && (motionType != 2 || fishTargetPos == -1))
+        {
+            const spaceBelow = 274 - fishPos;
+            const spaceAbove = fishPos;
+            const percent = Math.min(99, difficulty + randRange(10, 45)) / 100;
+            fishTargetPos = fishPos + randRange(Math.min(0-spaceAbove, spaceBelow), spaceBelow) * percent;
+        }
+        let floaterSinkerAcceleration = 0;
+        if (motionType == 4) {
+            floaterSinkerAcceleration = Math.max(floaterSinkerAcceleration - 0.01, -1.5);
+        }
+        else if (motionType == 3) {
+            floaterSinkerAcceleration = Math.min(floaterSinkerAcceleration + 0.01, 1.5);
+        }
+        if (Math.abs(fishPos - fishTargetPos) > 3 && fishTargetPos != -1) {
+            fishAcceleration = (fishTargetPos - fishPos) / (randRange(10, 30) + (100 - Math.min(100, difficulty)));
+            fishSpeed += (fishAcceleration - fishSpeed) / 5;
+        } 
+        else if (motionType != 2 && Math.random() < (difficulty / 2000)) {
+            fishTargetPos = fishPos + ((Math.random() < 0.5) ? randRange(-100, 51) : randRange(50, 101));
+        } 
+        else {
+            fishTargetPos = -1;
+        }
 
+        if (motionType == 1 && Math.random() < (difficulty / 1000)) {
+            fishTargetPos = fishPos + ((Math.random() < 0.5) ? randRange(-100 - difficulty * 2, -51) : randRange(50, 101 + difficulty * 2));
+        }
+        fishTargetPos = Math.max(-1, Math.min(fishTargetPos, 274));
+        fishPos += fishSpeed + floaterSinkerAcceleration;
+
+        if (fishPos > 269){
+            fishPos = 269;
+        } else if (fishPos < 0) {
+            fishPos = 0;
+        }
     }
 
     const draw = (ctx) => {
@@ -90,20 +134,21 @@ export default function FishingGame(props){
 
         let perfect = true;
 
-        const render = () => {
-            draw(context)
-            // context.clearRect(0, 0, context.canvas.width, context.canvas.height)
+        // const render = () => {
+        //     draw(context)
+        //     // context.clearRect(0, 0, context.canvas.width, context.canvas.height)
     
-            // // context.fillStyle = '#000000'
-            // // context.fillRect(0, 0, context.width, context.canvas.height);
-            // // context.drawImage(fishing_menu, 0, 0, 47*3, 150*3)
+        //     // // context.fillStyle = '#000000'
+        //     // // context.fillRect(0, 0, context.width, context.canvas.height);
+        //     // // context.drawImage(fishing_menu, 0, 0, 47*3, 150*3)
     
-            // // context.drawImage(fish_img, 50, 100, 30, 30)
+        //     // // context.drawImage(fish_img, 50, 100, 30, 30)
 
-            requestAnimationFrame(render)
-        }
+        //     requestAnimationFrame(render)
+        // }
 
-        render()
+        // render()
+        MainLoop.setUpdate(update).setDraw(() => draw(context)).start();
 
     }, [])
 

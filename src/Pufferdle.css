@@ -1,0 +1,18 @@
+.pufferdle {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url("./Art/stardewPanorama.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    image-rendering: pixelated;
+}
+
+.hitImage {
+    image-rendering: pixelated;
+    width:20rem;
+    height:auto;
+}

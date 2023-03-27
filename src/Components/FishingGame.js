@@ -23,7 +23,7 @@ export default function FishingGame(props){
 
     const canvasRef = React.useRef(null);
     
-    const {whichFish} = props;
+    const {whichFish, endGame} = props;
 
     const difficulty = whichFish.difficulty;
     const typeStr = whichFish.behavior;
@@ -86,6 +86,16 @@ export default function FishingGame(props){
     let perfect = true;
 
     const update = (time) => {
+        if (progress >= 1) {
+            MainLoop.stop();
+            console.log(whichFish.name);
+            setTimeout(()=>endGame(true, treasureCaught, perfect), 250);
+        } else if (progress <= 0) {
+            MainLoop.stop();
+            console.log(whichFish.name);
+            setTimeout(()=>endGame(false, false, false), 250);
+        }
+
         if (Math.random() < (difficulty * ((motionType != 2) ? 1 : 20) / 4000) && (motionType != 2 || fishTargetPos == -1))
         {
             const spaceBelow = 274 - fishPos;
@@ -234,23 +244,7 @@ export default function FishingGame(props){
     React.useEffect(() => {
         const canvas = canvasRef.current
         const context = canvas.getContext('2d')
-
-        let perfect = true;
-
-        // const render = () => {
-        //     draw(context)
-        //     // context.clearRect(0, 0, context.canvas.width, context.canvas.height)
-    
-        //     // // context.fillStyle = '#000000'
-        //     // // context.fillRect(0, 0, context.width, context.canvas.height);
-        //     // // context.drawImage(fishing_menu, 0, 0, 47*3, 150*3)
-    
-        //     // // context.drawImage(fish_img, 50, 100, 30, 30)
-
-        //     requestAnimationFrame(render)
-        // }
-
-        // render()
+        
         MainLoop.setUpdate(update).setDraw(() => draw(context)).start();
 
     }, [])

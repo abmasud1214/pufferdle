@@ -1,0 +1,53 @@
+.Grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.RowNames {
+    display: flex;
+}
+
+.RowNames > p {
+    width: 80px;
+    height: 80px;
+    background-color: #fff;
+    border-radius: 5%;
+    margin: 5px;
+}
+
+.Row {
+    display: flex;
+}
+
+.Row > div {
+    width: 80px;
+    height: 80px;
+    background-color: #fff;
+    border-radius: 5%;
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Row > div > div {
+    width: 60px;
+    height: 60px;
+    image-rendering: pixelated;
+    mask-repeat: no-repeat;
+    mask-size: 100%;
+}
+
+.Row > div > div.green {
+    background-color: #004e00;
+}
+.Row > div > div.yellow {
+    background-color: #9c9a1b;
+}
+.Row > div > div.gray {
+    background-color: #494b49;
+}
+.Row > div > div.noGuess {
+    background-color: #c0c0c0;
+}

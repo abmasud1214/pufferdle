@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 
 import './FishingGame.css'
 import getRedtoGreenLerpColor from "../Utils/RedToGreenLerpColor";
+import hitimg from ".././Art/hit.png"
 
 const fishing_menu = new Image();
 fishing_menu.src = require('./../Art/fishing_menu.png')
@@ -19,7 +20,7 @@ function randRange(low, high){
     return Math.floor(Math.random() * (high-low)) + low;
 }
 
-export default function FishingGame(props){
+function Game(props){
 
     const canvasRef = React.useRef(null);
     
@@ -255,4 +256,23 @@ export default function FishingGame(props){
             </canvas>
         </div>
     )
+}
+
+export default function FishingGame(props){
+
+    const [hit, setHit] = React.useState(true);
+
+    React.useEffect(() => {
+        setTimeout(() => {
+            setHit(false);
+        }, 500)
+    }, [])
+
+    return (
+        <>
+            {hit && <img className = "hitImage" src={hitimg} alt="hit"></img>}
+            {!hit && <Game {...props}/>}
+        </>
+    )
+
 }

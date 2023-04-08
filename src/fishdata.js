@@ -7,7 +7,7 @@ export default {
             "season": ["Summer"],
             "weather": ["Sun"],
             "time": [12, 16],
-            "location": ["Ocean"]
+            "location": ["Ocean", "Ginger Ocean"]
         },
         {
             "name": "Anchovy",
@@ -25,7 +25,7 @@ export default {
             "season": ["Summer", "Winter"],
             "weather": ["Any"],
             "time": [6, 19],
-            "location": ["Ocean"]
+            "location": ["Ocean", "Ginger Ocean"]
         },
         {
             "name": "Sardine",

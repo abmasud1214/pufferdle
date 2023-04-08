@@ -4,11 +4,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: url("./Art/stardewPanorama.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    image-rendering: pixelated;
+    background-color: rgb(54, 51, 68);
 }
 
 .hitImage {

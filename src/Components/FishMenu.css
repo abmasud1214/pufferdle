@@ -1,0 +1,32 @@
+.menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    margin-bottom: 40px;
+}
+
+input {
+    margin-right: 10px;
+}
+
+.fish_container {
+    padding: 15px 15px;
+    width: 500px;
+    display: grid;
+    place-items: center;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    grid-auto-flow: row;
+    row-gap: 15px;
+    /* background-color: #dda817; */
+}
+
+.fish_icon {
+    image-rendering: pixelated;
+    width: 50px;
+    height: 50px;
+}

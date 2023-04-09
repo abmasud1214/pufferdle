@@ -14,6 +14,10 @@ export default function PufferdleGuess(props) {
     const [currentGuess, setCurrentGuess] = React.useState(0);
     const {fishResults, targetFish} = props;
         
+    React.useEffect(() => {
+        console.log(targetFish);
+    }, [0])
+
     const onGuess = (guessedFish) => {
         setGuessHistory(prevState => {
             const hist = prevState.map((c, i) => (i === currentGuess ? guessedFish : c));
@@ -29,7 +33,7 @@ export default function PufferdleGuess(props) {
 
 
     return (
-        <div>
+        <div className="container">
            <FishMenu onGuess={onGuess}/>
            <GuessGrid guessHistory={formattedGuesses}/>
         </div>

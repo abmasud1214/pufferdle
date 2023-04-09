@@ -11,7 +11,8 @@ const identical_time = (guess, actual) => {
 }
 
 const intersect = (guess, actual) => {
-    const intersection = guess.filter(value => actual.includes(value) || actual.includes("Any"));
+    const intersection = guess.filter(value => actual.includes(value) || actual.includes("Any") || value.includes("Any"));
+    console.log(guess, actual);
     return (intersection.length > 0);
 }
 

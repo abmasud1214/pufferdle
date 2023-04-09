@@ -52,7 +52,7 @@ export default {
             "season": ["Spring", "Summer", "Fall", "Winter"],
             "weather": ["Any"],
             "time": [6, 19],
-            "location": ["Mountain Lake"]
+            "location": ["Lake"]
         },
         {
             "name": "Smallmouth Bass",

@@ -14,25 +14,25 @@ function Row(props) {
         return (
             <div className='Row'>
                 <div>
-                    <div className={season} style={{maskImage: `url(${guess.img})`}}></div>
+                    <div className={`fishMask ${season}`} style={{maskImage: `url(${guess.img})`}}></div>
                 </div>
                 <div>
-                    <div className={weather} style={{maskImage: `url(${guess.img})`}}></div>
+                    <div className={`fishMask ${weather}`} style={{maskImage: `url(${guess.img})`}}></div>
                 </div>
                 <div>
-                    <div className={location} style={{maskImage: `url(${guess.img})`}}></div>
+                    <div className={`fishMask ${location}`} style={{maskImage: `url(${guess.img})`}}></div>
                 </div>
                 <div>
-                    <div className={time} style={{maskImage: `url(${guess.img})`}}></div>
+                    <div className={`fishMask ${time}`} style={{maskImage: `url(${guess.img})`}}></div>
                 </div>
                 <div>
-                    <div className={correct ? "green" : "gray"} style={{maskImage: `url(${guess.img})`}}></div>
+                    <div className={`fishMask ${correct ? "green" : "gray"}`} style={{maskImage: `url(${guess.img})`}}></div>
                 </div>
             </div>
         )
     }
     return (
-        <div className='Row'>
+        <div className='NewRow'>
             <div>
                 <div className={"noGuess"} style={{maskImage: `url(${generic_fish})`}}></div>
             </div>

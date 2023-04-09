@@ -1,6 +1,12 @@
-div {
+.container {
     display: flex;
-    width: 100%;
+    padding: 50px;
+    width: 60%;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
+    background-color: #ffcb7b;
+    border-radius: 1%;
+    border-color: #fa9305;
+    border-width: 10px;
+    border-style: ridge;
 }

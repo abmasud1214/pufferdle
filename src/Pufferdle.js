@@ -13,9 +13,10 @@ export default function Pufferdle() {
         treasure: false,
         perfect: false
     })
-
     const fishArray = fishdata.fish;
-    const whichFish = fishArray[Math.floor(Math.random() * fishArray.length)]
+    const [targetFish, setTargetFish] = React.useState(fishArray[Math.floor(Math.random() * fishArray.length)]);
+
+    // const whichFish = fishArray.filter(value => (value.name === "Angler"))[0]
 
     // console.log(whichFish.name)
     // console.log(fishResults);
@@ -36,8 +37,8 @@ export default function Pufferdle() {
     return (
         <div className="pufferdle">
             {inGame == 0 && <button onClick={StartGame}>Play Pufferdle</button>}
-            {inGame == 1 && <FishingGame whichFish={whichFish} endGame={endGame}/>}
-            {inGame == 2 && <PufferdleGuess fishResults={fishResults} targetFish={whichFish}/>}
+            {inGame == 1 && <FishingGame whichFish={targetFish} endGame={endGame}/>}
+            {inGame == 2 && <PufferdleGuess fishResults={fishResults} targetFish={targetFish}/>}
         </div>
     )
 }

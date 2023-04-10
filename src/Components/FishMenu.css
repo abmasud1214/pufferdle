@@ -67,6 +67,7 @@ input {
     position: relative;
     top: 60px;
     right: 100px;
+    padding: 5px;
     background-color: #ffc979;
     border-color: #fa9305;
     border-style: ridge;

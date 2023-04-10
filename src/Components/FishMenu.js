@@ -90,14 +90,19 @@ function FishImg(props) {
 
     return (
         <div 
-            onClick={onClick} 
-            onMouseEnter={()=>{setHover(true)}} 
-            onMouseLeave={()=>{setHover(false)}} 
+            onClick={onClick}  
             className={"fishContainer"}
         >
             <div className="shadow" style={{maskImage: `url(${fish.src})`, transform: `scale(${hover ? 1.2 : 1})`}}></div>
             {selected && <div className="selected" style={{maskImage: `url(${fish.src})`}}></div>}
-            <img src={fish.src} alt={fish.name} className="fish_icon" style={{transform: `scale(${hover ? 1.2 : 1})`}}></img>
+            <img 
+                src={fish.src} 
+                alt={fish.name} 
+                className="fish_icon" 
+                style={{transform: `scale(${hover ? 1.2 : 1})`}}
+                onMouseEnter={()=>{setHover(true)}} 
+                onMouseLeave={()=>{setHover(false)}}
+                ></img>
             {hover && <FishInfo fish={fish}/>}
         </div>
     )

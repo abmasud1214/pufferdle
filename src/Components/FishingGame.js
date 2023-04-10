@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom/client'
 import './FishingGame.css'
 import getRedtoGreenLerpColor from "../Utils/RedToGreenLerpColor";
 import hitimg from ".././Art/hit.png"
+import useCheckMobileScreen from "../Utils/UseCheckMobileScreen";
 
 const fishing_menu = new Image();
 fishing_menu.src = require('./../Art/fishing_menu.png')
@@ -26,6 +27,8 @@ function Game(props){
     
     const {whichFish, endGame} = props;
 
+    const isMobile = useCheckMobileScreen();
+
     const difficulty = whichFish.difficulty;
     const typeStr = whichFish.behavior;
     let motionType;
@@ -33,15 +36,23 @@ function Game(props){
     let mouseDown = false;
 
     React.useEffect(() => {
-        const handleMouseUp = (event) => {mouseDown = false};
         const handleMouseDown = (event) => {mouseDown = true};
+        const handleMouseUp = (event) => {mouseDown = false};
 
-        document.addEventListener("mouseup", handleMouseUp)
         document.addEventListener("mousedown", handleMouseDown);
-
+        document.addEventListener("mouseup", handleMouseUp);
+        if (isMobile) {
+            document.addEventListener("touchstart", handleMouseDown);
+            document.addEventListener("touchend", handleMouseUp);
+        }
+        
         return () => {
-            document.removeEventListener("mouseup", handleMouseUp);
             document.removeEventListener("mousedown", handleMouseDown);
+            document.removeEventListener("mouseup", handleMouseUp);
+            if (isMobile) {
+                document.removeEventListener("touchstart", handleMouseDown);
+                document.removeEventListener("touchend", handleMouseUp);
+            }
         }
     }, [])
 
@@ -251,7 +262,16 @@ function Game(props){
 
     return (
         <div>
-            <canvas ref={canvasRef} width={fishing_menu.naturalWidth} height={fishing_menu.naturalHeight}>
+            <canvas 
+                ref={canvasRef} 
+                width={fishing_menu.naturalWidth} 
+                height={fishing_menu.naturalHeight}
+                style = {
+                    {
+                        width: isMobile ? "150%" : "188px",
+                        height: isMobile ? "150%" : "600px"
+                    }
+                }>
             </canvas>
         </div>
     )

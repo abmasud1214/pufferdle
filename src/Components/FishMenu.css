@@ -25,8 +25,85 @@ input {
     /* background-color: #dda817; */
 }
 
+.fishContainer {
+    position: relative;
+    width: 50px;
+    height: 50px;
+}
+
 .fish_icon {
     image-rendering: pixelated;
     width: 50px;
     height: 50px;
+    position: absolute;
+}
+
+.selected {
+    image-rendering: pixelated;
+    width: 50px;
+    height: 50px;
+    transform: scale(1.2);
+    mask-repeat: no-repeat;
+    mask-size: 100%;
+    background-color: rgb(50, 200, 50);
+    position: absolute;
+}
+
+.shadow {
+    image-rendering: pixelated;
+    width: 50px;
+    height: 50px;
+    top: 3px;
+    right: 3px;
+    /* transform: scale(1.1); */
+    mask-repeat: no-repeat;
+    mask-size: 100%;
+    background-color: #a17949;
+    position: absolute;
+}
+
+.fishInfo {
+    display: flex;
+    position: relative;
+    top: 60px;
+    right: 100px;
+    background-color: #ffc979;
+    border-color: #fa9305;
+    border-style: ridge;
+    border-width: 8px;
+    border-radius: 2%;
+    justify-content: space-evenly;
+    gap: 10px;
+    width: fit-content;
+    z-index: 1;
+}
+
+.fishInfo:after {
+    content: "";
+    position: absolute;
+    left: 100px;
+    top: -15px;
+    border-right: 15px solid transparent;
+    border-left: 15px solid transparent;
+    border-bottom: 15px solid #a76203;
+}
+
+.fishInfo > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    gap: 3px;
+}
+
+.infoHeader {
+    padding: 15px;
+    margin-bottom: 10px !important;
+}
+
+.fishInfo p {
+    padding: 0px;
+    margin: 0px;
 }

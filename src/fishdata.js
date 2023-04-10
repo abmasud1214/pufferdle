@@ -339,7 +339,7 @@ export default {
             "behavior": "Mixed",
             "season": ["Fall","Winter"],
             "weather": ["Any"],
-            "time": [6, 11],
+            "time": [6, 11, 18, 26],
             "location": ["Ocean"]
         },
         {
@@ -366,7 +366,7 @@ export default {
             "behavior": "Sinker",
             "season": ["Spring", "Summer","Winter"],
             "weather": ["Any"],
-            "time": [6, 11],
+            "time": [6, 11, 19, 2],
             "location": ["Ocean"]
         },
         {

@@ -53,11 +53,11 @@
 }
 
 .Row > div > div.green {
-    background-color: #538d4e;
+    background-color: #598f0a;
     animation: popin 0.5s ease forwards;
 }
 .Row > div > div.yellow {
-    background-color: #b59f3b;
+    background-color: #de8800;
     animation: popin 0.5s ease forwards;
 }
 .Row > div > div.gray {

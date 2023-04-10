@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    order: 0;
 }
 
 .RowNames {
@@ -9,7 +10,7 @@
 }
 
 .RowNames > p {
-    width: 80px;
+    width: 60px;
     height: 25px;
     background-color: #ffc979;
     border-radius: 5%;
@@ -19,7 +20,7 @@
     border-top-color: #d68f54;
     border-left-color: #ffe4a1;
     border-bottom-color: #ffe4a1;
-    margin: 5px;
+    margin-bottom: 5px;
 }
 
 .Row, .NewRow {
@@ -27,11 +28,10 @@
 }
 
 .Row > div, .NewRow > div {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     background-color: #ffc979;
     border-radius: 5%;
-    margin: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -44,8 +44,8 @@
 }
 
 .Row > div > div {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     image-rendering: pixelated;
     mask-repeat: no-repeat;
     mask-size: 100%;
@@ -94,5 +94,25 @@
     100% {
         transform: scale(1, 1);
         /* transform: rotateX(0); */
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .Grid {
+        order: 1;
+    }
+
+    .RowNames > p {
+        width: 80px;
+    }
+
+    .Row > div, .NewRow > div {
+        width: 80px;
+        height: 80px;
+    }
+
+    .Row > div > div {
+        height: 60px;
+        width: 60px;
     }
 }

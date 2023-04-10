@@ -93,8 +93,15 @@ function FishImg(props) {
             onClick={onClick}  
             className={"fishContainer"}
         >
-            <div className="shadow" style={{maskImage: `url(${fish.src})`, transform: `scale(${hover ? 1.2 : 1})`}}></div>
-            {selected && <div className="selected" style={{maskImage: `url(${fish.src})`}}></div>}
+            <div className="shadow" style={{
+                WebkitMaskImage: `url(${fish.src})`,
+                maskImage: `url(${fish.src})`, 
+                transform: `scale(${hover ? 1.2 : 1})`,
+            }}></div>
+            {selected && <div className="selected" style={{
+                WebkitMaskImage: `url(${fish.src})`,
+                maskImage: `url(${fish.src})`,
+            }}></div>}
             <img 
                 src={fish.src} 
                 alt={fish.name} 
@@ -121,8 +128,6 @@ export default function FishMenu(props) {
     const [fishChoice, setFishChoice] = React.useState(fishArray);
     const [selectedFish, setSelectedFish] = React.useState(fishChoice[0]);
     const [formData, setFormData] = React.useState("");
-
-    const inputRef = React.useRef(null);
     
     const handleFishChange = (event) => {
         setFormData(event.target.value);
@@ -136,7 +141,6 @@ export default function FishMenu(props) {
     const onFishClick = (fish) => {
         setFormData(fish.name);
         setSelectedFish(fish);
-        inputRef.current.focus();
     }
 
     const handleSubmit = (event) => {
@@ -151,7 +155,6 @@ export default function FishMenu(props) {
         <div className="menu">
             <form onSubmit={handleSubmit}>
                 <input
-                    ref={inputRef}
                     type="text"
                     placeholder="fish"
                     onChange={handleFishChange}
@@ -167,15 +170,7 @@ export default function FishMenu(props) {
                     onClick = {() => {onFishClick(value)}}
                     selected = {value.name == selectedFish.name}
                 />})
-
                 }
-                {/* {fishChoice.map(value => {return <img 
-                    key={value.name} 
-                    className="fish_icon" 
-                    alt={value.name} 
-                    src={value.src} 
-                    onClick={() => {onFishClick(value)}}
-                    style={value.name == selectedFish.name ? {filter: "drop-shadow(3px 3px 0px rgb(50, 200, 50)"}: {}}/>})} */}
             </div>
         </div>
     )

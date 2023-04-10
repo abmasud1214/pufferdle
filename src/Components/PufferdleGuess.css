@@ -1,7 +1,8 @@
 .container {
     display: flex;
-    padding: 50px;
-    width: 60%;
+    flex-direction: column;
+    padding: 50px 0px;
+    width: 100%;
     align-items: center;
     justify-content: space-evenly;
     background-color: #ffcb7b;
@@ -9,4 +10,18 @@
     border-color: #fa9305;
     border-width: 10px;
     border-style: ridge;
+}
+
+@media only screen and (min-width: 768px) {
+    .container {
+        width: 100%;
+        flex-direction: row;
+    }
+}
+
+@media only screen and (min-width: 1140px) {
+    .container {
+        width: 1140px;
+        flex-direction: row;
+    }
 }

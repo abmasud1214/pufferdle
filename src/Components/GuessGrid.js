@@ -14,19 +14,19 @@ function Row(props) {
         return (
             <div className='Row'>
                 <div>
-                    <div className={`fishMask ${season}`} style={{maskImage: `url(${guess.img})`}}></div>
+                    <div className={`fishMask ${season}`} style={{WebkitMaskImage: `url(${guess.img})`, maskImage: `url(${guess.img})`}}></div>
                 </div>
                 <div>
-                    <div className={`fishMask ${weather}`} style={{maskImage: `url(${guess.img})`}}></div>
+                    <div className={`fishMask ${weather}`} style={{WebkitMaskImage: `url(${guess.img})`, maskImage: `url(${guess.img})`}}></div>
                 </div>
                 <div>
-                    <div className={`fishMask ${location}`} style={{maskImage: `url(${guess.img})`}}></div>
+                    <div className={`fishMask ${location}`} style={{WebkitMaskImage: `url(${guess.img})`, maskImage: `url(${guess.img})`}}></div>
                 </div>
                 <div>
-                    <div className={`fishMask ${time}`} style={{maskImage: `url(${guess.img})`}}></div>
+                    <div className={`fishMask ${time}`} style={{WebkitMaskImage: `url(${guess.img})`, maskImage: `url(${guess.img})`}}></div>
                 </div>
                 <div>
-                    <div className={`fishMask ${correct ? "green" : "gray"}`} style={{maskImage: `url(${guess.img})`}}></div>
+                    <div className={`fishMask ${correct ? "green" : "gray"}`} style={{WebkitMaskImage: `url(${guess.img})`, maskImage: `url(${guess.img})`}}></div>
                 </div>
             </div>
         )

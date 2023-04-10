@@ -5,6 +5,7 @@ import "./PufferdleGuess.css"
 import FishMenu from "./FishMenu.js";
 import GuessGrid from "./GuessGrid.js";
 import { formatGuess } from "../Utils/GuessFormat.js";
+import useCheckMobileScreen from "../Utils/UseCheckMobileScreen.js";
 
 export default function PufferdleGuess(props) {
 
@@ -34,8 +35,8 @@ export default function PufferdleGuess(props) {
 
     return (
         <div className="container">
-           <FishMenu onGuess={onGuess}/>
-           <GuessGrid guessHistory={formattedGuesses}/>
+           <FishMenu className="FishMenu" onGuess={onGuess}/>
+           <GuessGrid className="GuessGrid" guessHistory={formattedGuesses}/>
         </div>
     )
 }

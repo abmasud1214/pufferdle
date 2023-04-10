@@ -41,18 +41,14 @@ function Game(props){
 
         document.addEventListener("mousedown", handleMouseDown);
         document.addEventListener("mouseup", handleMouseUp);
-        if (isMobile) {
-            document.addEventListener("touchstart", handleMouseDown);
-            document.addEventListener("touchend", handleMouseUp);
-        }
+        document.addEventListener("touchstart", handleMouseDown);
+        document.addEventListener("touchend", handleMouseUp);
         
         return () => {
             document.removeEventListener("mousedown", handleMouseDown);
             document.removeEventListener("mouseup", handleMouseUp);
-            if (isMobile) {
-                document.removeEventListener("touchstart", handleMouseDown);
-                document.removeEventListener("touchend", handleMouseUp);
-            }
+            document.removeEventListener("touchstart", handleMouseDown);
+            document.removeEventListener("touchend", handleMouseUp);
         }
     }, [])
 
@@ -269,7 +265,7 @@ function Game(props){
                 style = {
                     {
                         width: isMobile ? "150%" : "188px",
-                        height: isMobile ? "150%" : "600px"
+                        height: isMobile ? "auto" : "600px"
                     }
                 }>
             </canvas>

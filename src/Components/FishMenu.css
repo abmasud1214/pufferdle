@@ -1,3 +1,5 @@
+@import url('../Fonts/fonts.css');
+
 .menu {
     display: flex;
     flex-direction: column;
@@ -9,12 +11,41 @@
 
 
 form {
-    margin-bottom: 40px;
+    margin-bottom: 10px;
+    margin-left: 50px;
+    width: 100%;
 }
 
-input {
+form > * {
+    vertical-align: middle;
+}
+
+input[type=text] {
+    width: 75%;
+    height: 50px;
+    background-color: #f9ba66;
+    border-color: #f9ba66;
+    outline: none;
+    font-size: 2em;
+    font-family: "SVBold";
     margin-right: 10px;
 }
+
+input[type=text]:focus {
+    background-color: #d6861e;
+    border-color: #d6861e;
+}
+
+button {
+    height: 40px;
+    width: 60px;
+    background-color: #dc7b05;
+    border-color: #5b2b2a;
+    display: inline-block;
+    font-family: "SVBold";
+    font-size: 1em;
+}
+
 
 .fish_container {
     padding: 15px 15px;
@@ -77,24 +108,26 @@ input {
     position: absolute;
 }
 
-.fishInfo {
-    display: flex;
+.fishInfoContainer {
     position: relative;
     top: 60px;
     right: 100px;
-    padding: 5px;
     background-color: #ffc979;
     border-color: #fa9305;
     border-style: ridge;
     border-width: 8px;
     border-radius: 2%;
-    justify-content: space-evenly;
-    gap: 10px;
     width: fit-content;
     z-index: 1;
 }
 
-.fishInfo:after {
+.fishInfoContainer > p {
+    margin: 5px 5px;
+    font-family: "SVBold";
+    font-size: 1.5em;
+}
+
+.fishInfoContainer:after {
     content: "";
     position: absolute;
     left: 100px;
@@ -102,6 +135,13 @@ input {
     border-right: 15px solid transparent;
     border-left: 15px solid transparent;
     border-bottom: 15px solid #a76203;
+}
+
+.fishInfo {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 10px;
+    padding: 5px;
 }
 
 .fishInfo > div {
@@ -114,12 +154,15 @@ input {
     gap: 3px;
 }
 
-.infoHeader {
-    padding: 15px;
-    margin-bottom: 10px !important;
-}
 
 .fishInfo p {
     padding: 0px;
     margin: 0px;
+    font-family: "SVThin";
+}
+
+.infoHeader {
+    padding: 20px;
+    margin-bottom: 10px !important;
+    font-family: "SVBold" !important;
 }

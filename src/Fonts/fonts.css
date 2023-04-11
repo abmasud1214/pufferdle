@@ -1,0 +1,11 @@
+@font-face {
+    font-family: "SVThin";
+    src: local("SVThin"),
+        url("./svthin.ttf") format("truetype")
+}
+
+@font-face {
+    font-family: "SVBold";
+    src: local("SVBold"),
+        url("./svbold.ttf") format("truetype")
+}

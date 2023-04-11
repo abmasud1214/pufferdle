@@ -48,7 +48,7 @@ function FishInfo(props) {
             if (num < 12) {
                 return `${num} AM`;
             } else if (num < 24) {
-                return `${num % 12} PM`;
+                return `${num == 12 ? 12 : num % 12} PM`;
             } else {
                 return `${num % 24} AM`;
             }
@@ -62,22 +62,25 @@ function FishInfo(props) {
     }
 
     return (
-        <div className="fishInfo">
-            <div>
-                <p className="infoHeader">Seasons</p>
-                {fish.season.map(value => <p>{value}</p>)}
-            </div>
-            <div>
-                <p className="infoHeader">Weather</p>
-                {fish.weather.map(value => <p>{value}</p>)}
-            </div>
-            <div>
-                <p className="infoHeader">Locations</p>
-                {fish.location.map(value => <p>{locationText(value)}</p>)}
-            </div>
-            <div>
-                <p className="infoHeader">Time</p>
-                {timeText(fish.time).map(value => <p>{value}</p>)}
+        <div className="fishInfoContainer">
+            <p>{fish.name}</p>
+            <div className="fishInfo">
+                <div>
+                    <p className="infoHeader">Seasons</p>
+                    {fish.season.map(value => <p>{value}</p>)}
+                </div>
+                <div>
+                    <p className="infoHeader">Weather</p>
+                    {fish.weather.map(value => <p>{value}</p>)}
+                </div>
+                <div>
+                    <p className="infoHeader">Locations</p>
+                    {fish.location.map(value => <p>{locationText(value)}</p>)}
+                </div>
+                <div>
+                    <p className="infoHeader">Time</p>
+                    {timeText(fish.time).map(value => <p>{value}</p>)}
+                </div>
             </div>
         </div>
     )
@@ -156,7 +159,7 @@ export default function FishMenu(props) {
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
-                    placeholder="fish"
+                    placeholder={selectedFish ? selectedFish.name : "Enter Fish"}
                     onChange={handleFishChange}
                     name="fish"
                     value={formData}

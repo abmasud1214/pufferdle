@@ -60,11 +60,11 @@ export default function GuessGrid(props) {
     return (
         <div className='Grid'>
             <div className="RowNames">
-                <p>Season</p>
-                <p>Weather</p>
-                <p>Location</p>
-                <p>Time</p>
-                <p>Correct</p>
+                <h2>Season</h2>
+                <h2>Weather</h2>
+                <h2>Location</h2>
+                <h2>Time</h2>
+                <h2>Correct</h2>
             </div>
             {guessHistory.map((guess, i) => <Row guess={guess} key={i}/>)}
         </div>

@@ -63,22 +63,22 @@ function FishInfo(props) {
 
     return (
         <div className="fishInfoContainer">
-            <p>{fish.name}</p>
+            <h1>{fish.name}</h1>
             <div className="fishInfo">
                 <div>
-                    <p className="infoHeader">Seasons</p>
+                    <h2 className="infoHeader">Seasons</h2>
                     {fish.season.map(value => <p>{value}</p>)}
                 </div>
                 <div>
-                    <p className="infoHeader">Weather</p>
+                    <h2 className="infoHeader">Weather</h2>
                     {fish.weather.map(value => <p>{value}</p>)}
                 </div>
                 <div>
-                    <p className="infoHeader">Locations</p>
+                    <h2 className="infoHeader">Locations</h2>
                     {fish.location.map(value => <p>{locationText(value)}</p>)}
                 </div>
                 <div>
-                    <p className="infoHeader">Time</p>
+                    <h2 className="infoHeader">Time</h2>
                     {timeText(fish.time).map(value => <p>{value}</p>)}
                 </div>
             </div>

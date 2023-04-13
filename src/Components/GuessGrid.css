@@ -11,7 +11,7 @@
     display: flex;
 }
 
-.RowNames > p {
+.RowNames > h2 {
     width: 60px;
     height: 20px;
     background-color: #ffc979;
@@ -25,6 +25,7 @@
     margin-bottom: 5px;
     text-align: center;
     font-family: "SVBold";
+    font-size: 1em;
 }
 
 .Row, .NewRow {
@@ -106,8 +107,9 @@
         order: 1;
     }
 
-    .RowNames > p {
+    .RowNames > h2 {
         width: 80px;
+        font-size: 1.2em;
     }
 
     .Row > div, .NewRow > div {

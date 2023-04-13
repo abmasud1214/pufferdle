@@ -1,0 +1,53 @@
+@import url(./Fonts/fonts.css);
+
+.App {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #1b284b;
+}
+
+.menuButtons{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.menuButtons button {
+    margin: 20px;
+    padding: 30px;
+    font-family: "SVBold";
+    font-size: 1.5em;
+    background-color: #dc7b05;
+    border-color: #5b2b2a;
+    display: inline-block;
+}
+
+.menuButton {
+    display: flex;
+    background-color: #dc7b05;
+    border-width: 4px;
+    border-color: #5b2b2a;
+    border-style: solid;
+    align-items: center;
+    margin: 20px;
+    padding: 20px 30px;
+}
+
+.menuButton img {
+    width: 50px;
+    height: 50px;
+    image-rendering: pixelated;
+    margin-right: 20px;
+}
+
+.menuButton h1 {
+    margin: 0px;
+    font-family: "SVBold";
+    font-size: 2em;
+    text-shadow: 2px 2px 0px black;
+    color: #e5ceb3;
+}

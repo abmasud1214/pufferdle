@@ -6,7 +6,7 @@ import './Pufferdle.css'
 
 import fishdata from './fishdata'
 
-export default function Pufferdle() {
+export default function Pufferdle({ daily }) {
     const [inGame, setInGame] = React.useState(0);
     const [fishResults, setFishResults] = React.useState({
         caught: false,
@@ -15,6 +15,7 @@ export default function Pufferdle() {
     })
     const fishArray = fishdata.fish;
     const [targetFish, setTargetFish] = React.useState(fishArray[Math.floor(Math.random() * fishArray.length)]);
+    // const [targetFish, setTargetFish] = React.useState(fishArray.filter(value => (value.name === "Angler"))[0]);
 
     // const whichFish = fishArray.filter(value => (value.name === "Angler"))[0]
 
@@ -27,18 +28,13 @@ export default function Pufferdle() {
             treasure: treasure,
             perfect: perfect
         })
-        setInGame(2);
-    }
-    
-    const StartGame = () => {
         setInGame(1);
     }
 
     return (
         <div className="pufferdle">
-            {inGame == 0 && <button onClick={StartGame}>Play Pufferdle</button>}
-            {inGame == 1 && <FishingGame whichFish={targetFish} endGame={endGame}/>}
-            {inGame == 2 && <PufferdleGuess fishResults={fishResults} targetFish={targetFish}/>}
+            {inGame == 0 && <FishingGame whichFish={targetFish} endGame={endGame}/>}
+            {inGame == 1 && <PufferdleGuess fishResults={fishResults} targetFish={targetFish}/>}
         </div>
     )
 }

@@ -1,0 +1,52 @@
+@import url(../Fonts/fonts.css);
+
+.background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.modal {
+    max-width: 80%;
+    width: 500px;
+    background-color: #ffcb7b;
+    border-color: #fa9305;
+    border-width: 8px;
+    border-style: ridge;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal h1 {
+    font-family: "SVBold";
+    padding: 0px;
+    margin: 0px;
+}
+
+.modal h2 {
+    font-family: "SVThin";
+    padding: 0px;
+    margin: 0px;
+}
+
+.modal img {
+    width: 50px;
+    height: 50px;
+    image-rendering: pixelated;
+}
+
+.resultImages {
+    display: flex;
+    justify-content: space-evenly;
+}

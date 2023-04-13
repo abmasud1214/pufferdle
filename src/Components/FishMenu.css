@@ -36,7 +36,7 @@ input[type=text]:focus {
     border-color: #d6861e;
 }
 
-button {
+.menu button {
     height: 40px;
     width: 60px;
     background-color: #dc7b05;
@@ -121,8 +121,10 @@ button {
     z-index: 1;
 }
 
-.fishInfoContainer > p {
+.fishInfoContainer > h1 {
     margin: 5px 5px;
+    margin-bottom: 0px;
+    padding: 0px;
     font-family: "SVBold";
     font-size: 1.5em;
 }
@@ -162,7 +164,9 @@ button {
 }
 
 .infoHeader {
-    padding: 20px;
+    /* padding: 20px; */
+    margin-top: 0px;
     margin-bottom: 10px !important;
     font-family: "SVBold" !important;
+    font-size: 1.2em;
 }

@@ -1,5 +1,12 @@
 @import url(../Fonts/fonts.css);
 
+.tankSettingsMenu {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: center;
+}
+
 .fishLevelBar {
     display: flex;
     cursor: pointer;
@@ -97,13 +104,13 @@
     border-color: #37c27a #37c27a #0c7f00 #0c7f00;
 }
 
-.foodmenu {
+.foodmenu, .tackleMenu{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
 }
 
-.foodmenu img {
+.foodmenu img, .tackleMenu img {
     width: 50px;
     height: 50px;
     image-rendering: pixelated;
@@ -114,8 +121,8 @@
 
 .foodmenu > div {
     position: relative;
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
 }
 
 .foodmenu > div .quality {
@@ -127,7 +134,7 @@
     border: none;
 }
 
-.foodmenu .food_selected {
+.foodmenu .food_selected, .tackleMenu .tackle_selected {
     background-color: #d49231;
     border-radius: 15%;
     border: solid 2px #bd7d1e;

@@ -25,7 +25,7 @@ function Game(props){
 
     const canvasRef = React.useRef(null);
     
-    const {whichFish, endGame, fishingLevel} = props;
+    const {whichFish, endGame, fishingLevel, bobber} = props;
 
     const isMobile = useCheckMobileScreen();
 
@@ -70,8 +70,8 @@ function Game(props){
             break;
     }
 
-    const playerLevel = fishingLevel ? fishingLevel : 10;
-    let length = 48 + 4*playerLevel;
+    const playerLevel = fishingLevel !== undefined ? fishingLevel : 10;
+    let length = 48 + 4*playerLevel + (bobber === "corkBobber" ? 12 : 0);
     let ypos = 288 - length; // Min: 6 -> Max: 288 - length;
     let transparency = false;
     let progress = 0.3;
@@ -149,7 +149,10 @@ function Game(props){
             barSpeed = 0;
         }
         if (bobberInBar) {
-            gravity *= 0.6;
+            gravity *= (bobber === "barbedHook") ? 0.3 : 0.6;
+            if (bobber === "barbedHook") {
+                barSpeed += (fishPos + 8 < ypos + (length / 2)) ? -0.2 : 0.2
+            }
         }
         // const oldPos = ypos;
         barSpeed += gravity;
@@ -157,7 +160,7 @@ function Game(props){
         
         if (ypos + length > 288) {
             ypos = 288 - length;
-            barSpeed = (0 - barSpeed) * 2 / 3;
+            barSpeed = (0 - barSpeed) * (2 / 3) * ((bobber === "leadBobber") ? 0.1 : 1);
         } else if (ypos < 6) {
             ypos = 6;
             barSpeed = (0 - barSpeed) * 2 / 3;
@@ -194,11 +197,11 @@ function Game(props){
             fishShake[1] = randRange(-10, 11) / 20;
             barShake = [0, 0];
             transparency = false;
-        } else if (!treasureInBar || treasureCaught || true) {
+        } else if (!treasureInBar || treasureCaught || bobber !== "treasureHunter") {
             if (perfect) {
                 perfect = false;
             }
-            progress -= 0.003;
+            progress -= (bobber === "trapBobber") ? 0.002 : 0.003;
             progress = Math.max(0, progress);
             barShake[0] = randRange(-10, 11) / 20;
             barShake[1] = randRange(-10, 11) / 20;

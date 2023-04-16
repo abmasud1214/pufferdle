@@ -40,24 +40,26 @@ export default function FishTank() {
     const [fishingLevel, setFishingLevel] = React.useState(0);
     const [fishBarLevel, setFishBarLevel] = React.useState(0);
     const [foodLevel, setFoodLevel] = React.useState(0);
+    const [tackle, setTackle] = React.useState("");
+    
+    console.log(fishingLevel);
 
     const onFishClick = (fish) => {
         setSelectedFish(fish);
     }
 
     const onFishLevelClick = (level) => {
-        setFishBarLevel(level);
-        setFishingLevel(level + foodLevel + 1);
+        setFishBarLevel((value) => (value === level ? -1 : level));
+        setFishingLevel(foodLevel + (fishBarLevel === level ? -1 : level) + 1);
     }
 
     const onFoodClick = (level) => {
-        if (level === foodLevel) {
-            setFoodLevel(0);
-        } else {
-            setFoodLevel(level);
-        }
-
+        setFoodLevel((value) => (value === level ? 0 : level));
         setFishingLevel(fishBarLevel + (level === foodLevel ? 0 : level) + 1);
+    }
+
+    const onTackleClick = (t) => {
+        setTackle((value) => (value === t ? "" : t));
     }
 
     const endGame = (caught, treasure, perfect) => {
@@ -72,7 +74,7 @@ export default function FishTank() {
     return !inGame ? (
         <div className="container">
             <FishGrid fishArray={fishArray} selectedFish={selectedFish} onClick={onFishClick} info={false}/>
-            <div>
+            <div className="tankSettingsMenu">
                 <div className="fishLevelBar">
                     {Array.from(Array(10)).map((_, i) => (
                         <FishingLevelUnit 
@@ -102,10 +104,18 @@ export default function FishTank() {
                         <img className="quality" alt="" src={src_goldquality}/>
                     </div>
                 </div>
+                <div className="tackleMenu">
+                    <img className={tackle === "barbedHook" && "tackle_selected"} onClick={() => onTackleClick("barbedHook")} src={src_barbedhook} alt="Barbed Hook"/>
+                    <img className={tackle === "leadBobber" && "tackle_selected"} onClick={() => onTackleClick("leadBobber")} src={src_leadbobber} alt="Lead Bobber"/>
+                    <img className={tackle === "treasureHunter" && "tackle_selected"} onClick={() => onTackleClick("treasureHunter")} src={src_treasurebobber} alt="Treasure Hunter"/>
+                    <img className={tackle === "trapBobber" && "tackle_selected"} onClick={() => onTackleClick("trapBobber")} src={src_trapbobber} alt="Trap Bobber"/>
+                    <img className={tackle === "corkBobber" && "tackle_selected"} onClick={() => onTackleClick("corkBobber")} src={src_corkbobber} alt="Cork Bobber"/>
+
+                </div>
                 <button onClick={startFishingGame}>Fish!</button>
             </div>
         </div>
     ) : (
-        <FishingGame whichFish={selectedFish} endGame={endGame} fishingLevel={fishingLevel}/>
+        <FishingGame whichFish={selectedFish} endGame={endGame} fishingLevel={fishingLevel} bobber={tackle}/>
     )
 }

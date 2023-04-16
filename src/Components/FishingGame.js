@@ -25,7 +25,7 @@ function Game(props){
 
     const canvasRef = React.useRef(null);
     
-    const {whichFish, endGame} = props;
+    const {whichFish, endGame, fishingLevel} = props;
 
     const isMobile = useCheckMobileScreen();
 
@@ -70,7 +70,7 @@ function Game(props){
             break;
     }
 
-    const playerLevel = 10;
+    const playerLevel = fishingLevel ? fishingLevel : 10;
     let length = 48 + 4*playerLevel;
     let ypos = 288 - length; // Min: 6 -> Max: 288 - length;
     let transparency = false;
@@ -103,7 +103,7 @@ function Game(props){
             setTimeout(()=>endGame(false, false, false), 250);
         }
 
-        if (Math.random() < (difficulty * ((motionType != 2) ? 1 : 20) / 4000) && (motionType != 2 || fishTargetPos == -1))
+        if (Math.random() < (difficulty * ((motionType !== 2) ? 1 : 20) / 4000) && (motionType !== 2 || fishTargetPos === -1))
         {
             const spaceBelow = 274 - fishPos;
             const spaceAbove = fishPos;
@@ -111,24 +111,24 @@ function Game(props){
             fishTargetPos = fishPos + randRange(Math.min(0-spaceAbove, spaceBelow), spaceBelow) * percent;
         }
         let floaterSinkerAcceleration = 0;
-        if (motionType == 4) {
+        if (motionType === 4) {
             floaterSinkerAcceleration = Math.max(floaterSinkerAcceleration - 0.01, -1.5);
         }
-        else if (motionType == 3) {
+        else if (motionType === 3) {
             floaterSinkerAcceleration = Math.min(floaterSinkerAcceleration + 0.01, 1.5);
         }
-        if (Math.abs(fishPos - fishTargetPos) > 3 && fishTargetPos != -1) {
+        if (Math.abs(fishPos - fishTargetPos) > 3 && fishTargetPos !== -1) {
             fishAcceleration = (fishTargetPos - fishPos) / (randRange(10, 30) + (100 - Math.min(100, difficulty)));
             fishSpeed += (fishAcceleration - fishSpeed) / 5;
         } 
-        else if (motionType != 2 && Math.random() < (difficulty / 2000)) {
+        else if (motionType !== 2 && Math.random() < (difficulty / 2000)) {
             fishTargetPos = fishPos + ((Math.random() < 0.5) ? randRange(-100, 51) : randRange(50, 101));
         } 
         else {
             fishTargetPos = -1;
         }
 
-        if (motionType == 1 && Math.random() < (difficulty / 1000)) {
+        if (motionType === 1 && Math.random() < (difficulty / 1000)) {
             fishTargetPos = fishPos + ((Math.random() < 0.5) ? randRange(-100 - difficulty * 2, -51) : randRange(50, 101 + difficulty * 2));
         }
         fishTargetPos = Math.max(-1, Math.min(fishTargetPos, 274));
@@ -142,16 +142,16 @@ function Game(props){
 
         const bobberInBar = ((fishPos + 6 <= ypos - 16 + length) && (fishPos - 8 >= ypos - 16)) || ((fishPos >= 274 - length) && (ypos >= 284 - length - 4));
         
-        const wasDown = mouseDown;
+        // const wasDown = mouseDown;
         let gravity = (mouseDown ? (-0.125) : 0.125);
         // console.log(mouseDown, gravity, ypos, barSpeed);
-        if (mouseDown && gravity < 0 && (ypos == 6 || ypos == (288 - length))){
+        if (mouseDown && gravity < 0 && (ypos === 6 || ypos === (288 - length))){
             barSpeed = 0;
         }
         if (bobberInBar) {
             gravity *= 0.6;
         }
-        const oldPos = ypos;
+        // const oldPos = ypos;
         barSpeed += gravity;
         ypos += barSpeed;
         
@@ -254,7 +254,7 @@ function Game(props){
         
         MainLoop.setUpdate(update).setDraw(() => draw(context)).start();
 
-    }, [])
+    })
 
     return (
         <div>

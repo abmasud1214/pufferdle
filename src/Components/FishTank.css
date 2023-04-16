@@ -2,6 +2,7 @@
 
 .fishLevelBar {
     display: flex;
+    cursor: pointer;
 }
 
 .fishLevelBar h1 {
@@ -108,6 +109,7 @@
     image-rendering: pixelated;
     margin: 5px;
     border: solid 2px #ffcb7b;
+    cursor: pointer;
 }
 
 .foodmenu > div {

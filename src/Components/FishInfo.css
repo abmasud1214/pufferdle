@@ -1,0 +1,125 @@
+@import url("../Fonts/fonts.css");
+
+.fishInfoContainer {
+    border: ridge 5px #fa9305;
+    border-radius: 5%;
+    padding: 20px 0px;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+    .fishInfoContainer {
+        width: 433px;
+        height: 330px;
+    }
+}
+
+.fishInfoContainer > h1 {
+    margin: 3px 5px;
+    margin-bottom: 20px;
+    padding: 0px;
+    font-family: "SVBold";
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.fishInfoContainer > p {
+    margin: 5px 5px;
+    margin-bottom: 20px;
+    padding: 0px;
+    font-family: "SVThin";
+    font-size: 1.25em;
+    text-align: center;
+    overflow: hidden;
+    word-wrap: break-word;
+}
+
+.fishInfoColumns {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+}
+
+.fishInfoColumns > div {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.fishInfoColumns > div > div {
+    /* flex-grow: 1; */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    gap: 3px;
+}
+
+.fishInfoContainer p, .popupFishInfo p {
+    padding: 0px;
+    margin: 0px;
+    font-family: "SVThin";
+}
+
+.infoHeader {
+    /* padding: 20px; */
+    margin-top: 0px;
+    margin-bottom: 10px !important;
+    font-family: "SVBold" !important;
+    font-size: 1.2em;
+}
+
+.popupFishInfoContainer {
+    position: relative;
+    top: 60px;
+    right: 100px;
+    background-color: #ffc979;
+    border-color: #fa9305;
+    border-style: ridge;
+    border-width: 8px;
+    border-radius: 2%;
+    width: fit-content;
+    z-index: 1;
+}
+
+.popupFishInfoContainer > h1 {
+    margin: 5px 5px;
+    margin-bottom: 0px;
+    padding: 0px;
+    font-family: "SVBold";
+    font-size: 1.5em;
+}
+
+.popupFishInfoContainer:after {
+    content: "";
+    position: absolute;
+    left: 100px;
+    top: -15px;
+    border-right: 15px solid transparent;
+    border-left: 15px solid transparent;
+    border-bottom: 15px solid #a76203;
+}
+
+.popupFishInfo {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 10px;
+    padding: 5px;
+}
+
+.popupFishInfo > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    gap: 3px;
+}

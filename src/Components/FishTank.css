@@ -5,17 +5,28 @@
     flex-direction: column;
     /* align-items: center; */
     justify-content: center;
+    order: -1;
+    margin-bottom: 25px;
+}
+
+@media only screen and (min-width: 768px) {
+    .tankSettingsMenu {
+        order: 1;
+        margin-bottom: 0px;
+    }
 }
 
 .fishLevelBar {
     display: flex;
     cursor: pointer;
+    margin-left: 20px;
 }
 
 .fishLevelBar h1 {
     font-family: "SVBold";
     width: 25px;
     margin: 1px 15px;
+    margin-right: 0px;
     color: #af7645;
     text-shadow: 3px 0px 0 black, -3px 0px 0 black, 0px 3px 0 black, 0px -3px 0 black;
 }
@@ -138,4 +149,18 @@
     background-color: #d49231;
     border-radius: 15%;
     border: solid 2px #bd7d1e;
+}
+
+.tankSettingsMenu button {
+    margin-top: 50px;
+    align-self: center;
+    width: 100px;
+    height: 40px;
+    font-family: "SVBold";
+    font-size: 1.5em;
+    background-color: #dc7b05;
+    border-color: #5b2b2a;
+    text-shadow: 2px 2px 0px black;
+    color: #e5ceb3;
+    border-radius: 10%;
 }

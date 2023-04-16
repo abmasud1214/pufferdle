@@ -4,6 +4,7 @@ import fishdata from '../fishdata';
 
 import './FishTank.css'
 import FishingGame from './FishingGame';
+import FishInfo from './FishInfo';
 
 const src_troutsoup = require("../Art/food/troutsoup.png")
 const src_fishtaco = require("../Art/food/fishtaco.png")
@@ -112,6 +113,7 @@ export default function FishTank() {
                     <img className={tackle === "corkBobber" && "tackle_selected"} onClick={() => onTackleClick("corkBobber")} src={src_corkbobber} alt="Cork Bobber"/>
 
                 </div>
+                <FishInfo fish={selectedFish} />
                 <button onClick={startFishingGame}>Fish!</button>
             </div>
         </div>

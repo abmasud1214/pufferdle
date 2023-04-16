@@ -1,3 +1,5 @@
+@import url("../Fonts/fonts.css");
+
 .fish_container {
     padding: 15px 15px;
     width: 350px;
@@ -56,65 +58,3 @@
     position: absolute;
 }
 
-.fishInfoContainer {
-    position: relative;
-    top: 60px;
-    right: 100px;
-    background-color: #ffc979;
-    border-color: #fa9305;
-    border-style: ridge;
-    border-width: 8px;
-    border-radius: 2%;
-    width: fit-content;
-    z-index: 1;
-}
-
-.fishInfoContainer > h1 {
-    margin: 5px 5px;
-    margin-bottom: 0px;
-    padding: 0px;
-    font-family: "SVBold";
-    font-size: 1.5em;
-}
-
-.fishInfoContainer:after {
-    content: "";
-    position: absolute;
-    left: 100px;
-    top: -15px;
-    border-right: 15px solid transparent;
-    border-left: 15px solid transparent;
-    border-bottom: 15px solid #a76203;
-}
-
-.fishInfo {
-    display: flex;
-    justify-content: space-evenly;
-    gap: 10px;
-    padding: 5px;
-}
-
-.fishInfo > div {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    gap: 3px;
-}
-
-
-.fishInfo p {
-    padding: 0px;
-    margin: 0px;
-    font-family: "SVThin";
-}
-
-.infoHeader {
-    /* padding: 20px; */
-    margin-top: 0px;
-    margin-bottom: 10px !important;
-    font-family: "SVBold" !important;
-    font-size: 1.2em;
-}

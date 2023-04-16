@@ -15,13 +15,7 @@
 @media only screen and (min-width: 768px) {
     .container {
         width: 100%;
-        flex-direction: row;
-    }
-}
-
-@media only screen and (min-width: 1140px) {
-    .container {
-        width: 1140px;
+        max-width: 1140px;
         flex-direction: row;
     }
 }

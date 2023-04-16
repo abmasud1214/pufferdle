@@ -82,3 +82,38 @@
 .fishingLevelUnit.double::before {
     border-color: #37c27a #37c27a #0c7f00 #0c7f00;
 }
+
+.foodmenu {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.foodmenu img {
+    width: 50px;
+    height: 50px;
+    image-rendering: pixelated;
+    margin: 5px;
+    border: solid 2px #ffcb7b;
+}
+
+.foodmenu > div {
+    position: relative;
+    width: 50px;
+    height: 50px;
+}
+
+.foodmenu > div .quality {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 30px;
+    top: 35px;
+    border: none;
+}
+
+.foodmenu .food_selected {
+    background-color: #d49231;
+    border-radius: 15%;
+    border: solid 2px #bd7d1e;
+}

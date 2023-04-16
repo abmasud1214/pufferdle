@@ -1,6 +1,19 @@
+@import url(../Fonts/fonts.css);
+
 .fishLevelBar {
     display: flex;
+}
 
+.fishLevelBar h1 {
+    font-family: "SVBold";
+    width: 25px;
+    margin: 1px 15px;
+    color: #af7645;
+    text-shadow: 3px 0px 0 black, -3px 0px 0 black, 0px 3px 0 black, 0px -3px 0 black;
+}
+
+.fishLevelBar h1.foodLevelText {
+    color: #67ab67;
 }
 
 .fishingLevelUnit {

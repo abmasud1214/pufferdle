@@ -71,6 +71,7 @@ export default function FishTank() {
                             onClick = {() => (onFishLevelClick(i))}
                         />
                     ))}
+                    <h1 className={foodLevel > 0 && "foodLevelText"}>{fishingLevel}</h1>
                 </div>
                 <div className="foodmenu">
                     <div>

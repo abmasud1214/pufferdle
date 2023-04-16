@@ -19,16 +19,17 @@
 .fishLevelBar {
     display: flex;
     cursor: pointer;
-    margin-left: 20px;
+    margin-left: 10px;
 }
 
 .fishLevelBar h1 {
     font-family: "SVBold";
-    width: 25px;
-    margin: 1px 15px;
+    width: 30px;
+    margin: 1px 5px;
     margin-right: 0px;
     color: #af7645;
     text-shadow: 3px 0px 0 black, -3px 0px 0 black, 0px 3px 0 black, 0px -3px 0 black;
+    font-size: 1.5em;
 }
 
 .fishLevelBar h1.foodLevelText {
@@ -36,13 +37,13 @@
 }
 
 .fishingLevelUnit {
-    width: 20px;
-    height: 28px;
+    width: 15px;
+    height: 21px;
     background-color: #c97d1e;
     margin: 2px;
     position: relative;
     border-style: solid;
-    border-width: 4px;
+    border-width: 3px;
     border-radius: 5px;
     border-color: #a96a29 #a96a29 #8a521b #8a521b;
 
@@ -53,7 +54,7 @@
     content: "";
     position: absolute;
     border-style: solid;
-    border-width: 4px;
+    border-width: 3px;
     border-color: #c99033;
     border-radius: 5px;
     display: block;
@@ -69,19 +70,19 @@
     content: "";
     position: absolute;
     border-style: solid solid none none;
-    border-width: 4px;
+    border-width: 3px;
     border-color: #ac5e1e;
     border-radius: 5px;
     display: block;
     position: absolute;
-    top: 4px;
-    left: 4px;
-    right: 4px;
-    bottom: 4px;
+    top: 3px;
+    left: 3px;
+    right: 3px;
+    bottom: 3px;
 }
 
 .fishingLevelUnit.major {
-    width: 44px;
+    width: 33px;
 }
 
 .fishingLevelUnit.active {
@@ -163,4 +164,34 @@
     text-shadow: 2px 2px 0px black;
     color: #e5ceb3;
     border-radius: 10%;
+}
+
+@media only screen and (min-width: 768px) {
+    .fishingLevelUnit {
+        width: 20px;
+        height: 28px;
+        border-width: 4px;
+    }
+
+    .fishingLevelUnit::before {
+        border-width: 4px;
+    }
+
+    .fishingLevelUnit::after {
+        border-width: 4px;
+        top: 4px;
+        bottom: 4px;
+        right: 4px;
+        left: 4px;
+    }
+
+    .fishingLevelUnit.major {
+        width: 44px;
+    }
+
+    .fishLevelBar h1 {
+        font-size: 2.3em;
+        margin-left: 20px;
+        width: 30px;
+    }
 }

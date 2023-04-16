@@ -3,9 +3,11 @@ import React from "react";
 import fishdata from "../fishdata.js";
 import "./FishMenu.css"
 import FishGrid from "./FishGrid.js";
+import useCheckMobileScreen from "../Utils/UseCheckMobileScreen.js";
+import FishInfo from "./FishInfo.js";
 
 export default function FishMenu(props) {
-    const { onGuess } = props;
+    const { onGuess, info } = props;
 
     let fishArray = fishdata.fish;
     
@@ -42,6 +44,8 @@ export default function FishMenu(props) {
     
     return (
         <div className="menu">
+            {useCheckMobileScreen() && <FishInfo fish={selectedFish}/>}
+            {useCheckMobileScreen() && <div style={{height: "50px"}}></div>}
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
@@ -52,7 +56,7 @@ export default function FishMenu(props) {
                 />
                 <button>Submit</button>
             </form>
-            <FishGrid fishArray={fishChoice} selectedFish={selectedFish} onClick={onFishClick} info={true}/>
+            <FishGrid fishArray={fishChoice} selectedFish={selectedFish} onClick={onFishClick} info={!useCheckMobileScreen()}/>
         </div>
     )
 }

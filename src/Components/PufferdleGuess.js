@@ -5,7 +5,6 @@ import "./PufferdleGuess.css"
 import FishMenu from "./FishMenu.js";
 import GuessGrid from "./GuessGrid.js";
 import { formatGuess } from "../Utils/GuessFormat.js";
-import useCheckMobileScreen from "../Utils/UseCheckMobileScreen.js";
 import EndModal from "./EndModal.js";
 
 export default function PufferdleGuess(props) {
@@ -28,6 +27,8 @@ export default function PufferdleGuess(props) {
     }, [gameEnd])
 
     const onGuess = (guessedFish) => {
+        window.scrollTo(0, 0);
+
         if (guessHistory.filter(value => (value && guessedFish.name == value.name)).length > 0 || gameEnd) {
             return;
         }

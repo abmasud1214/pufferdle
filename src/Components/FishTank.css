@@ -1,0 +1,84 @@
+.fishLevelBar {
+    display: flex;
+
+}
+
+.fishingLevelUnit {
+    width: 20px;
+    height: 28px;
+    background-color: #c97d1e;
+    margin: 2px;
+    position: relative;
+    border-style: solid;
+    border-width: 4px;
+    border-radius: 5px;
+    border-color: #a96a29 #a96a29 #8a521b #8a521b;
+
+}
+
+.fishingLevelUnit::before {
+    background: none;
+    content: "";
+    position: absolute;
+    border-style: solid;
+    border-width: 4px;
+    border-color: #c99033;
+    border-radius: 5px;
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+}
+
+.fishingLevelUnit::after {
+    background: none;
+    content: "";
+    position: absolute;
+    border-style: solid solid none none;
+    border-width: 4px;
+    border-color: #ac5e1e;
+    border-radius: 5px;
+    display: block;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    right: 4px;
+    bottom: 4px;
+}
+
+.fishingLevelUnit.major {
+    width: 44px;
+}
+
+.fishingLevelUnit.active {
+    background-color: #dd003b;
+    border-color: #960027 #960027 #63003e #63003e;
+}
+
+.fishingLevelUnit.active::before {
+    border-color: #ff6948 #ff6948 #bc004a #bc004a;
+}
+
+.fishingLevelUnit.active::after, .fishingLevelUnit.double::after {
+    border-style: none;
+}
+
+.fishingLevelUnit.major.active {
+    background-color: #ffa400;
+    border-color: #960027;
+}
+
+.fishingLevelUnit.major.active::before {
+    border-color: #ffc62e #ffc62e #e06a00 #e06a00;
+}
+
+.fishingLevelUnit.double {
+    background-color: #00a005;
+    border-color: #005904 #005904 #0c2600 #0c2600;
+}
+
+.fishingLevelUnit.double::before {
+    border-color: #37c27a #37c27a #0c7f00 #0c7f00;
+}

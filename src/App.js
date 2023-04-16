@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client"
 
 import './App.css';
 import Pufferdle from "./Pufferdle";
+import FishTank from "./Components/FishTank";
 
 const pufferfish_src = require("./Art/pufferfish.png")
 const mutant_src = require("./Art/mutant_carp.png")
@@ -24,13 +25,14 @@ function App() {
                     <img src={mutant_src} alt=""/> 
                     <h1>Random</h1>
                 </div>
-                <div className="menuButton"> 
+                <div className="menuButton" onClick={() => setInGame(3)}> 
                     <img src={fishtank_src} alt=""/> 
                     <h1>Fish Tank</h1>
                 </div>                
             </div>}
             {inGame == 1 && <Pufferdle daily={true}/>}
             {inGame == 2 && <Pufferdle daily={false}/>}
+            {inGame == 3 && <FishTank />}
         </div>
     );
 }

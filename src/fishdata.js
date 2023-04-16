@@ -7,7 +7,8 @@ export default {
             "season": ["Summer"],
             "weather": ["Sun"],
             "time": [12, 16],
-            "location": ["Ocean", "Ginger Ocean"]
+            "location": ["Ocean", "Ginger Ocean"],
+            "description": "Inflates when threatened."
         },
         {
             "name": "Anchovy",
@@ -16,7 +17,8 @@ export default {
             "season": ["Spring", "Fall"],
             "weather": ["Any"],
             "time": [6, 26],
-            "location": ["Ocean"]
+            "location": ["Ocean"],
+            "description": "A small silver fish found in the ocean."
         },
         {
             "name": "Tuna",
@@ -25,7 +27,8 @@ export default {
             "season": ["Summer", "Winter"],
             "weather": ["Any"],
             "time": [6, 19],
-            "location": ["Ocean", "Ginger Ocean"]
+            "location": ["Ocean", "Ginger Ocean"],
+            "description": "A large fish that lives in the ocean."
         },
         {
             "name": "Sardine",
@@ -34,7 +37,8 @@ export default {
             "season": ["Spring", "Fall", "Winter"],
             "weather": ["Any"],
             "time": [6, 19],
-            "location": ["Ocean"]
+            "location": ["Ocean"],
+            "description": "A common ocean fish."
         },
         {
             "name": "Bream",
@@ -43,7 +47,8 @@ export default {
             "season": ["Spring", "Summer", "Fall", "Winter"],
             "weather": ["Any"],
             "time": [18, 26],
-            "location": ["Town", "Forest"]
+            "location": ["Town", "Forest"],
+            "description": "A fairly common river fish that becomes active at night."
         },
         {
             "name": "Largemouth Bass",
@@ -52,7 +57,8 @@ export default {
             "season": ["Spring", "Summer", "Fall", "Winter"],
             "weather": ["Any"],
             "time": [6, 19],
-            "location": ["Lake"]
+            "location": ["Lake"],
+            "description": "A popular fish that lives in lakes."
         },
         {
             "name": "Smallmouth Bass",
@@ -61,7 +67,8 @@ export default {
             "season": ["Spring", "Fall"],
             "weather": ["Any"],
             "time": [6, 26],
-            "location": ["Town", "Pond"]
+            "location": ["Town", "Pond"],
+            "description": "A freshwater fish that is very sensitive to pollution."
         },
         {
             "name": "Rainbow Trout",
@@ -70,7 +77,8 @@ export default {
             "season": ["Summer"],
             "weather": ["Sun"],
             "time": [6, 19],
-            "location": ["Town", "Forest", "Lake"]
+            "location": ["Town", "Forest", "Lake"],
+            "description": "A freshwater trout with colorful markings."
         },
         {
             "name": "Salmon",
@@ -79,7 +87,8 @@ export default {
             "season": ["Fall"],
             "weather": ["Any"],
             "time": [6, 19],
-            "location": ["Town", "Forest"]
+            "location": ["Town", "Forest"],
+            "description": "Swims upstream to lay its eggs."
         },
         {
             "name": "Walleye",
@@ -88,7 +97,8 @@ export default {
             "season": ["Fall", "Winter"],
             "weather": ["Rain"],
             "time": [12, 26],
-            "location": ["Town", "Forest", "Pond", "Lake"]
+            "location": ["Town", "Forest", "Pond", "Lake"],
+            "description": "A freshwater fish caught at night."
         },
         {
             "name": "Perch",
@@ -97,7 +107,8 @@ export default {
             "season": ["Winter"],
             "weather": ["Any"],
             "time": [6, 26],
-            "location": ["Town", "Forest", "Pond", "Lake"]
+            "location": ["Town", "Forest", "Pond", "Lake"],
+            "description": "A freshwater fish of the winter."
         },
         {
             "name": "Carp",
@@ -106,7 +117,8 @@ export default {
             "season": ["Spring", "Summer", "Fall", "Winter"],
             "weather": ["Any"],
             "time": [6, 26],
-            "location": ["Sewers", "Woods", "Lake"]
+            "location": ["Sewers", "Woods", "Lake"],
+            "description": "A common pond fish."
         },
         {
             "name": "Catfish",
@@ -115,7 +127,8 @@ export default {
             "season": ["Spring", "Fall"],
             "weather": ["Rain"],
             "time": [6, 12],
-            "location": ["Town", "Forest", "Woods", "Swamp"]
+            "location": ["Town", "Forest", "Woods", "Swamp"],
+            "description": "An uncommon fish found in streams."
         },
         {
             "name": "Pike",
@@ -124,7 +137,8 @@ export default {
             "season": ["Summer", "Winter"],
             "weather": ["Any"],
             "time": [6, 26],
-            "location": ["Town", "Forest", "Pond"]
+            "location": ["Town", "Forest", "Pond"],
+            "description": "A freshwater fish that's difficult to catch."
         },
         {
             "name": "Sunfish",
@@ -133,7 +147,8 @@ export default {
             "season": ["Spring", "Summer"],
             "weather": ["Sun", "Wind"],
             "time": [6, 19],
-            "location": ["Town", "Forest"]
+            "location": ["Town", "Forest"],
+            "description": "A common river fish."
         },
         {
             "name": "Red Mullet",
@@ -142,7 +157,8 @@ export default {
             "season": ["Summer", "Winter"],
             "weather": ["Any"],
             "time": [6, 19],
-            "location": ["Ocean"]
+            "location": ["Ocean"],
+            "description": "Long ago these were kept as pets."
         },
         {
             "name": "Herring",
@@ -151,7 +167,8 @@ export default {
             "season": ["Spring", "Winter"],
             "weather": ["Any"],
             "time": [6, 26],
-            "location": ["Ocean"]
+            "location": ["Ocean"],
+            "description": "A common ocean fish."
         },
         {
             "name": "Eel",
@@ -160,7 +177,8 @@ export default {
             "season": ["Spring", "Fall"],
             "weather": ["Rain"],
             "time": [16, 26],
-            "location": ["Ocean"]
+            "location": ["Ocean"],
+            "description": "A long, slippery little fish."
         },
         {
             "name": "Octopus",
@@ -169,7 +187,8 @@ export default {
             "season": ["Summer"],
             "weather": ["Any"],
             "time": [6, 13],
-            "location": ["Ocean", "Market"]
+            "location": ["Ocean", "Market"],
+            "description": "A mysterious and intelligent creature."
         },
         {
             "name": "Red Snapper",
@@ -178,7 +197,8 @@ export default {
             "season": ["Summer", "Fall"],
             "weather": ["Rain"],
             "time": [6, 19],
-            "location": ["Ocean"]
+            "location": ["Ocean"],
+            "description": "A popular fish with a nice red color."
         },
         {
             "name": "Squid",
@@ -187,7 +207,8 @@ export default {
             "season": ["Winter"],
             "weather": ["Any"],
             "time": [18, 26],
-            "location": ["Ocean"]
+            "location": ["Ocean"],
+            "description": "A deep sea creature that can grow to enormous size."
         },
         {
             "name": "Sea Cucumber",
@@ -196,7 +217,8 @@ export default {
             "season": ["Fall", "Winter"],
             "weather": ["Any"],
             "time": [6, 19],
-            "location": ["Ocean", "Market"]
+            "location": ["Ocean", "Market"],
+            "description": "A slippery, slimy creature found on the ocean floor."
         },
         {
             "name": "Super Cucumber",
@@ -205,7 +227,8 @@ export default {
             "season": ["Summer", "Fall"],
             "weather": ["Any"],
             "time": [18, 26],
-            "location": ["Ocean", "Ginger Ocean", "Market"]
+            "location": ["Ocean", "Ginger Ocean", "Market"],
+            "description": "A rare, purple variety of sea cucumber."
         },
         {
             "name": "Ghostfish",
@@ -214,7 +237,8 @@ export default {
             "season": ["Spring","Summer","Fall", "Winter"],
             "weather": ["Any"],
             "time": [6, 26],
-            "location": ["Mines"]
+            "location": ["Mines"],
+            "description": "A pale, blind fish found in underground lakes."
         },
         {
             "name": "Stonefish",
@@ -223,7 +247,8 @@ export default {
             "season": ["Spring","Summer","Fall", "Winter"],
             "weather": ["Any"],
             "time": [6, 26],
-            "location": ["Mines"]
+            "location": ["Mines"],
+            "description": "A bizarre fish that's shaped like a brick."
         },
         {
             "name": "Ice Pip",
@@ -232,7 +257,8 @@ export default {
             "season": ["Spring","Summer","Fall", "Winter"],
             "weather": ["Any"],
             "time": [6, 26],
-            "location": ["Mines"]
+            "location": ["Mines"],
+            "description": "A rare fish that thrives in extremely cold conditions."
         },
         {
             "name": "Lava Eel",
@@ -241,7 +267,8 @@ export default {
             "season": ["Spring","Summer","Fall", "Winter"],
             "weather": ["Any"],
             "time": [6, 26],
-            "location": ["Mines", "Volcano"]
+            "location": ["Mines", "Volcano"],
+            "description": "It can somehow survive in pools of red-hot lava."
         },
         {
             "name": "Sandfish",
@@ -250,7 +277,8 @@ export default {
             "season": ["Spring","Summer","Fall", "Winter"],
             "weather": ["Any"],
             "time": [6, 20],
-            "location": ["Desert"]
+            "location": ["Desert"],
+            "description": "It tries to hide using camouflage."
         },
         {
             "name": "Scorpion Carp",
@@ -259,7 +287,8 @@ export default {
             "season": ["Spring","Summer","Fall", "Winter"],
             "weather": ["Any"],
             "time": [6, 20],
-            "location": ["Desert"]
+            "location": ["Desert"],
+            "description": "It's like a regular carp but with a sharp stinger."
         },
         {
             "name": "Flounder",
@@ -268,7 +297,8 @@ export default {
             "season": ["Spring","Summer"],
             "weather": ["Any"],
             "time": [6, 20],
-            "location": ["Ocean", "Ginger Ocean"]
+            "location": ["Ocean", "Ginger Ocean"],
+            "description": "It lives on the bottom, so both eyes are on top of its head."
         },
         {
             "name": "Midnight Carp",
@@ -277,7 +307,8 @@ export default {
             "season": ["Fall","Winter"],
             "weather": ["Any"],
             "time": [20, 26],
-            "location": ["Lake", "Pond", "Ginger Pond", "Ginger River"]
+            "location": ["Lake", "Pond", "Ginger Pond", "Ginger River"],
+            "description": "This shy fish only feels comfortable at night."
         },
         {
             "name": "Sturgeon",
@@ -286,7 +317,8 @@ export default {
             "season": ["Summer","Winter"],
             "weather": ["Any"],
             "time": [6, 19],
-            "location": ["Lake"]
+            "location": ["Lake"],
+            "description": "An ancient bottom-feeder with a dwindling population. Females can live up to 150 years."
         },
         {
             "name": "Tiger Trout",
@@ -295,7 +327,8 @@ export default {
             "season": ["Fall","Winter"],
             "weather": ["Any"],
             "time": [6, 19],
-            "location": ["Town", "Forest"]
+            "location": ["Town", "Forest"],
+            "description": "A rare hybrid trout that cannot bear offspring of its own."
         },
         {
             "name": "Bullhead",
@@ -304,7 +337,8 @@ export default {
             "season": ["Spring","Summer","Fall","Winter"],
             "weather": ["Any"],
             "time": [6, 26],
-            "location": ["Lake"]
+            "location": ["Lake"],
+            "description": "A relative of the catfish that eats a variety of foods off the lake bottom."
         },
         {
             "name": "Tilapia",
@@ -313,7 +347,8 @@ export default {
             "season": ["Summer","Fall"],
             "weather": ["Any"],
             "time": [6, 14],
-            "location": ["Ocean", "Ginger River"]
+            "location": ["Ocean", "Ginger River"],
+            "description": "A primarily vegetarian fish that prefers warm water."
         },
         {
             "name": "Chub",
@@ -322,7 +357,8 @@ export default {
             "season": ["Spring","Summer","Fall","Winter"],
             "weather": ["Any"],
             "time": [6, 26],
-            "location": ["Forest", "Lake"]
+            "location": ["Forest", "Lake"],
+            "description": "A common freshwater fish known for its voracious appetite."
         },
         {
             "name": "Dorado",
@@ -331,7 +367,8 @@ export default {
             "season": ["Summer"],
             "weather": ["Any"],
             "time": [6, 19],
-            "location": ["Forest"]
+            "location": ["Forest"],
+            "description": "A fierce carnivore with brilliant orange scales."
         },
         {
             "name": "Albacore",
@@ -340,7 +377,8 @@ export default {
             "season": ["Fall","Winter"],
             "weather": ["Any"],
             "time": [6, 11, 18, 26],
-            "location": ["Ocean"]
+            "location": ["Ocean"],
+            "description": "Prefers temperature \"edges\" where cool and warm water meet."
         },
         {
             "name": "Shad",
@@ -349,7 +387,8 @@ export default {
             "season": ["Spring", "Summer", "Fall"],
             "weather": ["Rain"],
             "time": [9, 26],
-            "location": ["Town", "Forest"]
+            "location": ["Town", "Forest"],
+            "description": "Lives in a school at sea, but returns to the rivers to spawn."
         },
         {
             "name": "Lingcod",
@@ -358,7 +397,8 @@ export default {
             "season": ["Winter"],
             "weather": ["Any"],
             "time": [6, 26],
-            "location": ["Town", "Forest", "Lake"]
+            "location": ["Town", "Forest", "Lake"],
+            "description": "A fearsome predator that will eat almost anything it can cram into its mouth."
         },
         {
             "name": "Halibut",
@@ -367,7 +407,8 @@ export default {
             "season": ["Spring", "Summer","Winter"],
             "weather": ["Any"],
             "time": [6, 11, 19, 2],
-            "location": ["Ocean"]
+            "location": ["Ocean"],
+            "description": "A flat fish that lives on the ocean floor."
         },
         {
             "name": "Woodskip",
@@ -376,7 +417,8 @@ export default {
             "season": ["Spring", "Summer","Fall","Winter"],
             "weather": ["Any"],
             "time": [6, 26],
-            "location": ["Woods"]
+            "location": ["Woods"],
+            "description": "A very sensitive fish that can only live in pools deep in the forest."
         },
         {
             "name": "Void Salmon",
@@ -385,7 +427,8 @@ export default {
             "season": ["Spring", "Summer","Fall","Winter"],
             "weather": ["Any"],
             "time": [6, 26],
-            "location": ["Swamp"]
+            "location": ["Swamp"],
+            "description": "A salmon, twisted by void energy. The fresh meat is jet black, but rapidly turns pink when exposed to air."
         },
         {
             "name": "Slimejack",
@@ -394,7 +437,8 @@ export default {
             "season": ["Spring","Summer","Fall","Winter"],
             "weather": ["Any"],
             "time": [6, 26],
-            "location": ["Bug"]
+            "location": ["Bug"],
+            "description": "He's coated in a very thick layer of slime. He keeps slipping out of your hands!"
         },
         {
             "name": "Stingray",
@@ -403,7 +447,8 @@ export default {
             "season": ["Spring","Summer","Fall","Winter"],
             "weather": ["Any"],
             "time": [6, 26],
-            "location": ["Cove"]
+            "location": ["Cove"],
+            "description": "Despite having a toxic stinger, these fish are shy and prefer to avoid humans."
         },
         {
             "name": "Lionfish",
@@ -412,7 +457,8 @@ export default {
             "season": ["Spring","Summer","Fall","Winter"],
             "weather": ["Any"],
             "time": [6, 26],
-            "location": ["Ginger Ocean"]
+            "location": ["Ginger Ocean"],
+            "description": "An aggressive, predatory fish with venomous spines."
         },
         {
             "name": "Blue Discus",
@@ -421,7 +467,8 @@ export default {
             "season": ["Spring","Summer","Fall","Winter"],
             "weather": ["Any"],
             "time": [6, 26],
-            "location": ["Ginger Pond", "Ginger River"]
+            "location": ["Ginger Pond", "Ginger River"],
+            "description": "A brightly colored tropical fish that is popular in aquariums."
         },
         {
             "name": "Midnight Squid",
@@ -430,7 +477,8 @@ export default {
             "season": ["Winter"],
             "weather": ["Any"],
             "time": [17, 26],
-            "location": ["Market"]
+            "location": ["Market"],
+            "description": "A strange and mysterious denizen of the ocean's twilight depths."
         },
         {
             "name": "Spook Fish",
@@ -439,7 +487,8 @@ export default {
             "season": ["Winter"],
             "weather": ["Any"],
             "time": [17, 26],
-            "location": ["Market"]
+            "location": ["Market"],
+            "description": "The huge eyes can detect the faint silhouettes of prey."
         },
         {
             "name": "Blobfish",
@@ -448,7 +497,8 @@ export default {
             "season": ["Winter"],
             "weather": ["Any"],
             "time": [17, 26],
-            "location": ["Market"]
+            "location": ["Market"],
+            "description": "This odd creature floats above the ocean floor, consuming any edible material in its path."
         },
         {
             "name": "Crimsonfish",
@@ -457,7 +507,8 @@ export default {
             "season": ["Summer"],
             "weather": ["Any"],
             "time": [6, 26],
-            "location": ["Ocean"]
+            "location": ["Ocean"],
+            "description": "Lives deep in the ocean but likes to lay its eggs in the warm summer water."
         },
         {
             "name": "Angler",
@@ -466,7 +517,8 @@ export default {
             "season": ["Fall"],
             "weather": ["Any"],
             "time": [6, 26],
-            "location": ["Town"]
+            "location": ["Town"],
+            "description": "Uses a bioluminescent dangler to attract prey."
         },
         {
             "name": "Legend",
@@ -475,7 +527,8 @@ export default {
             "season": ["Spring"],
             "weather": ["Rain"],
             "time": [6, 26],
-            "location": ["Lake"]
+            "location": ["Lake"],
+            "description": "The king of all fish! They said he'd never be caught."
         },
         {
             "name": "Glacierfish",
@@ -484,7 +537,8 @@ export default {
             "season": ["Winter"],
             "weather": ["Any"],
             "time": [6, 26],
-            "location": ["Forest"]
+            "location": ["Forest"],
+            "description": "Builds a nest on the underside of glaciers."
         },
         {
             "name": "Mutant Carp",
@@ -493,7 +547,8 @@ export default {
             "season": ["Spring","Summer","Fall","Winter"],
             "weather": ["Any"],
             "time": [6, 26],
-            "location": ["Sewers"]
+            "location": ["Sewers"],
+            "description": "The strange waters of the sewer turned this carp into a monstrosity."
         }
     ]
 }

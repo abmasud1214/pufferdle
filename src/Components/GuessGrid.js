@@ -26,7 +26,9 @@ function Row(props) {
                     <div className={`fishMask ${time}`} style={{WebkitMaskImage: `url(${guess.img})`, maskImage: `url(${guess.img})`}}></div>
                 </div>
                 <div>
-                    <div className={`fishMask ${correct ? "green" : "gray"}`} style={{WebkitMaskImage: `url(${guess.img})`, maskImage: `url(${guess.img})`}}></div>
+                    {correct ? <img src={guess.img}/>
+                        : <div className={`fishMask ${correct ? "green" : "gray"}`} style={{WebkitMaskImage: `url(${guess.img})`, maskImage: `url(${guess.img})`}}></div>
+                    }
                 </div>
             </div>
         )

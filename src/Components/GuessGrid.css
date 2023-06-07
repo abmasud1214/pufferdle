@@ -48,7 +48,7 @@
     border-bottom-color: #ffe4a1;
 }
 
-.Row > div > div {
+.Row > div > div, .Row > div > img {
     width: 50px;
     height: 50px;
     image-rendering: pixelated;
@@ -57,21 +57,20 @@
     transform: scale(0);
 }
 
+.Row > div > * {
+    animation: popin 0.5s ease forwards;
+}
 .Row > div > div.green {
     background-color: #598f0a;
-    animation: popin 0.5s ease forwards;
 }
 .Row > div > div.yellow {
     background-color: #de8800;
-    animation: popin 0.5s ease forwards;
 }
 .Row > div > div.gray {
     background-color: #3a3a3c;
-    animation: popin 0.5s ease forwards;
 }
 .Row > div > div.noGuess {
     background-color: #c0c0c0;
-    animation: popin 0.5s ease forwards;
 }
 
 .Row > div:nth-child(2) > div {
@@ -80,10 +79,10 @@
 .Row > div:nth-child(3) > div {
     animation-delay: 0.8s;
 }
-.Row > div:nth-child(4) > div{
+.Row > div:nth-child(4) > div {
     animation-delay: 1.2s;
 }
-.Row > div:nth-child(5) > div {
+.Row > div:nth-child(5) > div, .Row > div:nth-child(5) > img {
     animation-delay: 1.6s;
 }
 
@@ -117,7 +116,7 @@
         height: 80px;
     }
 
-    .Row > div > div {
+    .Row > div > div, .Row > div > img {
         height: 60px;
         width: 60px;
     }

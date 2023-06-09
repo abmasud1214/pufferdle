@@ -1,13 +1,61 @@
 @import url(./Fonts/fonts.css);
 
+.Page {
+    background-color: #1b284b;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+header {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    background-color: #ffcb7b;
+    border-radius: 10px;
+    border-color: #fa9305;
+    border-width: 5px;
+    border-style: ridge;
+}
+
+@media only screen and (min-width: 700px) {
+    header {
+        width: 100%;
+        max-width: 700px;
+        flex-direction: row;
+    }
+}
+
+header > div {
+    display: flex;
+    width: calc(100%/12);
+    aspect-ratio: 1 / 1;
+    align-items: center;
+    justify-content: center;
+    border-style: solid;
+    border-width: 3px;
+    border-right-color: #d68f54;
+    border-top-color: #d68f54;
+    border-left-color: #ffe4a1;
+    border-bottom-color: #ffe4a1;
+}
+
+header > div > img {
+    width: 80%;
+    height: 80%;
+    image-rendering: pixelated;
+    cursor: pointer;
+}
+
 .App {
     display: flex;
-    min-height: 100vh;
     width: 100%;
+    min-height: 90vh;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #1b284b;
 }
 
 .menuButtons{

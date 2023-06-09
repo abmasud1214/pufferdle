@@ -29,16 +29,20 @@ function RootLayout() {
         <div className="Page">
             <header>
                 <div onClick={() => {navigate("/")}}>
+                    <p>1</p>
                     <img src={warptotem_src} alt="Home"/>
                 </div>
-                {Array.from(Array(8)).map(() => (<div></div>))}
+                {Array.from(Array(8)).map((_, index) => (<div><p>{index+2}</p></div>))}
                 <div>
+                    <p>0</p>
                     <img src={journal_src} alt="How to Play"/>
                 </div>
                 <div>
+                    <p>-</p>
                     <img src={notes_src} alt="Statistics"/>
                 </div>
                 <div>
+                    <p>=</p>
                     <img src={cog_src} alt="Settings"/>
                 </div>
             </header>

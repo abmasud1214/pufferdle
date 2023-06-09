@@ -20,7 +20,7 @@ header {
     border-style: ridge;
 }
 
-@media only screen and (min-width: 700px) {
+@media only screen and (min-width: 00px) {
     header {
         width: 100%;
         max-width: 700px;
@@ -30,12 +30,13 @@ header {
 
 header > div {
     display: flex;
+    position: relative;
     width: calc(100%/12);
     aspect-ratio: 1 / 1;
     align-items: center;
     justify-content: center;
     border-style: solid;
-    border-width: 3px;
+    border-width: 4px;
     border-right-color: #d68f54;
     border-top-color: #d68f54;
     border-left-color: #ffe4a1;
@@ -47,6 +48,16 @@ header > div > img {
     height: 80%;
     image-rendering: pixelated;
     cursor: pointer;
+}
+
+header > div > p {
+    position: absolute;
+    margin: 0;
+    top: -2px;
+    left: 0px;
+    font-family: "SVThin";
+    color: #696969;
+    font-size: 15px;
 }
 
 .App {

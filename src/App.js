@@ -62,7 +62,7 @@ function HomeElem() {
     const navigate = useNavigate();
     return (
         <div className="menuButtons">
-            <div className="menuButton"> 
+            <div className="menuButton" onClick={() => navigate("/daily")}> 
                 <img src={pufferfish_src} alt=""/> 
                 <h1>Daily</h1>
             </div>

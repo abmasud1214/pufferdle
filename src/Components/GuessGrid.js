@@ -57,7 +57,7 @@ function Row(props) {
 export default function GuessGrid(props) {
     
     const {guessHistory} = props;
-    console.log(guessHistory);
+    // console.log(guessHistory);
     
     return (
         <div className='Grid'>

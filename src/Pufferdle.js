@@ -14,8 +14,8 @@ export default function Pufferdle({ daily }) {
         perfect: false
     })
     const fishArray = fishdata.fish;
-    const [targetFish, setTargetFish] = React.useState(fishArray[Math.floor(Math.random() * fishArray.length)]);
-    // const [targetFish, setTargetFish] = React.useState(fishArray.filter(value => (value.name === "Angler"))[0]);
+    // const [targetFish, setTargetFish] = React.useState(fishArray[Math.floor(Math.random() * fishArray.length)]);
+    const [targetFish, setTargetFish] = React.useState(fishArray.filter(value => (value.name === "Stonefish"))[0]);
 
     // const whichFish = fishArray.filter(value => (value.name === "Angler"))[0]
 

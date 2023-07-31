@@ -12,6 +12,7 @@ import './App.css';
 import Pufferdle from "./Pufferdle";
 import FishTank from "./Components/FishTank";
 import ErrorPage from "./ErrorPage";
+import HelpModal from "./Components/HelpModal";
 
 const pufferfish_src = require("./Art/pufferfish.png")
 const mutant_src = require("./Art/mutant_carp.png")
@@ -24,6 +25,7 @@ const cog_src = require("./Art/cog.png")
 
 function RootLayout() {
     const navigate = useNavigate();
+    const [showHelpModal, setShowHelpModal] = React.useState(false);
 
     return (
         <div className="Page">
@@ -33,7 +35,7 @@ function RootLayout() {
                     <img src={warptotem_src} alt="Home"/>
                 </div>
                 {Array.from(Array(8)).map((_, index) => (<div><p>{index+2}</p></div>))}
-                <div>
+                <div onClick={() => setShowHelpModal(true)}>
                     <p>0</p>
                     <img src={journal_src} alt="How to Play"/>
                 </div>
@@ -49,6 +51,9 @@ function RootLayout() {
             <div className="App">
                 <Outlet />
             </div>
+            {showHelpModal && <HelpModal 
+                onClose = {() => setShowHelpModal(false)}
+            />}
         </div>
     )
 }

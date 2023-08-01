@@ -24,8 +24,9 @@
     border-style: ridge;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: left;
     justify-content: center;
+    padding: 0 0 0 20px;
 }
 
 .modal h1 {

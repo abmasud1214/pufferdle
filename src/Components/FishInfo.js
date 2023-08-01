@@ -95,19 +95,19 @@ export function PopupFishInfo({ fish }) {
             <div className="popupFishInfo">
                 <div>
                     <h2 className="infoHeader">Seasons</h2>
-                    {fish.season.map(value => <p>{value}</p>)}
+                    {fish.season.map((value, i)=> <p key={i}>{value}</p>)}
                 </div>
                 <div>
                     <h2 className="infoHeader">Weather</h2>
-                    {fish.weather.map(value => <p>{value}</p>)}
+                    {fish.weather.map((value, i)=> <p key={i}>{value}</p>)}
                 </div>
                 <div>
                     <h2 className="infoHeader">Locations</h2>
-                    {fish.location.map(value => <p>{locationText(value)}</p>)}
+                    {fish.location.map((value, i)=> <p key={i}>{value}</p>)}
                 </div>
                 <div>
                     <h2 className="infoHeader">Time</h2>
-                    {timeText(fish.time).map(value => <p>{value}</p>)}
+                    {timeText(fish.time).map((value, i)=> <p key={i}>{value}</p>)}
                 </div>
             </div>
         </div>

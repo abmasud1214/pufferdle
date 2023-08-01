@@ -12,7 +12,7 @@ export default function PufferdleGuess(props) {
     const numGuesses = 6;
     const [showModal, setShowModal] = React.useState(false);
     const [guessHistory, setGuessHistory] = React.useState([...Array(6)]);
-    const [formattedGuesses, setFormatteddGuesses] = React.useState([...Array(6)]);
+    const [formattedGuesses, setFormattedGuesses] = React.useState([...Array(6)]);
     const [currentGuess, setCurrentGuess] = React.useState(0);
     const [gameEnd, setGameEnd] = React.useState(false);
     const [correct, setCorrect] = React.useState(false);
@@ -37,7 +37,7 @@ export default function PufferdleGuess(props) {
             const hist = prevState.map((c, i) => (i === currentGuess ? guessedFish : c));
             return hist;
         })
-        setFormatteddGuesses(prevState => {
+        setFormattedGuesses(prevState => {
             const hist = prevState.map((c, i) => (i === currentGuess ? formatGuess(guessedFish, targetFish) : c));
             return hist;
         })

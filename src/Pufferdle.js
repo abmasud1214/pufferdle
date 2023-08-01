@@ -17,20 +17,28 @@ export default function Pufferdle({ daily }) {
     const [targetFish, setTargetFish] = React.useState(fishArray[Math.floor(Math.random() * fishArray.length)]);
     // const [targetFish, setTargetFish] = React.useState(fishArray.filter(value => (value.name === "Stonefish"))[0]);
 
-    // const whichFish = fishArray.filter(value => (value.name === "Angler"))[0]
-
-    // console.log(whichFish.name)
-    // console.log(fishResults);
-
     React.useEffect(() => {
-        console.log(targetFish);
         if (daily) {
-            var seedrandom = require('seedrandom')
-            var rng = seedrandom(new Date().toDateString())
-            const fishChoice = fishArray[Math.floor(rng() * fishArray.length)]
-            console.log(new Date().toDateString())
-            console.log(fishChoice)
-            setTargetFish(fishChoice)
+            let date = new Date()
+            date = new Date(date.getTime() - (date.getTimezoneOffset() * 60000)).toISOString();
+            // fetch('https://httpstat.us/400')
+            fetch('http://worldtimeapi.org/api/ip')
+                .then((r) => r.json())
+                .then((data) => {
+                    date = data.datetime.slice(0, 10);
+                })
+                .catch(
+                    (err) => {
+                        console.log("Error Request")
+                    }
+                )
+                .then( () => {
+                    var seedrandom = require('seedrandom')
+                    var rng = seedrandom(date)
+                    const fishChoice = fishArray[Math.floor(rng() * fishArray.length)]
+                    // console.log(fishChoice)
+                    setTargetFish(fishChoice)
+                })
         }
     }, [])
 

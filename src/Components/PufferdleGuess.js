@@ -60,7 +60,9 @@ export default function PufferdleGuess(props) {
                 fishResults={fishResults} 
                 correct={correct} 
                 daily={true} 
-                onClose={() => setShowModal(false)}/>}
+                onClose={() => setShowModal(false)}
+                guesses={formattedGuesses}
+                numGuess = {currentGuess} />}
         </div>
     )
 }

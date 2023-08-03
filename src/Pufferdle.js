@@ -40,7 +40,8 @@ export default function Pufferdle({ daily }) {
                     setTargetFish(fishChoice)
                 })
         }
-    }, [])
+        // console.log("useEffectrun")
+    }, [daily, fishArray])
 
     const endGame = (caught, treasure, perfect) => {
         setFishResults({
@@ -53,8 +54,8 @@ export default function Pufferdle({ daily }) {
 
     return (
         <div className="pufferdle">
-            {inGame == 0 && <FishingGame whichFish={targetFish} endGame={endGame}/>}
-            {inGame == 1 && <PufferdleGuess fishResults={fishResults} targetFish={targetFish}/>}
+            {inGame === 0 && <FishingGame whichFish={targetFish} endGame={endGame}/>}
+            {inGame === 1 && <PufferdleGuess fishResults={fishResults} targetFish={targetFish}/>}
         </div>
     )
 }

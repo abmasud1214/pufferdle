@@ -7,7 +7,7 @@ import useCheckMobileScreen from "../Utils/UseCheckMobileScreen.js";
 import FishInfo from "./FishInfo.js";
 
 export default function FishMenu(props) {
-    const { onGuess, info } = props;
+    const { onGuess } = props;
 
     let fishArray = fishdata.fish;
     

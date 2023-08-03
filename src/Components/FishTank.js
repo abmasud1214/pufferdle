@@ -32,6 +32,7 @@ export default function FishTank() {
 
     const [inGame, setInGame] = React.useState(false);
 
+    // eslint-disable-next-line 
     const [fishArray, setFishArray] = React.useState(fishdata.fish.map((fish, index) => ({
         ...fish,
         src: `/fish_sprites/fish_sprite_${index+1}.png`

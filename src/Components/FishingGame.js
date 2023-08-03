@@ -1,5 +1,4 @@
 import React from "react"
-import ReactDOM from 'react-dom/client'
 
 import './FishingGame.css'
 import getRedtoGreenLerpColor from "../Utils/RedToGreenLerpColor";
@@ -33,11 +32,11 @@ function Game(props){
     const typeStr = whichFish.behavior;
     let motionType;
 
-    let mouseDown = false;
+    let mouseDown = React.useRef(false);
 
     React.useEffect(() => {
-        const handleMouseDown = (event) => {mouseDown = true};
-        const handleMouseUp = (event) => {mouseDown = false};
+        const handleMouseDown = (event) => {mouseDown.current = true};
+        const handleMouseUp = (event) => {mouseDown.current = false};
 
         document.addEventListener("mousedown", handleMouseDown);
         document.addEventListener("mouseup", handleMouseUp);
@@ -67,6 +66,8 @@ function Game(props){
             break;
         case "Sinker":
             motionType = 3;
+            break;
+        default:
             break;
     }
 
@@ -142,10 +143,10 @@ function Game(props){
 
         const bobberInBar = ((fishPos + 6 <= ypos - 16 + length) && (fishPos - 8 >= ypos - 16)) || ((fishPos >= 274 - length) && (ypos >= 284 - length - 4));
         
-        // const wasDown = mouseDown;
-        let gravity = (mouseDown ? (-0.125) : 0.125);
-        // console.log(mouseDown, gravity, ypos, barSpeed);
-        if (mouseDown && gravity < 0 && (ypos === 6 || ypos === (288 - length))){
+        // const wasDown = mouseDown.current;
+        let gravity = (mouseDown.current ? (-0.125) : 0.125);
+        // console.log(mouseDown.current, gravity, ypos, barSpeed);
+        if (mouseDown.current && gravity < 0 && (ypos === 6 || ypos === (288 - length))){
             barSpeed = 0;
         }
         if (bobberInBar) {

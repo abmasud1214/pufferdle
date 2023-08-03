@@ -9,6 +9,8 @@ function Row(props) {
     const {guess} = props;
 
     if (guess) {
+        // behavior and difficulty not used in case they will be used in future.
+        // eslint-disable-next-line 
         const {correct, season, weather, location, time, behavior, difficulty} = guess;
     
         return (
@@ -26,7 +28,7 @@ function Row(props) {
                     <div className={`fishMask ${time}`} style={{WebkitMaskImage: `url(${guess.img})`, maskImage: `url(${guess.img})`}}></div>
                 </div>
                 <div>
-                    {correct ? <img src={guess.img}/>
+                    {correct ? <img src={guess.img} alt="🟩"/>
                         : <div className={`fishMask ${correct ? "green" : "gray"}`} style={{WebkitMaskImage: `url(${guess.img})`, maskImage: `url(${guess.img})`}}></div>
                     }
                 </div>

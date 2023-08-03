@@ -7,7 +7,7 @@ const validTime = (guess, actual) => {
 
 const identical_time = (guess, actual) => {
     if (guess.length > 2 && actual.length > 2) return true;
-    return (guess[0] == actual[0] && guess[1] == actual[1]);
+    return (guess[0] === actual[0] && guess[1] === actual[1]);
 }
 
 const intersect = (guess, actual) => {
@@ -18,11 +18,11 @@ const intersect = (guess, actual) => {
 
 const identical = (guess, actual) => {
     const intersection = guess.filter(value => actual.includes(value));
-    return (intersection.length == guess.length && intersection.length == actual.length);
+    return (intersection.length === guess.length && intersection.length === actual.length);
 }
 
 const formatGuess = (guessFish, actualFish) => {
-    if (guessFish.name == actualFish.name) {
+    if (guessFish.name === actualFish.name) {
         return {
             correct: true,
             season: "green",
@@ -40,8 +40,8 @@ const formatGuess = (guessFish, actualFish) => {
         weather: identical(guessFish.weather, actualFish.weather) ? "green" : intersect(guessFish.weather, actualFish.weather) ? "yellow" : "gray",
         location: identical(guessFish.location, actualFish.location) ? "green" : intersect(guessFish.location, actualFish.location) ? "yellow" : "gray",
         time: identical_time(guessFish.time, actualFish.time) ? "green" : validTime(guessFish.time, actualFish.time) ? "yellow" : "gray",
-        behavior: guessFish.behavior == actualFish.behavior ? "green" : "gray",
-        difficulty: guessFish.difficulty == actualFish.difficulty ? "green" : guessFish.difficulty > actualFish.difficulty ? "high" : "low",
+        behavior: guessFish.behavior === actualFish.behavior ? "green" : "gray",
+        difficulty: guessFish.difficulty === actualFish.difficulty ? "green" : guessFish.difficulty > actualFish.difficulty ? "high" : "low",
         img: guessFish.src,
     }
 }

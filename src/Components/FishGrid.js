@@ -43,7 +43,7 @@ export default function FishGrid({fishArray, onClick, selectedFish, info}) {
                 key={value.name}
                 fish={value}
                 onClick = {() => {onClick(value)}}
-                selected = {value.name == selectedFish.name}
+                selected = {value.name === selectedFish.name}
                 info = {info}
             />})
             }

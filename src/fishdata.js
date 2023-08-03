@@ -1,4 +1,4 @@
-export default {
+const fishdata = {
     "fish": [
         {
             "name": "Pufferfish",
@@ -552,3 +552,5 @@ export default {
         }
     ]
 }
+
+export default fishdata;

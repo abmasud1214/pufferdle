@@ -1,6 +1,5 @@
 import React from "react";
 
-import fishdata from "../fishdata.js";
 import "./PufferdleGuess.css"
 import FishMenu from "./FishMenu.js";
 import GuessGrid from "./GuessGrid.js";
@@ -20,7 +19,8 @@ export default function PufferdleGuess(props) {
         
     React.useEffect(() => {
         console.log(targetFish);
-    }, [0])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
     React.useEffect(() => {
         setTimeout(() => {(gameEnd && setShowModal(true))}, 2000)
@@ -29,7 +29,7 @@ export default function PufferdleGuess(props) {
     const onGuess = (guessedFish) => {
         window.scrollTo(0, 0);
 
-        if (guessHistory.filter(value => (value && guessedFish.name == value.name)).length > 0 || gameEnd) {
+        if (guessHistory.filter(value => (value && guessedFish.name === value.name)).length > 0 || gameEnd) {
             return;
         }
 
@@ -42,7 +42,7 @@ export default function PufferdleGuess(props) {
             return hist;
         })
 
-        if (guessedFish.name === targetFish.name || currentGuess + 1 == numGuesses) {
+        if (guessedFish.name === targetFish.name || currentGuess + 1 === numGuesses) {
             setGameEnd(true);
             setCorrect(guessedFish.name === targetFish.name);
         }

@@ -44,12 +44,12 @@ const timeText = (timeArr) => {
         if (num < 12) {
             return `${num} AM`;
         } else if (num < 24) {
-            return `${num == 12 ? 12 : num % 12} PM`;
+            return `${num === 12 ? 12 : num % 12} PM`;
         } else {
             return `${num % 24} AM`;
         }
     }
-    if (timeArr[0] == 6 && timeArr[1] == 26) {
+    if (timeArr[0] === 6 && timeArr[1] === 26) {
         return ["Any"];
     } else {
         let pairArr = Array.from({ length: timeArr.length / 2 }, (_, i) => `${numToTimeStr(timeArr[i * 2])} - ${numToTimeStr(timeArr[i * 2 + 1])}`);

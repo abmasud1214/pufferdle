@@ -16,9 +16,13 @@ export default function PufferdleGuess(props) {
     const [gameEnd, setGameEnd] = React.useState(false);
     const [correct, setCorrect] = React.useState(false);
     const {fishResults, targetFish} = props;
+
+    const [dayInfo, setDayInfo] = React.useState();
         
     React.useEffect(() => {
         console.log(targetFish);
+
+        
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 

@@ -26,6 +26,17 @@ function RootLayout() {
     const navigate = useNavigate();
     const [showHelpModal, setShowHelpModal] = React.useState(false);
 
+    React.useEffect(() => {
+        let day = localStorage.getItem("dayInfo");
+        if (day === null) {
+            localStorage.setItem("dayInfo", JSON.stringify({
+                mostRecentDay: new Date(2023, 8, 1),
+                guesses: null,
+                completed: false,
+            }));
+        } 
+    }, []);
+
     return (
         <div className="Page">
             <header>
@@ -48,7 +59,7 @@ function RootLayout() {
                 </div>
             </header>
             <div className="App">
-                <Outlet />
+                <Outlet/>
             </div>
             {showHelpModal && <HelpModal 
                 onClose = {() => setShowHelpModal(false)}

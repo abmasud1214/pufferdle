@@ -1,7 +1,7 @@
 import { differenceInDays } from 'date-fns'
 
 
-const FIRST_DAY = new Date(2023, 8, 1);
+const FIRST_DAY = new Date(2023, 7, 1);
 
 function createRowFromGuess(guess) {
     const emojiFromStr = (str) => {
@@ -15,7 +15,9 @@ export default function guessesToString(guesses, numGuess, fishResults, daily, d
 
     const lines = guesses.map((guess, i) => ((i < numGuess) ? createRowFromGuess(guess) : ""));
 
-    return `Pufferdle ${daily ? `#${differenceInDays(FIRST_DAY, new Date())}` : "Random"}${hardmode ? "*" : ""} ${numGuess}/6 ` +
+    console.log(FIRST_DAY, new Date(), differenceInDays(new Date(), FIRST_DAY));
+
+    return `Pufferdle ${daily ? `#${differenceInDays(new Date(), FIRST_DAY)}` : "Random"}${hardmode ? "*" : ""} ${numGuess}/6 ` +
     `${fishResults.caught ? "🎣" : ""}${fishResults.treasure ? "👑" : ""}${fishResults.perfect ? "⭐" : ""}` +
     lines.join("");
 }

@@ -41,10 +41,6 @@ export default function PufferdleGuess(props) {
                     return i < day.ng;
                 })
             })
-
-            if (day.completed) {
-                setShowModal(true);
-            }
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
@@ -70,7 +66,7 @@ export default function PufferdleGuess(props) {
 
 
     React.useEffect(() => {
-        setTimeout(() => {(gameEnd && setShowModal(true))}, 2000)
+        setTimeout(() => {(gameEnd && setShowModal(true))}, (skip[currentGuess-1] ? 0 : 2000))
     }, [gameEnd])
 
     const onGuess = (guessedFish) => {
@@ -92,6 +88,15 @@ export default function PufferdleGuess(props) {
         if (guessedFish.name === targetFish.name || currentGuess + 1 === numGuesses) {
             setGameEnd(true);
             setCorrect(guessedFish.name === targetFish.name);
+            if (daily) {
+                let stats = JSON.parse(localStorage.getItem("stats"));
+                if (currentGuess + 1 === numGuesses) {
+                    stats["X"] += 1;
+                } else {
+                    stats[currentGuess + 1] += 1;
+                }
+                localStorage.setItem("stats", JSON.stringify(stats));
+            }
         }
         
         setCurrentGuess(prevState => prevState + 1);
@@ -106,7 +111,7 @@ export default function PufferdleGuess(props) {
                 targetFish={targetFish} 
                 fishResults={updatedFR} 
                 correct={correct} 
-                daily={true} 
+                daily={daily} 
                 onClose={() => setShowModal(false)}
                 guesses={formattedGuesses}
                 numGuess = {currentGuess} />}

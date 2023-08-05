@@ -35,6 +35,17 @@ function RootLayout() {
                 completed: false,
             }));
         } 
+        if (localStorage.getItem("stats") === null){
+            localStorage.setItem("stats", JSON.stringify({
+                1: 0,
+                2: 0,
+                3: 0,
+                4: 0,
+                5: 0,
+                6: 0,
+                "X": 0,
+            }))
+        }
     }, []);
 
     return (

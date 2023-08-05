@@ -48,7 +48,9 @@
 }
 
 .resultImages {
+    align-self: center;
     display: flex;
+    width: 40%;
     justify-content: space-evenly;
 }
 
@@ -62,13 +64,15 @@
     display: inline;
     flex: 0 0 auto;
     width: 20px;
+    height: 1.17em;
     margin: 0;
+    padding-top: 4px;
 }
 
 .statBar {
     display: flex;
     align-items: center;
-    height: 1em;
+    height: 1.17em;
     margin: 0px 5px 0px 5px;
     background-color: #598f0a;
 }

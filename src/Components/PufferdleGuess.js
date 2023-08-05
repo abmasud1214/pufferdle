@@ -15,16 +15,59 @@ export default function PufferdleGuess(props) {
     const [currentGuess, setCurrentGuess] = React.useState(0);
     const [gameEnd, setGameEnd] = React.useState(false);
     const [correct, setCorrect] = React.useState(false);
-    const {fishResults, targetFish} = props;
+    const {fishResults, targetFish, daily} = props;
+    const [updatedFR, setUpdatedFR] = React.useState(fishResults);
 
     const [dayInfo, setDayInfo] = React.useState();
+
+    const [skip, setSkip] = React.useState([...Array(6).fill(false)])
         
     React.useEffect(() => {
         console.log(targetFish);
 
-        
+        if (daily) {
+            const day = JSON.parse(localStorage.getItem("dayInfo"))
+            
+            setDayInfo(day);
+            setFormattedGuesses(day.fg);
+            setGuessHistory(day.g);
+            setCurrentGuess(day.ng);
+            setGameEnd(day.completed);
+            setUpdatedFR(day.fr ? day.fr : fishResults);
+            // console.log(fishResults)
+
+            setSkip(() => {
+                return [...Array(6)].map((_, i) => {
+                    return i < day.ng;
+                })
+            })
+
+            if (day.completed) {
+                setShowModal(true);
+            }
+        }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
+
+    React.useEffect(() => {
+        if (daily && dayInfo !== undefined) {
+            setDayInfo(prevDayInfo => ({
+                ...prevDayInfo,
+                completed: gameEnd,
+                g: guessHistory,
+                fg: formattedGuesses,
+                fr: updatedFR,
+                ng: currentGuess,
+            }));
+        }
+    }, [formattedGuesses, guessHistory, updatedFR, gameEnd]);
+
+    React.useEffect(() => {
+        if (daily && dayInfo !== undefined) {
+            localStorage.setItem("dayInfo", JSON.stringify(dayInfo));
+        }
+    }, [daily, dayInfo]);
+
 
     React.useEffect(() => {
         setTimeout(() => {(gameEnd && setShowModal(true))}, 2000)
@@ -58,10 +101,10 @@ export default function PufferdleGuess(props) {
     return (
         <div className="container">
            <FishMenu className="FishMenu" onGuess={onGuess}/>
-           <GuessGrid className="GuessGrid" guessHistory={formattedGuesses}/>
+           <GuessGrid className="GuessGrid" guessHistory={formattedGuesses} skip={skip}/>
            {showModal && <EndModal 
                 targetFish={targetFish} 
-                fishResults={fishResults} 
+                fishResults={updatedFR} 
                 correct={correct} 
                 daily={true} 
                 onClose={() => setShowModal(false)}

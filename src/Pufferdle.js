@@ -40,8 +40,12 @@ export default function Pufferdle({ daily }) {
                     mrd.getFullYear() === d.getFullYear())) {
                 const newDayInfo = {
                     mostRecentDay: d,
-                    guesses: [...Array(6)],
-                    completed: false
+                    completed: false,
+                    g: [...Array(6)],
+                    fg: [...Array(6)],
+                    ng: 0,
+                    fr: false,
+                    
                 };
                 localStorage.setItem("dayInfo", JSON.stringify(newDayInfo));
                 setInGame(1);
@@ -66,7 +70,7 @@ export default function Pufferdle({ daily }) {
     return (
         <div className="pufferdle">
             {inGame === 1 && <FishingGame whichFish={targetFish} endGame={endGame}/>}
-            {inGame === 2 && <PufferdleGuess fishResults={fishResults} targetFish={targetFish}/>}
+            {inGame === 2 && <PufferdleGuess fishResults={fishResults} targetFish={targetFish} daily={daily}/>}
         </div>
     )
 }

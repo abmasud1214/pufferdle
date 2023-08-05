@@ -48,16 +48,21 @@
     border-bottom-color: #ffe4a1;
 }
 
+.Row > div > div:not(.skipAnim), .Row > div > img:not(.skipAnim) {
+    transform: scale(0);
+}
+
 .Row > div > div, .Row > div > img {
     width: 50px;
     height: 50px;
     image-rendering: pixelated;
     mask-repeat: no-repeat;
     mask-size: 100%;
-    transform: scale(0);
+    transform: scale(1);
 }
 
-.Row > div > * {
+
+.Row > div > *:not(.skipAnim) {
     animation: popin 0.5s ease forwards;
 }
 .Row > div > div.green {
@@ -73,18 +78,19 @@
     background-color: #c0c0c0;
 }
 
-.Row > div:nth-child(2) > div {
+.Row > div:nth-child(2) > div:not(.skipAnim) {
     animation-delay: 0.4s;
 }
-.Row > div:nth-child(3) > div {
+.Row > div:nth-child(3) > div:not(.skipAnim) {
     animation-delay: 0.8s;
 }
-.Row > div:nth-child(4) > div {
+.Row > div:nth-child(4) > div:not(.skipAnim) {
     animation-delay: 1.2s;
 }
-.Row > div:nth-child(5) > div, .Row > div:nth-child(5) > img {
+.Row > div:nth-child(5) > div:not(.skipAnim), .Row > div:nth-child(5) > img:not(.skipAnim) {
     animation-delay: 1.6s;
 }
+
 
 @keyframes popin {
     0% {

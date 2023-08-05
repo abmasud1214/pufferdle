@@ -6,7 +6,7 @@ const generic_fish = './../Art/fish.png';
 
 function Row(props) {
 
-    const {guess} = props;
+    const {guess, skip} = props;
 
     if (guess) {
         // behavior and difficulty not used in case they will be used in future.
@@ -16,20 +16,20 @@ function Row(props) {
         return (
             <div className='Row'>
                 <div>
-                    <div className={`fishMask ${season}`} style={{WebkitMaskImage: `url(${guess.img})`, maskImage: `url(${guess.img})`}}></div>
+                    <div className={`fishMask ${season} ${skip ? "skipAnim" : ""}`} style={{WebkitMaskImage: `url(${guess.img})`, maskImage: `url(${guess.img})`}}></div>
                 </div>
                 <div>
-                    <div className={`fishMask ${weather}`} style={{WebkitMaskImage: `url(${guess.img})`, maskImage: `url(${guess.img})`}}></div>
+                    <div className={`fishMask ${weather} ${skip ? "skipAnim" : ""}`} style={{WebkitMaskImage: `url(${guess.img})`, maskImage: `url(${guess.img})`}}></div>
                 </div>
                 <div>
-                    <div className={`fishMask ${location}`} style={{WebkitMaskImage: `url(${guess.img})`, maskImage: `url(${guess.img})`}}></div>
+                    <div className={`fishMask ${location} ${skip ? "skipAnim" : ""}`} style={{WebkitMaskImage: `url(${guess.img})`, maskImage: `url(${guess.img})`}}></div>
                 </div>
                 <div>
-                    <div className={`fishMask ${time}`} style={{WebkitMaskImage: `url(${guess.img})`, maskImage: `url(${guess.img})`}}></div>
+                    <div className={`fishMask ${time} ${skip ? "skipAnim" : ""}`} style={{WebkitMaskImage: `url(${guess.img})`, maskImage: `url(${guess.img})`}}></div>
                 </div>
                 <div>
-                    {correct ? <img src={guess.img} alt="🟩"/>
-                        : <div className={`fishMask ${correct ? "green" : "gray"}`} style={{WebkitMaskImage: `url(${guess.img})`, maskImage: `url(${guess.img})`}}></div>
+                    {correct ? <img className={`${skip ? "skipAnim" : ""}`} src={guess.img} alt="🟩"/>
+                        : <div className={`fishMask ${correct ? "green" : "gray"} ${skip ? "skipAnim" : ""}`} style={{WebkitMaskImage: `url(${guess.img})`, maskImage: `url(${guess.img})`}}></div>
                     }
                 </div>
             </div>
@@ -58,7 +58,7 @@ function Row(props) {
 
 export default function GuessGrid(props) {
     
-    const {guessHistory} = props;
+    const {guessHistory, skip} = props;
     // console.log(guessHistory);
     
     return (
@@ -70,7 +70,7 @@ export default function GuessGrid(props) {
                 <h2>Time</h2>
                 <h2>Correct</h2>
             </div>
-            {guessHistory.map((guess, i) => <Row guess={guess} key={i}/>)}
+            {guessHistory.map((guess, i) => <Row guess={guess} skip={skip[i]} key={i}/>)}
         </div>
     )
 }

@@ -35,6 +35,30 @@ function StatScreen() {
     // console.log(stats);
     return (
         <div style={{margin: "10px 0px", display: "flex", flexDirection: "column", gap: "3px"}}>
+            <div className='dayStats'>
+                <div>
+                    <h2>{stats["days"]}</h2>
+                    <h4>Played</h4>
+                </div>
+                <div>
+                    <h2>{Math.round(stats["daysCorrect"] / stats["days"] * 100)}</h2>
+                    <h4>Win %</h4>
+                </div>
+                <div>
+                    <h2>{stats["fishCaught"]}</h2>
+                    <h4>Fish Caught</h4>
+                </div>
+                <div>
+                    <h2>{stats["treasure"]}</h2>
+                    <h4>Treasure Obtained</h4>
+                </div>
+                <div>
+                    <h2>{stats["perfect"]}</h2>
+                    <h4>Perfect Catches</h4>
+                </div>
+
+            </div>
+
             <StatBar ng={1} num={stats[1]} max={max}/>
             <StatBar ng={2} num={stats[2]} max={max}/>
             <StatBar ng={3} num={stats[3]} max={max}/>

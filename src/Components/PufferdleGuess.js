@@ -94,7 +94,12 @@ export default function PufferdleGuess(props) {
                     stats["X"] += 1;
                 } else {
                     stats[currentGuess + 1] += 1;
+                    stats["daysCorrect"] += 1;
                 }
+                stats["days"] += 1;
+                stats["fishCaught"] += updatedFR["caught"] ? 1 : 0;
+                stats["treasure"] += updatedFR["treasure"] ? 1 : 0;
+                stats["perfect"] += updatedFR["perfect"] ? 1 : 0;
                 localStorage.setItem("stats", JSON.stringify(stats));
             }
         }

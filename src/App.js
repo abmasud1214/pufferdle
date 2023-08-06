@@ -44,6 +44,11 @@ function RootLayout() {
                 5: 0,
                 6: 0,
                 "X": 0,
+                "days": 0,
+                "daysCorrect": 0,
+                "fishCaught": 0,
+                "treasure": 0,
+                "perfect": 0,
             }))
         }
     }, []);

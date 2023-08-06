@@ -35,6 +35,7 @@ function StatScreen() {
     // console.log(stats);
     return (
         <div style={{margin: "10px 0px", display: "flex", flexDirection: "column", gap: "3px"}}>
+            <h2>Statistics</h2>
             <div className='dayStats'>
                 <div>
                     <h2>{stats["days"]}</h2>
@@ -70,6 +71,18 @@ function StatScreen() {
     )
 }
 
+export function StatsModal(props) {
+    const {onClose} = props;
+    return (
+        <div className="background" onClick={onClose}>
+            <div className='modal' onClick={e => e.stopPropagation()}>
+                <StatScreen />
+                <button onClick={onClose}>Close</button>
+            </div>
+        </div>
+    )
+}
+
 
 export default function EndModal(props) {
 
@@ -94,28 +107,24 @@ export default function EndModal(props) {
     return (
         <div className="background" onClick={onClose}>
             <div className="modal" onClick={e => e.stopPropagation()}>
-                <div>
-                    {correct && <h1>Congratulations!</h1>}
-                    {!correct && <h1>Nice Try</h1>}
-                    <h2>{fishResults.caught ? 
-                        `You caught a${/[aeiou]/.test(targetFish.name.toLowerCase()[0]) ? "n" : ""}` 
-                        : `The fish was a${/[aeiou]/.test(targetFish.name.toLowerCase()[0]) ? "n" : ""}`} {targetFish.name}</h2>
-                </div>
+                {correct && <h1>Congratulations!</h1>}
+                {!correct && <h1>Nice Try</h1>}
+                <h2>{fishResults.caught ? 
+                    `You caught a${/[aeiou]/.test(targetFish.name.toLowerCase()[0]) ? "n" : ""}` 
+                    : `The fish was a${/[aeiou]/.test(targetFish.name.toLowerCase()[0]) ? "n" : ""}`} {targetFish.name}</h2>
                 <div className="resultImages">
                     {fishResults.caught && <img src={fish_img.src} alt="🎣"/>}
                     {fishResults.treasure && <img src={treasure_img.src} alt="👑"/>}
                     {fishResults.perfect && <img src={perfect_img.src} alt="⭐"/>}
                 </div>
+                <hr></hr>
                 {daily && <StatScreen />}
-                <div>
-                    <button onClick={() => {
-                        setClipboardText(guessesToString(guesses, numGuess, fishResults, daily, 0, false));
-                        console.log(guessesToString(guesses, numGuess, fishResults, daily, 0, false));
-                    }}>Copy to Clipboard</button>
-                </div>
-                <div>
-                    <button onClick={onClose}>Close</button>
-                </div>
+                <hr></hr>
+                <button onClick={() => {
+                    setClipboardText(guessesToString(guesses, numGuess, fishResults, daily, 0, false));
+                    console.log(guessesToString(guesses, numGuess, fishResults, daily, 0, false));
+                }}>Copy to Clipboard</button>
+                <button onClick={onClose}>Close</button>
             </div>
         </div>
     )

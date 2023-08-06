@@ -33,12 +33,14 @@
     font-family: "SVBold";
     padding: 0px;
     margin: 0px;
+    align-self: center;
 }
 
 .modal h2 {
     font-family: "SVThin";
     padding: 0px;
     margin: 0px;
+    align-self: center;
 }
 
 .modal img {
@@ -52,6 +54,37 @@
     display: flex;
     width: 60%;
     justify-content: space-evenly;
+}
+
+hr {
+    width: 100%;
+    color: #fa9305;
+    background-color: #da8106;
+    border-style: none none solid none;
+    border-width: px;
+    border-color:#995a02;
+    margin-top: 20px;
+    height: 2px;
+}
+
+button {
+    width: 150px;
+    height: 25px;
+    align-self: center;
+    border: solid 1px;
+    margin: 5px;
+    font-size: 1.1em;
+    font-family: "SVThin";
+    font-weight: bold;
+    text-shadow: 1px 1px 0px black;
+    color: #e5ceb3;
+    background-color: #dc7b05;
+    border-color: #5b2b2a;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ad6104;
 }
 
 .statLine {
@@ -76,6 +109,10 @@
     margin: 0px 5px 0px 5px;
     background-color: #598f0a;
 }
+
+/* .statBar > h2 {
+    align-self: left;
+} */
 
 .statBar > h3 {
     display: inline;

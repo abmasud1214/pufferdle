@@ -12,6 +12,7 @@ import Pufferdle from "./Pufferdle";
 import FishTank from "./Components/FishTank";
 import ErrorPage from "./ErrorPage";
 import HelpModal from "./Components/HelpModal";
+import { StatsModal } from "./Components/EndModal";
 
 const pufferfish_src = require("./Art/pufferfish.png")
 const mutant_src = require("./Art/mutant_carp.png")
@@ -25,6 +26,7 @@ const cog_src = require("./Art/cog.png")
 function RootLayout() {
     const navigate = useNavigate();
     const [showHelpModal, setShowHelpModal] = React.useState(false);
+    const [showStatsModal, setShowStatsModal] = React.useState(false);
 
     React.useEffect(() => {
         let day = localStorage.getItem("dayInfo");
@@ -65,7 +67,7 @@ function RootLayout() {
                     <p>0</p>
                     <img src={journal_src} alt="How to Play"/>
                 </div>
-                <div>
+                <div onClick={() => setShowStatsModal(true)}>
                     <p>-</p>
                     <img src={notes_src} alt="Statistics"/>
                 </div>
@@ -79,6 +81,9 @@ function RootLayout() {
             </div>
             {showHelpModal && <HelpModal 
                 onClose = {() => setShowHelpModal(false)}
+            />}
+            {showStatsModal && <StatsModal
+                onClose = {() => setShowStatsModal(false)}
             />}
         </div>
     )

@@ -12,7 +12,7 @@
 
 header {
     display: flex;
-    width: 100%;
+    width: 300px;
     justify-content: center;
     background-color: #ffcb7b;
     border-radius: 10px;
@@ -21,18 +21,11 @@ header {
     border-style: ridge;
 }
 
-@media only screen and (min-width: 00px) {
-    header {
-        width: 100%;
-        max-width: 700px;
-        flex-direction: row;
-    }
-}
 
 header > div {
     display: flex;
     position: relative;
-    width: calc(100%/12);
+    width: calc(100%/6);
     aspect-ratio: 1 / 1;
     align-items: center;
     justify-content: center;
@@ -59,6 +52,17 @@ header > div > p {
     font-family: "SVThin";
     color: #696969;
     font-size: 15px;
+}
+
+@media only screen and (min-width: 768px) {
+    header {
+        width: 100%;
+        max-width: 700px;
+        flex-direction: row;
+    }
+    header > div {
+        width: calc(100%/12);
+    }
 }
 
 .App {

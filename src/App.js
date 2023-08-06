@@ -13,6 +13,7 @@ import FishTank from "./Components/FishTank";
 import ErrorPage from "./ErrorPage";
 import HelpModal from "./Components/HelpModal";
 import { StatsModal } from "./Components/EndModal";
+import useCheckMobileScreen from "./Utils/UseCheckMobileScreen";
 
 const pufferfish_src = require("./Art/pufferfish.png")
 const mutant_src = require("./Art/mutant_carp.png")
@@ -57,12 +58,12 @@ function RootLayout() {
 
     return (
         <div className="Page">
-            <header>
+            <header style={{userSelect: "none"}}>
                 <div onClick={() => {navigate("/")}}>
                     <p>1</p>
                     <img src={warptotem_src} alt="Home"/>
                 </div>
-                {Array.from(Array(8)).map((_, index) => (<div key={index}><p>{index+2}</p></div>))}
+                {Array.from(Array(useCheckMobileScreen() ?  2 : 8)).map((_, index) => (<div key={index}><p>{index+2}</p></div>))}
                 <div onClick={() => setShowHelpModal(true)}>
                     <p>0</p>
                     <img src={journal_src} alt="How to Play"/>

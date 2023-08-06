@@ -117,7 +117,7 @@ export default function EndModal(props) {
                     {fishResults.treasure && <img src={treasure_img.src} alt="👑"/>}
                     {fishResults.perfect && <img src={perfect_img.src} alt="⭐"/>}
                 </div>
-                <hr></hr>
+                {daily && <hr></hr>}
                 {daily && <StatScreen />}
                 <hr></hr>
                 <button onClick={() => {

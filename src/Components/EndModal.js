@@ -17,7 +17,7 @@ function StatBar(props) {
     const {ng, num, max} = props;
 
     //width: `${(num !== 0) ? Math.floor((num / max) * 100) : 3}%`
-    // console.log(num)
+    console.log(num, max)
     return (
         <div className="statLine">
             <h3>{ng}</h3>
@@ -30,7 +30,8 @@ function StatBar(props) {
 
 function StatScreen() {
     const [stats, setStats] = React.useState(JSON.parse(localStorage.getItem("stats")))
-    const max = Math.max(...Object.values(stats))
+    const max = Math.max(...Object.values(stats).slice(0, 6))
+    console.log(Object.values(stats));
 
     // console.log(stats);
     return (

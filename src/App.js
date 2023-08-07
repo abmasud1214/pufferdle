@@ -54,6 +54,17 @@ function RootLayout() {
                 "perfect": 0,
             }))
         }
+        if (localStorage.getItem("settings") === null){
+            localStorage.setItem("settings", JSON.stringify({
+                "showHelpAtStart": true,
+                "highContrast": false,
+                "noImages": false,
+                "hardMode": false,
+                "skipFishingGame": false,
+                "noHit": false,
+                "instantRestart": false
+            }))
+        }
     }, []);
 
     return (

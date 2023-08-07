@@ -7,6 +7,7 @@ import './Pufferdle.css'
 import fishdata from './fishdata'
 
 import { useOutletContext } from "react-router-dom";
+import HelpModal from './Components/HelpModal'
 
 export default function Pufferdle({ daily }) {
     const [inGame, setInGame] = React.useState(0);
@@ -20,6 +21,7 @@ export default function Pufferdle({ daily }) {
     // const [targetFish, setTargetFish] = React.useState(fishArray.filter(value => (value.name === "Stonefish"))[0]);
 
     React.useEffect(() => {
+        const settings = JSON.parse(localStorage.getItem("settings"));
         if (daily) {
             let date = new Date()
             date = new Date(date.getTime() - (date.getTimezoneOffset() * 60000)).toISOString().slice(0,10);
@@ -49,12 +51,12 @@ export default function Pufferdle({ daily }) {
                     
                 };
                 localStorage.setItem("dayInfo", JSON.stringify(newDayInfo));
-                setInGame(1);
+                setInGame(settings["showHelpAtStart"] ? 3 : 1);
             } else {
                 setInGame(2);
             }
         } else {
-            setInGame(1);
+            setInGame(settings["showHelpAtStart"] ? 3 : 1);
         }
         // console.log("useEffectrun")
     }, [daily, fishArray])
@@ -72,6 +74,7 @@ export default function Pufferdle({ daily }) {
         <div className="pufferdle">
             {inGame === 1 && <FishingGame whichFish={targetFish} endGame={endGame}/>}
             {inGame === 2 && <PufferdleGuess fishResults={fishResults} targetFish={targetFish} daily={daily}/>}
+            {inGame === 3 && <HelpModal onClose={() => {setInGame(1)}}/>}
         </div>
     )
 }

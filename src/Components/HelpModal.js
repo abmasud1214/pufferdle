@@ -5,6 +5,16 @@ export default function HelpModal(props) {
 
     const {onClose} = props;
 
+    const [showAgain, setShowAgain] = React.useState(JSON.parse(localStorage.getItem("settings"))["showHelpAtStart"]);
+
+    const handleChange = () => {
+        localStorage.setItem("settings", JSON.stringify({
+            ...JSON.parse(localStorage.getItem("settings")),
+            showHelpAtStart: !showAgain,
+        }))
+        setShowAgain(!showAgain);
+    }
+
     return (
         <div className='background' onClick={onClose} >
             <div className="helpModal" onClick={e => e.stopPropagation()}> 
@@ -28,6 +38,28 @@ export default function HelpModal(props) {
 
                 <h2>Examples</h2>
 
+                <hr></hr>
+                <div className="helpSetting">
+                    <div style={{
+                        height: "20px", 
+                        width: "20px", 
+                        "backgroundColor": "#dc7b05",
+                        border: "solid 2px",
+                        borderColor: "#e6a61c #e6a61c #5b2b2a #5b2b2a",
+                        display: "flex",
+                        alignItems: "center",
+                        "justifyContent": "center"}}
+                        onClick={handleChange}>
+                        {showAgain && <div style={{
+                            height: "10px", 
+                            width: "10px", 
+                            "backgroundColor": "#598f0a",
+                            border: "solid 2px",
+                            borderColor: "#d3e720 #d3e720 #1e5511 #1e5511"}}></div>}
+                    </div>
+                    <h3>Show help before game begins</h3>
+                </div>
+                <button onClick={onClose}>Close</button>
             </div>
         </div>
     )

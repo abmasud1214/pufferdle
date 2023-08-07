@@ -99,6 +99,11 @@ header > div > p {
     align-items: center;
     margin: 20px;
     padding: 20px 30px;
+    cursor: pointer;
+}
+
+.menuButton:hover {
+    background-color: #ad6104;
 }
 
 .menuButton img {

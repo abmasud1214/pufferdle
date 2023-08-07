@@ -39,7 +39,7 @@ export default function FishTank() {
     })));
 
     const [selectedFish, setSelectedFish] = React.useState(fishArray[0]);
-    const [fishingLevel, setFishingLevel] = React.useState(0);
+    const [fishingLevel, setFishingLevel] = React.useState(10);
     const [fishBarLevel, setFishBarLevel] = React.useState(0);
     const [foodLevel, setFoodLevel] = React.useState(0);
     const [tackle, setTackle] = React.useState("");

@@ -61,27 +61,23 @@ export default function FishInfo({ fish }) {
     return (
         <div className="fishInfoContainer">
             <h1>{fish.name}</h1>
-            <p>{fish.description}</p>
+            <p style={{margin: "0px 20px 0px 20px"}}>{fish.description}</p>
             <div className="fishInfoColumns">
                 <div>
-                    <div>
-                        <h2 className="infoHeader">Seasons</h2>
-                        {fish.season.map(value => <p>{value}</p>)}
-                    </div>
-                    <div>
-                        <h2 className="infoHeader">Weather</h2>
-                        {fish.weather.map(value => <p>{value}</p>)}
-                    </div>
+                    <h2 className="infoHeader">Seasons</h2>
+                    {fish.season.map(value => <p>{value}</p>)}
                 </div>
                 <div>
-                    <div>
-                        <h2 className="infoHeader">Locations</h2>
-                        {fish.location.map(value => <p>{locationText(value)}</p>)}
-                    </div>
-                    <div>
-                        <h2 className="infoHeader">Time</h2>
-                        {timeText(fish.time).map(value => <p>{value}</p>)}
-                    </div>
+                    <h2 className="infoHeader">Weather</h2>
+                    {fish.weather.map(value => <p>{value}</p>)}
+                </div>
+                <div>
+                    <h2 className="infoHeader">Locations</h2>
+                    {fish.location.map(value => <p>{locationText(value)}</p>)}
+                </div>
+                <div>
+                    <h2 className="infoHeader">Time</h2>
+                    {timeText(fish.time).map(value => <p>{value}</p>)}
                 </div>
             </div>
         </div>

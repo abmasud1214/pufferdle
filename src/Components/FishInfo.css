@@ -38,23 +38,22 @@
 
 .fishInfoColumns {
     margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-evenly;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
-.fishInfoColumns > div {
+/* .fishInfoColumns > div {
     display: flex;
     align-items: flex-start;
     justify-content: space-evenly;
     width: 100%;
-}
+} */
 
-.fishInfoColumns > div > div {
+.fishInfoColumns > div {
     /* flex-grow: 1; */
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: flex-start;
     white-space: nowrap;
     overflow: hidden;

@@ -34,6 +34,7 @@ export default function PufferdleGuess(props) {
             setCurrentGuess(day.ng);
             setGameEnd(day.completed);
             setUpdatedFR(day.fr ? day.fr : fishResults);
+            setCorrect(day.correct);
             // console.log(fishResults)
 
             setSkip(() => {
@@ -51,12 +52,13 @@ export default function PufferdleGuess(props) {
                 ...prevDayInfo,
                 completed: gameEnd,
                 g: guessHistory,
+                correct: correct,
                 fg: formattedGuesses,
                 fr: updatedFR,
                 ng: currentGuess,
             }));
         }
-    }, [formattedGuesses, guessHistory, updatedFR, gameEnd]);
+    }, [formattedGuesses, guessHistory, updatedFR, gameEnd, correct]);
 
     React.useEffect(() => {
         if (daily && dayInfo !== undefined) {

@@ -41,6 +41,7 @@ export default function Pufferdle({ daily }) {
                 const newDayInfo = {
                     mostRecentDay: d,
                     completed: false,
+                    correct: false,
                     g: [...Array(6)],
                     fg: [...Array(6)],
                     ng: 0,

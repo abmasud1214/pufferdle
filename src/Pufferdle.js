@@ -19,9 +19,9 @@ export default function Pufferdle({ daily }) {
     const fishArray = fishdata.fish;
     const [targetFish, setTargetFish] = React.useState(fishArray[Math.floor(Math.random() * fishArray.length)]);
     // const [targetFish, setTargetFish] = React.useState(fishArray.filter(value => (value.name === "Stonefish"))[0]);
+    const [settings, setSettings] = React.useState(JSON.parse(localStorage.getItem("settings")));
 
     React.useEffect(() => {
-        const settings = JSON.parse(localStorage.getItem("settings"));
         if (daily) {
             let date = new Date()
             date = new Date(date.getTime() - (date.getTimezoneOffset() * 60000)).toISOString().slice(0,10);
@@ -51,12 +51,24 @@ export default function Pufferdle({ daily }) {
                     
                 };
                 localStorage.setItem("dayInfo", JSON.stringify(newDayInfo));
-                setInGame(settings["showHelpAtStart"] ? 3 : 1);
+                if (settings["showHelpAtStart"]) {
+                    setInGame(3);    
+                } else if (settings["skipFishingGame"]) {
+                    endGame(false, false, false);
+                } else {
+                    setInGame(1);
+                }
             } else {
                 setInGame(2);
             }
         } else {
-            setInGame(settings["showHelpAtStart"] ? 3 : 1);
+            if (settings["showHelpAtStart"]) {
+                setInGame(3);    
+            } else if (settings["skipFishingGame"]) {
+                endGame(false, false, false);
+            } else {
+                setInGame(1);
+            }
         }
         // console.log("useEffectrun")
     }, [daily, fishArray])
@@ -74,7 +86,7 @@ export default function Pufferdle({ daily }) {
         <div className="pufferdle">
             {inGame === 1 && <FishingGame whichFish={targetFish} endGame={endGame}/>}
             {inGame === 2 && <PufferdleGuess fishResults={fishResults} targetFish={targetFish} daily={daily}/>}
-            {inGame === 3 && <HelpModal onClose={() => {setInGame(1)}}/>}
+            {inGame === 3 && <HelpModal onClose={() => {settings["skipFishingGame"] ? endGame(false, false, false) : setInGame(1)}}/>}
         </div>
     )
 }

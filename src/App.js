@@ -59,8 +59,8 @@ function RootLayout() {
                 "showHelpAtStart": true,
                 "highContrast": false,
                 "noImages": false,
-                "hardMode": false,
-                "skipFishingGame": false,
+                "hardMode": true,
+                "skipFishingGame": true,
                 "noHit": false,
                 "instantRestart": false
             }))

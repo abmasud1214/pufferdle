@@ -19,6 +19,7 @@ export default function FishMenu(props) {
     const [fishChoice, setFishChoice] = React.useState(fishArray);
     const [selectedFish, setSelectedFish] = React.useState(fishChoice[0]);
     const [formData, setFormData] = React.useState("");
+    const [hardMode, setHardMode] = React.useState(JSON.parse(localStorage.getItem("settings"))["hardMode"]);
     
     const handleFishChange = (event) => {
         setFormData(event.target.value);
@@ -44,7 +45,7 @@ export default function FishMenu(props) {
     
     return (
         <div className="menu">
-            {useCheckMobileScreen() && <FishInfo fish={selectedFish}/>}
+            {useCheckMobileScreen() && !hardMode && <FishInfo fish={selectedFish}/>}
             {useCheckMobileScreen() && <div style={{height: "50px"}}></div>}
             <form onSubmit={handleSubmit}>
                 <input
@@ -56,7 +57,7 @@ export default function FishMenu(props) {
                 />
                 <button>Submit</button>
             </form>
-            <FishGrid fishArray={fishChoice} selectedFish={selectedFish} onClick={onFishClick} info={!useCheckMobileScreen()}/>
+            <FishGrid fishArray={fishChoice} selectedFish={selectedFish} onClick={onFishClick} info={!useCheckMobileScreen() && !hardMode}/>
         </div>
     )
 }

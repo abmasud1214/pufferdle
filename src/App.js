@@ -13,6 +13,7 @@ import FishTank from "./Components/FishTank";
 import ErrorPage from "./ErrorPage";
 import HelpModal from "./Components/HelpModal";
 import { StatsModal } from "./Components/EndModal";
+import SettingsModal from "./Components/SettingsModal";
 import useCheckMobileScreen from "./Utils/UseCheckMobileScreen";
 
 const pufferfish_src = require("./Art/pufferfish.png")
@@ -28,6 +29,7 @@ function RootLayout() {
     const navigate = useNavigate();
     const [showHelpModal, setShowHelpModal] = React.useState(false);
     const [showStatsModal, setShowStatsModal] = React.useState(false);
+    const [showSettingsModal, setShowSettingsModal] = React.useState(false);
 
     React.useEffect(() => {
         let day = localStorage.getItem("dayInfo");
@@ -59,8 +61,8 @@ function RootLayout() {
                 "showHelpAtStart": true,
                 "highContrast": false,
                 "noImages": false,
-                "hardMode": true,
-                "skipFishingGame": true,
+                "hardMode": false,
+                "skipFishingGame": false,
                 "noHit": false,
                 "instantRestart": false
             }))
@@ -83,7 +85,7 @@ function RootLayout() {
                     <p>-</p>
                     <img src={notes_src} alt="Statistics"/>
                 </div>
-                <div>
+                <div onClick={() => setShowSettingsModal(true)}>
                     <p>=</p>
                     <img src={cog_src} alt="Settings"/>
                 </div>
@@ -96,6 +98,9 @@ function RootLayout() {
             />}
             {showStatsModal && <StatsModal
                 onClose = {() => setShowStatsModal(false)}
+            />}
+            {showSettingsModal && <SettingsModal 
+                onClose = {() => setShowSettingsModal(false)}
             />}
         </div>
     )

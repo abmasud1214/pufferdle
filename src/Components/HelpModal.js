@@ -1,5 +1,7 @@
-import React from 'react'
-import "./HelpModal.css"
+import React from 'react';
+import "./HelpModal.css";
+
+import { ToggleButton } from './SettingsModal';
 
 export default function HelpModal(props) {
 
@@ -40,23 +42,7 @@ export default function HelpModal(props) {
 
                 <hr></hr>
                 <div className="helpSetting">
-                    <div style={{
-                        height: "20px", 
-                        width: "20px", 
-                        "backgroundColor": "#dc7b05",
-                        border: "solid 2px",
-                        borderColor: "#e6a61c #e6a61c #5b2b2a #5b2b2a",
-                        display: "flex",
-                        alignItems: "center",
-                        "justifyContent": "center"}}
-                        onClick={handleChange}>
-                        {showAgain && <div style={{
-                            height: "10px", 
-                            width: "10px", 
-                            "backgroundColor": "#598f0a",
-                            border: "solid 2px",
-                            borderColor: "#d3e720 #d3e720 #1e5511 #1e5511"}}></div>}
-                    </div>
+                    <ToggleButton onClick={handleChange} toggle={showAgain} />
                     <h3>Show help before game begins</h3>
                 </div>
                 <button onClick={onClose}>Close</button>

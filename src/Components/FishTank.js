@@ -30,7 +30,7 @@ function FishingLevelUnit(props) {
 
 export default function FishTank() {
 
-    const [inGame, setInGame] = React.useState(false);
+    const [inGame, setInGame] = React.useState(0);
 
     // eslint-disable-next-line 
     const [fishArray, setFishArray] = React.useState(fishdata.fish.map((fish, index) => ({
@@ -43,6 +43,7 @@ export default function FishTank() {
     const [fishBarLevel, setFishBarLevel] = React.useState(10);
     const [foodLevel, setFoodLevel] = React.useState(0);
     const [tackle, setTackle] = React.useState("");
+    const [restartOnPerfect, setRestartOnPerfect] = React.useState(false);
     
     console.log(fishingLevel);
 
@@ -52,6 +53,7 @@ export default function FishTank() {
         setFoodLevel(fishTankPreset["foodLevel"]);
         setFishingLevel(fishTankPreset["level"] + fishTankPreset["foodLevel"]);
         setTackle(fishTankPreset["tackle"]);
+        setRestartOnPerfect(JSON.parse(localStorage.getItem("settings"))["instantRestart"]);
     }, [])
 
     const onFishClick = (fish) => {
@@ -85,15 +87,28 @@ export default function FishTank() {
     }
 
     const endGame = (caught, treasure, perfect) => {
-        setInGame(false);
+        if (!perfect && restartOnPerfect) {
+            setInGame(2);
+        } else {
+            setInGame(0);
+        }
     }
 
     const startFishingGame = () => {
-        setInGame(true);
+        setRestartOnPerfect(JSON.parse(localStorage.getItem("settings"))["instantRestart"]);
+        setInGame(1);
     }
 
+    React.useEffect(() => {
+        if (inGame === 2) {
+            setTimeout(() => {
+                setInGame(1);
+            }, 250)
+        }
+    }, [inGame])
 
-    return !inGame ? (
+
+    return inGame === 0 ? (
         <div className="container">
             <FishGrid fishArray={fishArray} selectedFish={selectedFish} onClick={onFishClick} info={false}/>
             <div className="tankSettingsMenu">
@@ -138,7 +153,7 @@ export default function FishTank() {
                 <button onClick={startFishingGame}>Fish!</button>
             </div>
         </div>
-    ) : (
-        <FishingGame whichFish={selectedFish} endGame={endGame} fishingLevel={fishingLevel} bobber={tackle}/>
+    ) : (inGame === 1 &&
+        <FishingGame whichFish={selectedFish} endGame={endGame} fishingLevel={fishingLevel} bobber={tackle} restartOnPerfect={restartOnPerfect}/>
     )
 }

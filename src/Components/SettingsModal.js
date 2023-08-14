@@ -35,6 +35,10 @@ export default function SettingsModal(props) {
                     <ToggleButton onClick={() => handleChange("skipFishingGame")} toggle={settings["skipFishingGame"]} />
                     <h3>Skip the fishing minigame before Pufferdle</h3>
                 </div>
+                <div className='setting'>
+                    <ToggleButton onClick={() => handleChange("instantRestart")} toggle={settings["instantRestart"]} />
+                    <h3>Restart instantly if not perfect in fish tank.</h3>
+                </div>
             </div>
         </div>
     )

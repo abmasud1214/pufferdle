@@ -24,7 +24,7 @@ function Game(props){
 
     const canvasRef = React.useRef(null);
     
-    const {whichFish, endGame, fishingLevel, bobber} = props;
+    const {whichFish, endGame, fishingLevel, bobber, restartOnPerfect} = props;
 
     const isMobile = useCheckMobileScreen();
 
@@ -201,6 +201,9 @@ function Game(props){
         } else if (!treasureInBar || treasureCaught || bobber !== "treasureHunter") {
             if (perfect) {
                 perfect = false;
+                if (restartOnPerfect) {
+                    setTimeout(()=>endGame(false, false, false), 0);
+                }
             }
             progress -= (bobber === "trapBobber") ? 0.002 : 0.003;
             progress = Math.max(0, progress);

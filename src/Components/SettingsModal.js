@@ -39,6 +39,10 @@ export default function SettingsModal(props) {
                     <ToggleButton onClick={() => handleChange("instantRestart")} toggle={settings["instantRestart"]} />
                     <h3>Restart instantly if not perfect in fish tank.</h3>
                 </div>
+                <div className='setting'>
+                    <ToggleButton onClick={() => handleChange("showPerfectCatches")} toggle={settings["showPerfectCatches"]} />
+                    <h3>Show perfectly caught fish in the fish tank.</h3>
+                </div>
             </div>
         </div>
     )

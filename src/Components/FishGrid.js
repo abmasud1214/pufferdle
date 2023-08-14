@@ -3,9 +3,11 @@ import React from 'react'
 import './FishGrid.css'
 import { PopupFishInfo } from './FishInfo';
 
+const src_iridiumquality = require('../Art/iridium_quality.png')
+
 
 function FishImg(props) {
-    const { fish, selected, onClick, info } = props;
+    const { fish, selected, onClick, info, perfect } = props;
 
     const [hover, setHover] = React.useState(false);
 
@@ -32,11 +34,14 @@ function FishImg(props) {
                 onMouseLeave={()=>{setHover(false)}}
                 ></img>
             {info && hover && <PopupFishInfo fish={fish}/>}
+            {perfect && <img className="quality" alt="" src={src_iridiumquality}/>}
         </div>
     )
 }
 
-export default function FishGrid({fishArray, onClick, selectedFish, info}) {
+export default function FishGrid({fishArray, onClick, selectedFish, info, perfect}) {
+    const [perfectCatches, setPerfectCatches] = React.useState(new Set(JSON.parse(localStorage.getItem("perfectFish"))));
+
     return (
         <div className="fish_container">
             {fishArray.map(value => {return <FishImg 
@@ -45,6 +50,7 @@ export default function FishGrid({fishArray, onClick, selectedFish, info}) {
                 onClick = {() => {onClick(value)}}
                 selected = {value.name === selectedFish.name}
                 info = {info}
+                perfect = {perfect && perfectCatches.has(value.name)}
             />})
             }
         </div>

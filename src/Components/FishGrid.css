@@ -58,3 +58,12 @@
     position: absolute;
 }
 
+.fish_container .quality {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 30px;
+    top: 35px;
+    border: none;
+    image-rendering: pixelated;
+}

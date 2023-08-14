@@ -44,6 +44,8 @@ export default function FishTank() {
     const [foodLevel, setFoodLevel] = React.useState(0);
     const [tackle, setTackle] = React.useState("");
     const [restartOnPerfect, setRestartOnPerfect] = React.useState(false);
+    const [showPerfect, setShowPerfect] = React.useState(false);
+    const [perfectFish, setPerfectFish] = React.useState(new Set());
     
     console.log(fishingLevel);
 
@@ -54,6 +56,8 @@ export default function FishTank() {
         setFishingLevel(fishTankPreset["level"] + fishTankPreset["foodLevel"]);
         setTackle(fishTankPreset["tackle"]);
         setRestartOnPerfect(JSON.parse(localStorage.getItem("settings"))["instantRestart"]);
+        setShowPerfect(JSON.parse(localStorage.getItem("settings"))["showPerfectCatches"]);
+        setPerfectFish(new Set(JSON.parse(localStorage.getItem("perfectFish"))));
     }, [])
 
     const onFishClick = (fish) => {
@@ -90,6 +94,11 @@ export default function FishTank() {
         if (!perfect && restartOnPerfect) {
             setInGame(2);
         } else {
+            if (perfect) {
+                setPerfectFish((prevState) => {
+                    return new Set([...prevState, selectedFish.name]);
+                })
+            }
             setInGame(0);
         }
     }
@@ -107,10 +116,14 @@ export default function FishTank() {
         }
     }, [inGame])
 
+    React.useEffect(() => {
+        localStorage.setItem("perfectFish", JSON.stringify([...perfectFish]));
+    }, [perfectFish])
+
 
     return inGame === 0 ? (
         <div className="container">
-            <FishGrid fishArray={fishArray} selectedFish={selectedFish} onClick={onFishClick} info={false}/>
+            <FishGrid fishArray={fishArray} selectedFish={selectedFish} onClick={onFishClick} info={false} perfect={showPerfect}/>
             <div className="tankSettingsMenu">
                 <div className="fishLevelBar">
                     {Array.from(Array(10)).map((_, i) => (

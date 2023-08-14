@@ -58,7 +58,8 @@ function RootLayout() {
             "hardMode": false,
             "skipFishingGame": false,
             "noHit": false,
-            "instantRestart": false
+            "instantRestart": false,
+            "showPerfectCatches": false,
         }
         const fishTankPresetDefault = {
             "level": 10,
@@ -105,6 +106,10 @@ function RootLayout() {
                 ...fishTankPresetDefault,
                 ...fishTankPreset,
             }))
+        }
+
+        if (localStorage.getItem("perfectFish") === null) {
+            localStorage.setItem("perfectFish", JSON.stringify([]))
         }
     }, []);
 

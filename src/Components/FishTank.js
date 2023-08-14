@@ -40,27 +40,47 @@ export default function FishTank() {
 
     const [selectedFish, setSelectedFish] = React.useState(fishArray[0]);
     const [fishingLevel, setFishingLevel] = React.useState(10);
-    const [fishBarLevel, setFishBarLevel] = React.useState(0);
+    const [fishBarLevel, setFishBarLevel] = React.useState(10);
     const [foodLevel, setFoodLevel] = React.useState(0);
     const [tackle, setTackle] = React.useState("");
     
     console.log(fishingLevel);
+
+    React.useEffect(() => {
+        const fishTankPreset = JSON.parse(localStorage.getItem("fishTankPreset"));
+        setFishBarLevel(fishTankPreset["level"]);
+        setFoodLevel(fishTankPreset["foodLevel"]);
+        setFishingLevel(fishTankPreset["level"] + fishTankPreset["foodLevel"]);
+        setTackle(fishTankPreset["tackle"]);
+    }, [])
 
     const onFishClick = (fish) => {
         setSelectedFish(fish);
     }
 
     const onFishLevelClick = (level) => {
-        setFishBarLevel((value) => (value === level ? -1 : level));
-        setFishingLevel(foodLevel + (fishBarLevel === level ? -1 : level) + 1);
+        localStorage.setItem("fishTankPreset", JSON.stringify({
+            ...JSON.parse(localStorage.getItem("fishTankPreset")),
+            "level": (fishBarLevel === level ? 0 : level),
+        }))
+        setFishBarLevel((value) => (value === level ? 0 : level));
+        setFishingLevel(foodLevel + (fishBarLevel === level ? 0 : level));
     }
-
+    
     const onFoodClick = (level) => {
+        localStorage.setItem("fishTankPreset", JSON.stringify({
+            ...JSON.parse(localStorage.getItem("fishTankPreset")),
+            "foodLevel": (foodLevel === level ? 0 : level),
+        }))
         setFoodLevel((value) => (value === level ? 0 : level));
-        setFishingLevel(fishBarLevel + (level === foodLevel ? 0 : level) + 1);
+        setFishingLevel(fishBarLevel + (level === foodLevel ? 0 : level));
     }
-
+    
     const onTackleClick = (t) => {
+        localStorage.setItem("fishTankPreset", JSON.stringify({
+            ...JSON.parse(localStorage.getItem("fishTankPreset")),
+            "tackle": (tackle === t ? "" : t),
+        }))
         setTackle((value) => (value === t ? "" : t));
     }
 
@@ -83,7 +103,7 @@ export default function FishTank() {
                             active={i < fishingLevel}
                             double = {(i + foodLevel >= fishingLevel && i < fishingLevel) || ((i + 10) < fishingLevel)}
                             major = {i === 4 || i === 9}
-                            onClick = {() => (onFishLevelClick(i))}
+                            onClick = {() => (onFishLevelClick(i + 1))}
                         />
                     ))}
                     <h1 className={foodLevel > 0 && "foodLevelText"}>{fishingLevel}</h1>

@@ -32,39 +32,78 @@ function RootLayout() {
     const [showSettingsModal, setShowSettingsModal] = React.useState(false);
 
     React.useEffect(() => {
-        let day = localStorage.getItem("dayInfo");
+        const dayDefault = {
+            mostRecentDay: new Date(2023, 8, 1),
+            guesses: null,
+            completed: false,
+        }
+        const statsDefault = {
+            1: 0,
+            2: 3,
+            3: 1,
+            4: 1,
+            5: 0,
+            6: 0,
+            "X": 0,
+            "days": 0,
+            "daysCorrect": 0,
+            "fishCaught": 0,
+            "treasure": 0,
+            "perfect": 0,
+        }
+        const settingsDefault = {
+            "showHelpAtStart": true,
+            "highContrast": false,
+            "noImages": false,
+            "hardMode": false,
+            "skipFishingGame": false,
+            "noHit": false,
+            "instantRestart": false
+        }
+        const fishTankPresetDefault = {
+            "level": 10,
+            "foodLevel": 0,
+            "tackle": "",
+        }
+
+
+        let day = JSON.parse(localStorage.getItem("dayInfo"));
         if (day === null) {
+            localStorage.setItem("dayInfo", JSON.stringify(dayDefault));
+        } else {
             localStorage.setItem("dayInfo", JSON.stringify({
-                mostRecentDay: new Date(2023, 8, 1),
-                guesses: null,
-                completed: false,
-            }));
-        } 
-        if (localStorage.getItem("stats") === null){
-            localStorage.setItem("stats", JSON.stringify({
-                1: 0,
-                2: 0,
-                3: 0,
-                4: 0,
-                5: 0,
-                6: 0,
-                "X": 0,
-                "days": 0,
-                "daysCorrect": 0,
-                "fishCaught": 0,
-                "treasure": 0,
-                "perfect": 0,
+                ...dayDefault,
+                ...day,
             }))
         }
-        if (localStorage.getItem("settings") === null){
+
+        let stats = JSON.parse(localStorage.getItem("stats"));
+        if (stats === null){
+            localStorage.setItem("stats", JSON.stringify(statsDefault))
+        } else {
+            localStorage.setItem("stats", JSON.stringify({
+                ...statsDefault,
+                ...stats,
+            }))
+        }
+
+        let settings = JSON.parse(localStorage.getItem("settings"))
+        if (settings === null){
+            localStorage.setItem("settings", JSON.stringify(settingsDefault))
+        } else {
             localStorage.setItem("settings", JSON.stringify({
-                "showHelpAtStart": true,
-                "highContrast": false,
-                "noImages": false,
-                "hardMode": false,
-                "skipFishingGame": false,
-                "noHit": false,
-                "instantRestart": false
+                ...settingsDefault,
+                ...settings
+            }))
+        }
+
+        let fishTankPreset = JSON.parse(localStorage.getItem("fishTankPreset"));
+        if (fishTankPreset === null){
+            localStorage.setItem("fishTankPreset", JSON.stringify(fishTankPresetDefault))
+        } else {
+            localStorage.setItem("fishTankPreset", JSON.stringify({
+                ...fishTankPresetDefault,
+                ...fishTankPreset,
             }))
         }
     }, []);

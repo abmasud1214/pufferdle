@@ -7,7 +7,7 @@ const src_iridiumquality = require('../Art/iridium_quality.png')
 
 
 function FishImg(props) {
-    const { fish, selected, onClick, info, perfect } = props;
+    const { fish, selected, onClick, info, invertPopup, perfect } = props;
 
     const [hover, setHover] = React.useState(false);
 
@@ -33,7 +33,7 @@ function FishImg(props) {
                 onMouseEnter={()=>{setHover(true)}} 
                 onMouseLeave={()=>{setHover(false)}}
                 ></img>
-            {info && hover && <PopupFishInfo fish={fish}/>}
+            {info && hover && <PopupFishInfo fish={fish} inverted={invertPopup}/>}
             {perfect && <img className="quality" alt="" src={src_iridiumquality}/>}
         </div>
     )
@@ -41,15 +41,26 @@ function FishImg(props) {
 
 export default function FishGrid({fishArray, onClick, selectedFish, info, perfect}) {
     const [perfectCatches, setPerfectCatches] = React.useState(new Set(JSON.parse(localStorage.getItem("perfectFish"))));
+    const [numRows, setNumRows] = React.useState(0);
+
+    React.useEffect(() => {
+        // Calculate the number of rows in the grid and update state
+        const grid = document.querySelector('.fish_container');
+        const numRows = grid
+          ? parseInt(getComputedStyle(grid).gridTemplateRows.split(' ').length)
+          : 0;
+        setNumRows(numRows);
+      }, []);
 
     return (
         <div className="fish_container">
-            {fishArray.map(value => {return <FishImg 
+            {fishArray.map((value, index) => {return <FishImg 
                 key={value.name}
                 fish={value}
                 onClick = {() => {onClick(value)}}
                 selected = {value.name === selectedFish.name}
                 info = {info}
+                invertPopup = {index >= fishArray.length - numRows}
                 perfect = {perfect && perfectCatches.has(value.name)}
             />})
             }

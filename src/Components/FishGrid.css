@@ -2,7 +2,7 @@
 
 .fish_container {
     padding: 15px 15px;
-    width: 350px;
+    width: 95%;
     display: grid;
     place-items: center;
     grid-template-columns: repeat(6, 1fr);

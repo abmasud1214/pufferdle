@@ -76,9 +76,9 @@
 }
 
 .popupFishInfoContainer {
-    position: relative;
-    top: 60px;
-    right: 100px;
+    position: absolute;
+    top: calc(100% + 15px);
+    left: -100px;
     background-color: #ffc979;
     border-color: #fa9305;
     border-style: ridge;
@@ -104,6 +104,18 @@
     border-right: 15px solid transparent;
     border-left: 15px solid transparent;
     border-bottom: 15px solid #a76203;
+}
+
+.inverted {
+    bottom: calc(100% + 5px);
+    top: auto;
+}
+
+.inverted:after {
+    top: auto;
+    bottom: -15px;
+    border-bottom: none;
+    border-top: 15px solid #a76203;
 }
 
 .popupFishInfo {

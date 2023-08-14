@@ -84,9 +84,9 @@ export default function FishInfo({ fish }) {
     )
 }
 
-export function PopupFishInfo({ fish }) {
+export function PopupFishInfo({ fish, inverted }) {
     return (
-        <div className="popupFishInfoContainer">
+        <div className={`popupFishInfoContainer ${inverted ? "inverted" : ""}`}>
             <h1>{fish.name}</h1>
             <div className="popupFishInfo">
                 <div>

@@ -4,7 +4,7 @@ import './GuessGrid.css'
 
 const generic_fish = './../Art/fish.png';
 
-function Row(props) {
+export function Row(props) {
 
     const {guess, skip} = props;
 

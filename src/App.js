@@ -59,7 +59,7 @@ function RootLayout() {
             "skipFishingGame": false,
             "noHit": false,
             "instantRestart": false,
-            "showPerfectCatches": false,
+            "showPerfectCatches": true,
         }
         const fishTankPresetDefault = {
             "level": 10,

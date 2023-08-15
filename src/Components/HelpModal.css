@@ -16,20 +16,39 @@
 }
 
 .helpModal {
-    max-width: 80%;
-    max-height: 70vh;
-    overflow-y: auto;
-    width: 500px;
+    max-width: 100%;
+    max-height: 80vh;
+    width: 600px;
     background-color: #ffcb7b;
     border-color: #fa9305;
     border-width: 8px;
-    border-style: ridge;
+    border-style: ridge none;
     display: flex;
     flex-direction: column;
     align-items: left;
     font-family: "SVThin";
     padding-left: 15px;
-    padding-right: 15px;
+    /* padding-right: 15px; */
+}
+
+
+@media only screen and (min-width: 600px) {
+    .helpModal {
+        border-style: ridge;
+    }
+}
+
+.helpInfo {
+    /* width: 100%; */
+    overflow-y: auto;
+    overflow-x: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+
+.helpInfo .Row, .helpInfo .RowNames {
+    align-self: center;
 }
 
 .helpModal h1 {

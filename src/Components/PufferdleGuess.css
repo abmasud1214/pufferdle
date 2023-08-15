@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
-    /* padding: 50px 0px; */
+    padding: 25px 0px;
     width: 100%;
     align-items: center;
     justify-content: space-evenly;
@@ -18,5 +18,6 @@
         width: 100%;
         max-width: 1140px;
         flex-direction: row;
+        padding: 50px 0px;
     }
 }

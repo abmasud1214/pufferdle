@@ -18,7 +18,7 @@ export default function PufferdleGuess(props) {
     const {fishResults, targetFish, daily} = props;
     const [updatedFR, setUpdatedFR] = React.useState(fishResults);
 
-    const [dayInfo, setDayInfo] = React.useState();
+    const [dayInfo, setDayInfo] = React.useState({});
 
     const [skip, setSkip] = React.useState([...Array(6).fill(false)])
         
@@ -112,13 +112,16 @@ export default function PufferdleGuess(props) {
 
     return (
         <div className="container">
-           <FishMenu className="FishMenu" onGuess={onGuess}/>
-           <GuessGrid className="GuessGrid" guessHistory={formattedGuesses} skip={skip}/>
-           {showModal && <EndModal 
+            <FishMenu className="FishMenu" 
+                onGuess={onGuess} 
+                hardMode={daily ? dayInfo["hardMode"] : JSON.parse(localStorage.getItem("settings"))["hardMode"]}/>
+            <GuessGrid className="GuessGrid" guessHistory={formattedGuesses} skip={skip}/>
+            {showModal && <EndModal 
                 targetFish={targetFish} 
                 fishResults={updatedFR} 
                 correct={correct} 
                 daily={daily} 
+                hardMode={daily ? dayInfo["hardMode"] : JSON.parse(localStorage.getItem("settings"))["hardMode"]}
                 onClose={() => setShowModal(false)}
                 guesses={formattedGuesses}
                 numGuess = {currentGuess} />}

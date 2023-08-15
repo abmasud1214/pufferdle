@@ -7,7 +7,7 @@ import useCheckMobileScreen from "../Utils/UseCheckMobileScreen.js";
 import FishInfo from "./FishInfo.js";
 
 export default function FishMenu(props) {
-    const { onGuess } = props;
+    const { onGuess, hardMode } = props;
 
     let fishArray = fishdata.fish;
     
@@ -19,7 +19,6 @@ export default function FishMenu(props) {
     const [fishChoice, setFishChoice] = React.useState(fishArray);
     const [selectedFish, setSelectedFish] = React.useState(fishChoice[0]);
     const [formData, setFormData] = React.useState("");
-    const [hardMode, setHardMode] = React.useState(JSON.parse(localStorage.getItem("settings"))["hardMode"]);
     
     const handleFishChange = (event) => {
         setFormData(event.target.value);

@@ -36,6 +36,7 @@ function RootLayout() {
             mostRecentDay: new Date(2023, 8, 1),
             guesses: null,
             completed: false,
+            hardMode: false,
         }
         const statsDefault = {
             1: 0,

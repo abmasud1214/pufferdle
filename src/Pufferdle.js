@@ -48,7 +48,7 @@ export default function Pufferdle({ daily }) {
                     fg: [...Array(6)],
                     ng: 0,
                     fr: false,
-                    
+                    hardMode: settings["hardMode"],                    
                 };
                 localStorage.setItem("dayInfo", JSON.stringify(newDayInfo));
                 if (settings["showHelpAtStart"]) {

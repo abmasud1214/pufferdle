@@ -87,7 +87,7 @@ export function StatsModal(props) {
 
 export default function EndModal(props) {
 
-    const { targetFish, fishResults, guesses, numGuess, correct, daily, onClose } = props;
+    const { targetFish, fishResults, guesses, numGuess, correct, daily, hardMode, onClose } = props;
     
     const [clipboardText, setClipboardText] = React.useState("");
 
@@ -122,8 +122,8 @@ export default function EndModal(props) {
                 {daily && <StatScreen />}
                 <hr></hr>
                 <button onClick={() => {
-                    setClipboardText(guessesToString(guesses, numGuess, fishResults, daily, 0, false));
-                    console.log(guessesToString(guesses, numGuess, fishResults, daily, 0, false));
+                    setClipboardText(guessesToString(guesses, numGuess, fishResults, daily, hardMode));
+                    console.log(guessesToString(guesses, numGuess, fishResults, daily, 0, hardMode));
                 }}>Copy to Clipboard</button>
                 <button onClick={onClose}>Close</button>
             </div>

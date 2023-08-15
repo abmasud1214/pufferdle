@@ -143,7 +143,7 @@ export default function FishTank() {
         if (inGame === 2) {
             setTimeout(() => {
                 setInGame(1);
-            }, 250)
+            }, 375)
         }
     }, [inGame])
 

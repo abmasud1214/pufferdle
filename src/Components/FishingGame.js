@@ -285,9 +285,13 @@ export default function FishingGame(props){
     const [hit, setHit] = React.useState(true);
 
     React.useEffect(() => {
-        setTimeout(() => {
+        if (props.restartOnPerfect) {
             setHit(false);
-        }, 500)
+        } else {
+            setTimeout(() => {
+                setHit(false);
+            }, 500)
+        }
     }, [])
 
     return (

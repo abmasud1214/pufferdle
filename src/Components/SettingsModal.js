@@ -22,6 +22,10 @@ export default function SettingsModal(props) {
             ...prevState,
         }));
         localStorage.setItem("settings", JSON.stringify(settings));
+        if (setting === "showPerfectCatches") {
+            const event = new Event('perfectCatchUpdated');
+            window.dispatchEvent(event);
+        }
     }
 
     return (

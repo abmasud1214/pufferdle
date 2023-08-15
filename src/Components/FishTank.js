@@ -48,6 +48,10 @@ export default function FishTank() {
     const [perfectFish, setPerfectFish] = React.useState(new Set());
     
     React.useEffect(() => {
+        const eventcatch = () => {
+            setShowPerfect(JSON.parse(localStorage.getItem("settings"))["showPerfectCatches"]);
+        }
+
         const fishTankPreset = JSON.parse(localStorage.getItem("fishTankPreset"));
         setFishBarLevel(fishTankPreset["level"]);
         setFoodLevel(fishTankPreset["foodLevel"]);
@@ -56,6 +60,12 @@ export default function FishTank() {
         setRestartOnPerfect(JSON.parse(localStorage.getItem("settings"))["instantRestart"]);
         setShowPerfect(JSON.parse(localStorage.getItem("settings"))["showPerfectCatches"]);
         setPerfectFish(new Set(JSON.parse(localStorage.getItem("perfectFish"))));
+
+        window.addEventListener('perfectCatchUpdated', eventcatch);
+
+        return () => {
+            window.addEventListener('perfectCatchUpdated', eventcatch);
+        }
     }, [])
 
     const onFishClick = (fish) => {

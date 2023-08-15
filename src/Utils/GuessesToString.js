@@ -1,7 +1,7 @@
 import { differenceInDays } from 'date-fns'
 
 
-const FIRST_DAY = new Date(2023, 7, 1);
+const FIRST_DAY = new Date(2023, 7, 14);
 
 function createRowFromGuess(guess) {
     const emojiFromStr = (str) => {

@@ -57,7 +57,7 @@ export default function FishMenu(props) {
                 />
                 <button>Submit</button>
             </form>
-            <FishGrid fishArray={fishChoice} selectedFish={selectedFish} onClick={onFishClick} info={!useCheckMobileScreen() && !hardMode}/>
+            <FishGrid fishArray={fishChoice} selectedFish={selectedFish} onClick={onFishClick} info={!useCheckMobileScreen() && !hardMode} perfectCatches={[]}/>
         </div>
     )
 }

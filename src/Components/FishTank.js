@@ -47,8 +47,6 @@ export default function FishTank() {
     const [showPerfect, setShowPerfect] = React.useState(false);
     const [perfectFish, setPerfectFish] = React.useState(new Set());
     
-    console.log(fishingLevel);
-
     React.useEffect(() => {
         const fishTankPreset = JSON.parse(localStorage.getItem("fishTankPreset"));
         setFishBarLevel(fishTankPreset["level"]);
@@ -123,7 +121,7 @@ export default function FishTank() {
 
     return inGame === 0 ? (
         <div className="container">
-            <FishGrid fishArray={fishArray} selectedFish={selectedFish} onClick={onFishClick} info={false} perfect={showPerfect}/>
+            <FishGrid fishArray={fishArray} selectedFish={selectedFish} onClick={onFishClick} info={false} perfect={showPerfect} perfectCatches={perfectFish}/>
             <div className="tankSettingsMenu">
                 <div className="fishLevelBar">
                     {Array.from(Array(10)).map((_, i) => (
@@ -132,6 +130,7 @@ export default function FishTank() {
                             double = {(i + foodLevel >= fishingLevel && i < fishingLevel) || ((i + 10) < fishingLevel)}
                             major = {i === 4 || i === 9}
                             onClick = {() => (onFishLevelClick(i + 1))}
+                            key = {i}
                         />
                     ))}
                     <h1 className={foodLevel > 0 && "foodLevelText"}>{fishingLevel}</h1>

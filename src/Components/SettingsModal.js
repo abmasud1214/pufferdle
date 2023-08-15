@@ -1,6 +1,7 @@
 import React from 'react';
 import "./SettingsModal.css";
 
+
 export const ToggleButton = (props) => {
     const {onClick, toggle} = props;
     return (

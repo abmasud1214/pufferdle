@@ -39,8 +39,7 @@ function FishImg(props) {
     )
 }
 
-export default function FishGrid({fishArray, onClick, selectedFish, info, perfect}) {
-    const [perfectCatches, setPerfectCatches] = React.useState(new Set(JSON.parse(localStorage.getItem("perfectFish"))));
+export default function FishGrid({fishArray, onClick, selectedFish, info, perfect, perfectCatches}) {
     const [numRows, setNumRows] = React.useState(0);
 
     React.useEffect(() => {
@@ -54,7 +53,8 @@ export default function FishGrid({fishArray, onClick, selectedFish, info, perfec
 
     return (
         <div className="fish_container">
-            {fishArray.map((value, index) => {return <FishImg 
+            {fishArray.map((value, index) => {
+                return <FishImg 
                 key={value.name}
                 fish={value}
                 onClick = {() => {onClick(value)}}

@@ -92,11 +92,11 @@ export default function PufferdleGuess(props) {
             setCorrect(guessedFish.name === targetFish.name);
             if (daily) {
                 let stats = JSON.parse(localStorage.getItem("stats"));
-                if (currentGuess + 1 === numGuesses) {
-                    stats["X"] += 1;
-                } else {
+                if (guessedFish.name === targetFish.name) {
                     stats[currentGuess + 1] += 1;
                     stats["daysCorrect"] += 1;
+                } else {
+                    stats["X"] += 1;
                 }
                 stats["days"] += 1;
                 stats["fishCaught"] += updatedFR["caught"] ? 1 : 0;

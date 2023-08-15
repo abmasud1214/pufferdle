@@ -34,19 +34,31 @@ export default function SettingsModal(props) {
                 <h1>Settings</h1>
                 <div className='setting'>
                     <ToggleButton onClick={() => handleChange("hardMode")} toggle={settings["hardMode"]} />
-                    <h3>Hard Mode</h3>
+                    <div className='settingDesc'>
+                        <h2>Pufferdle: Hard Mode</h2>
+                        <h3>Hide details / traits of fish while guessing.</h3>
+                    </div>
                 </div>
                 <div className='setting'>
                     <ToggleButton onClick={() => handleChange("skipFishingGame")} toggle={settings["skipFishingGame"]} />
-                    <h3>Skip the fishing minigame before Pufferdle</h3>
-                </div>
-                <div className='setting'>
-                    <ToggleButton onClick={() => handleChange("instantRestart")} toggle={settings["instantRestart"]} />
-                    <h3>Restart instantly if not perfect in fish tank.</h3>
+                    <div className='settingDesc'>
+                        <h2>Pufferdle: Skip Fishing Game</h2>
+                        <h3>Go straight to the guesses without having to catch the fish.</h3>
+                    </div>
                 </div>
                 <div className='setting'>
                     <ToggleButton onClick={() => handleChange("showPerfectCatches")} toggle={settings["showPerfectCatches"]} />
-                    <h3>Show perfectly caught fish in the fish tank.</h3>
+                    <div className='settingDesc'>
+                        <h2>Fish Tank: Show Perfect Catches</h2>
+                        <h3>Every fish that was perfectly caught in the fish tank will be iridium quality.</h3>
+                    </div>
+                </div>
+                <div className='setting'>
+                    <ToggleButton onClick={() => handleChange("instantRestart")} toggle={settings["instantRestart"]} />
+                    <div className='settingDesc'>
+                        <h2>Fish Tank: Instant Restart When Not Perfect</h2>
+                        <h3>Restart the fishing minigame as soon as you fail perfect.</h3>
+                    </div>
                 </div>
             </div>
         </div>

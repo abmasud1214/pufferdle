@@ -36,6 +36,7 @@
     font-family: "SVBold";
     padding: 0px;
     margin: 0px;
+    margin-bottom: 25px;
 }
 
 .settingsModal h2 {
@@ -63,7 +64,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    align-self: center;
+    align-self: baseline;
+    margin-right: 30px;
 }
 
 .toggleButtonActive {
@@ -78,4 +80,20 @@
     display: flex;
     /* align-self: left; */
     user-select: none;
+    margin-bottom: 10px;
+}
+
+.settingDesc {
+    width: 90%;
+}
+
+.settingDesc h3 {
+    margin: 0px;
+    font-weight: 100;
+}
+
+.settingDesc h2 {
+    margin: 0px;
+    font-size: 1.4em;
+    font-weight: bold;
 }

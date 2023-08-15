@@ -90,7 +90,7 @@ export default function HelpModal(props) {
                     <ul>
                         <li>The guess was Ice Pip</li>
                         <li>Location: Green → The target fish can only be caught in the mines.</li>
-                        <li>Correct: Gray → While everything else is correct, the fish is NOT and Ice Pip.</li>
+                        <li>Correct: Gray → While everything else is correct, the fish is NOT an Ice Pip.</li>
                     </ul>
                     {rowFromFishNames("Stonefish", "Stonefish")}
                     <ul>
@@ -98,7 +98,8 @@ export default function HelpModal(props) {
                     </ul>
                     <h2>Note</h2>
                     <ul>
-                        <li>If a fish can <i>also</i> be caught at the Ginger Island, seasons will only be based on their <b>non</b> Ginger Island locations.</li>
+                        <li>If a fish can <i>also</i> be caught at the Ginger Island, seasons will only be based on their <b>non</b> Ginger Island locations. 
+                            (e.g. Pufferfish is only a summer fish.) </li>
                     </ul>
                 </div>
                 <hr></hr>

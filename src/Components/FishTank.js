@@ -19,6 +19,29 @@ const src_treasurebobber = require("../Art/tackles/treasurebobber.png")
 
 const src_goldquality = require('../Art/gold_quality.png')
 
+const tackleInfo = {
+    barbedHook: {
+        name: "Barbed Hook",
+        description: "Makes your catch more secure, causing the \"fishing bar\" to cling to your catch. Works best on slow, weak fish."
+    },
+    leadBobber: {
+        name: "Lead Bobber",
+        description: "Adds weight to your \"fishing bar\", preventing it from bouncing along the bottom."
+    },
+    treasureHunter: {
+        name: "Treasure Hunter",
+        description: "Fish don't escape while collecting treasures. Also slightly increases the chance to find treasures."
+    },
+    trapBobber: {
+        name: "Trap Bobber",
+        description: "Causes fish to escape slower when you aren't reeling them in."
+    },
+    corkBobber: {
+        name: "Cork Bobber",
+        description: "Slightly increases the size of your \"fishing bar\"."
+    }
+}
+
 function FishingLevelUnit(props) {
     const {active, major, double, onClick} = props;
 
@@ -169,8 +192,11 @@ export default function FishTank() {
                     <img className={tackle === "treasureHunter" && "tackle_selected"} onClick={() => onTackleClick("treasureHunter")} src={src_treasurebobber} alt="Treasure Hunter"/>
                     <img className={tackle === "trapBobber" && "tackle_selected"} onClick={() => onTackleClick("trapBobber")} src={src_trapbobber} alt="Trap Bobber"/>
                     <img className={tackle === "corkBobber" && "tackle_selected"} onClick={() => onTackleClick("corkBobber")} src={src_corkbobber} alt="Cork Bobber"/>
-
                 </div>
+                {tackle !== "" && <div className='tackleInfo'>
+                    <h1>{tackleInfo[tackle].name}</h1>
+                    <p>{tackleInfo[tackle].description}</p>
+                </div>}
                 <FishInfo fish={selectedFish} />
                 <button onClick={startFishingGame}>Fish!</button>
             </div>

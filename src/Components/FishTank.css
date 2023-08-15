@@ -195,3 +195,33 @@
         width: 30px;
     }
 }
+
+.tackleInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    border: ridge 5px #fa9305;
+    height: 70px;
+    width: 90%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.tackleInfo p {
+    font-family: "SVThin";
+    text-align: center;
+    margin: 0px;
+}
+.tackleInfo h1 {
+    font-family: "SVBold";
+    text-align: center;
+    margin: 0px;
+    font-size: 1.2em;
+}
+
+@media only screen and (min-width: 768px) {
+    .tackleInfo {
+        width: 433px;
+    }
+}

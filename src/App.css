@@ -11,6 +11,12 @@
 }
 
 header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.toolbar {
     display: flex;
     width: 300px;
     justify-content: center;
@@ -22,7 +28,7 @@ header {
 }
 
 
-header > div {
+.toolbar > div {
     display: flex;
     position: relative;
     width: calc(100%/6);
@@ -37,14 +43,14 @@ header > div {
     border-bottom-color: #ffe4a1;
 }
 
-header > div > img {
+.toolbar > div > img {
     width: 80%;
     height: 80%;
     image-rendering: pixelated;
     cursor: pointer;
 }
 
-header > div > p {
+.toolbar > div > p {
     position: absolute;
     margin: 0;
     top: -2px;
@@ -55,14 +61,20 @@ header > div > p {
 }
 
 @media only screen and (min-width: 768px) {
-    header {
+    .toolbar {
         width: 100%;
         max-width: 700px;
         flex-direction: row;
     }
-    header > div {
+    .toolbar > div {
         width: calc(100%/12);
     }
+}
+
+.infoDiv {
+    margin-left: 10px;
+    align-self: flex-end;
+    cursor: pointer;
 }
 
 .App {
@@ -120,3 +132,4 @@ header > div > p {
     text-shadow: 2px 2px 0px black;
     color: #e5ceb3;
 }
+

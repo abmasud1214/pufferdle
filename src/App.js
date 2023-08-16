@@ -14,7 +14,9 @@ import ErrorPage from "./ErrorPage";
 import HelpModal from "./Components/HelpModal";
 import { StatsModal } from "./Components/EndModal";
 import SettingsModal from "./Components/SettingsModal";
+import NavbarModal from "./Components/NavbarModal";
 import useCheckMobileScreen from "./Utils/UseCheckMobileScreen";
+import { ReactComponent as InfoSVG } from './Art/info.svg';
 
 const pufferfish_src = require("./Art/pufferfish.png")
 const mutant_src = require("./Art/mutant_carp.png")
@@ -24,12 +26,14 @@ const warptotem_src = require("./Art/farmtotem.png")
 const journal_src = require("./Art/journal.png")
 const notes_src = require("./Art/notes.png")
 const cog_src = require("./Art/cog.png")
+// console.log(info_src);
 
 function RootLayout() {
     const navigate = useNavigate();
     const [showHelpModal, setShowHelpModal] = React.useState(false);
     const [showStatsModal, setShowStatsModal] = React.useState(false);
     const [showSettingsModal, setShowSettingsModal] = React.useState(false);
+    const [showNavbarModal, setShowNavbarModal] = React.useState(false);
 
     React.useEffect(() => {
         const dayDefault = {
@@ -117,22 +121,27 @@ function RootLayout() {
     return (
         <div className="Page">
             <header style={{userSelect: "none"}}>
-                <div onClick={() => {navigate("/")}}>
-                    <p>1</p>
-                    <img src={warptotem_src} alt="Home"/>
+                <div className="toolbar">
+                    <div onClick={() => {navigate("/")}}>
+                        <p>1</p>
+                        <img src={warptotem_src} alt="Home"/>
+                    </div>
+                    {Array.from(Array(useCheckMobileScreen() ?  2 : 8)).map((_, index) => (<div key={index}><p>{index+2}</p></div>))}
+                    <div onClick={() => setShowHelpModal(true)}>
+                        <p>0</p>
+                        <img src={journal_src} alt="How to Play"/>
+                    </div>
+                    <div onClick={() => setShowStatsModal(true)}>
+                        <p>-</p>
+                        <img src={notes_src} alt="Statistics"/>
+                    </div>
+                    <div onClick={() => setShowSettingsModal(true)}>
+                        <p>=</p>
+                        <img src={cog_src} alt="Settings"/>
+                    </div>
                 </div>
-                {Array.from(Array(useCheckMobileScreen() ?  2 : 8)).map((_, index) => (<div key={index}><p>{index+2}</p></div>))}
-                <div onClick={() => setShowHelpModal(true)}>
-                    <p>0</p>
-                    <img src={journal_src} alt="How to Play"/>
-                </div>
-                <div onClick={() => setShowStatsModal(true)}>
-                    <p>-</p>
-                    <img src={notes_src} alt="Statistics"/>
-                </div>
-                <div onClick={() => setShowSettingsModal(true)}>
-                    <p>=</p>
-                    <img src={cog_src} alt="Settings"/>
+                <div className="infoDiv" onClick={() => setShowNavbarModal(true)}>
+                    <InfoSVG style={{width: "25px", height: "25px"}} fill="#ad6104" />
                 </div>
             </header>
             <div className="App">
@@ -146,6 +155,9 @@ function RootLayout() {
             />}
             {showSettingsModal && <SettingsModal 
                 onClose = {() => setShowSettingsModal(false)}
+            />}
+            {showNavbarModal && <NavbarModal 
+                onClose = {() => setShowNavbarModal(false)}
             />}
         </div>
     )

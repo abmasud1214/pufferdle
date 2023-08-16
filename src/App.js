@@ -2,7 +2,6 @@ import React from "react"
 
 import {
     createHashRouter,
-    createBrowserRouter,
     RouterProvider,
     useNavigate,
     Outlet,

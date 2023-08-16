@@ -13,7 +13,7 @@ export default function FishMenu(props) {
     
     fishArray = fishArray.map((fish, index) => ({
         ...fish,
-        src: `/fish_sprites/fish_sprite_${index+1}.png`
+        src: `./fish_sprites/fish_sprite_${index+1}.png`
     }))
 
     const [fishChoice, setFishChoice] = React.useState(fishArray);

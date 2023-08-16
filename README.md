@@ -1,70 +1,15 @@
-# Getting Started with Create React App
+# Pufferdle
+A Wordle Clone Based on Stardew Valley Fishing
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Intro
+I've been wondering if certain difficult fish could be caught perfectly in Stardew Valley, but it wasn't worth attempting since those fish were rare and I'd fail 99% of the times, making each attempt a big waste of time. I wanted some kind of "practice" mode where I could just select the fish I wanted to catch and try it as much as possible.
 
-## Available Scripts
+While I was thinking about implementing that practice mode (the Fish Tank) into a React website, I thought to combine the fishing minigame with Wordle. When I reel in a fish while playing Stardew Valley, I always try to guess what it is before the game finishes based off of the difficulty of the game. If it's too easy, it's probably a carp. If it's hard it might be what I'm looking for. Since I was already guessing the fish just while playing the game, I figured it would be a pretty natural extension into Wordle.
 
-In the project directory, you can run:
+# Tools
+This website was built in React using create-react-app.
 
-### `npm start`
+The only other thing of note was using [MainLoop.js](https://github.com/IceCreamYou/MainLoop.js/) for the fishing minigame game loop.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Author
+Abdullah Masud

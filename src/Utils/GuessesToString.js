@@ -15,7 +15,7 @@ export default function guessesToString(guesses, numGuess, fishResults, daily, h
 
     const lines = guesses.map((guess, i) => ((i < numGuess) ? createRowFromGuess(guess) : ""));
 
-    console.log(FIRST_DAY, new Date(), differenceInDays(new Date(), FIRST_DAY));
+    // console.log(FIRST_DAY, new Date(), differenceInDays(new Date(), FIRST_DAY));
 
     return `Pufferdle ${daily ? `#${differenceInDays(new Date(), FIRST_DAY)}` : "Random"} ${numGuess}/6${hardmode ? "*" : ""}` +
     `\n${fishResults.caught ? "🎣" : ""}${fishResults.treasure ? "👑" : ""}${fishResults.perfect ? "⭐" : ""}` +

@@ -97,7 +97,7 @@ function Game(props){
     const update = (time) => {
         if (progress >= 1) {
             MainLoop.stop();
-            console.log(whichFish.name);
+            // console.log(whichFish.name);
             setTimeout(()=>endGame(true, treasureCaught, perfect), 250);
         } else if (progress <= 0) {
             MainLoop.stop();

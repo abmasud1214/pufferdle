@@ -1,6 +1,7 @@
 import React from "react"
 
 import {
+    createHashRouter,
     createBrowserRouter,
     RouterProvider,
     useNavigate,
@@ -171,7 +172,7 @@ function HomeElem() {
     )
 }
 
-const router = createBrowserRouter([
+const router = createHashRouter([
     {
         path: "/",
         element: <RootLayout />,

@@ -19,5 +19,5 @@ export default function guessesToString(guesses, numGuess, fishResults, daily, h
 
     return `Pufferdle ${daily ? `#${differenceInDays(new Date(), FIRST_DAY)}` : "Random"} ${numGuess}/6${hardmode ? "*" : ""}` +
     `\n${fishResults.caught ? "🎣" : ""}${fishResults.treasure ? "👑" : ""}${fishResults.perfect ? "⭐" : ""}` +
-    lines.join("");
+    lines.join("") + "\nhttps://pufferdle.com/";
 }

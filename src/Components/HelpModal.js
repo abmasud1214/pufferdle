@@ -6,6 +6,9 @@ import { formatGuess } from "../Utils/GuessFormat.js";
 import { Row } from './GuessGrid.js';
 import fishdata from "../fishdata.js";
 
+const fish_sprites_src = fishdata.fish.map((_, index) => {
+    return require(`./../Art/fish_sprites/fish_sprite_${index+1}.png`)
+})
 
 export default function HelpModal(props) {
 
@@ -15,7 +18,7 @@ export default function HelpModal(props) {
     
     fishArray = fishArray.map((fish, index) => ({
         ...fish,
-        src: `/fish_sprites/fish_sprite_${index+1}.png`
+        src: fish_sprites_src[index],
     }));
 
     const [showAgain, setShowAgain] = React.useState(JSON.parse(localStorage.getItem("settings"))["showHelpAtStart"]);

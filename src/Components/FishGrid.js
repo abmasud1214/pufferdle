@@ -11,6 +11,8 @@ function FishImg(props) {
 
     const [hover, setHover] = React.useState(false);
 
+    // console.log("fishsrc", fish.src);
+
     return (
         <div 
             onClick={onClick}  

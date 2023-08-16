@@ -25,6 +25,8 @@ const journal_src = require("./Art/journal.png")
 const notes_src = require("./Art/notes.png")
 const cog_src = require("./Art/cog.png")
 
+console.log("cog", cog_src);
+
 function RootLayout() {
     const navigate = useNavigate();
     const [showHelpModal, setShowHelpModal] = React.useState(false);

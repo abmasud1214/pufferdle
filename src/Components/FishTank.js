@@ -19,6 +19,10 @@ const src_treasurebobber = require("../Art/tackles/treasurebobber.png")
 
 const src_goldquality = require('../Art/gold_quality.png')
 
+const fish_sprites_src = fishdata.fish.map((_, index) => {
+    return require(`./../Art/fish_sprites/fish_sprite_${index+1}.png`)
+})
+
 const tackleInfo = {
     barbedHook: {
         name: "Barbed Hook",
@@ -58,7 +62,7 @@ export default function FishTank() {
     // eslint-disable-next-line 
     const [fishArray, setFishArray] = React.useState(fishdata.fish.map((fish, index) => ({
         ...fish,
-        src: `/fish_sprites/fish_sprite_${index+1}.png`
+        src: fish_sprites_src[index],
     })));
 
     const [selectedFish, setSelectedFish] = React.useState(fishArray[0]);

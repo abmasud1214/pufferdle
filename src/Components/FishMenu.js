@@ -6,6 +6,10 @@ import FishGrid from "./FishGrid.js";
 import useCheckMobileScreen from "../Utils/UseCheckMobileScreen.js";
 import FishInfo from "./FishInfo.js";
 
+const fish_sprites_src = fishdata.fish.map((_, index) => {
+    return require(`./../Art/fish_sprites/fish_sprite_${index+1}.png`)
+})
+
 export default function FishMenu(props) {
     const { onGuess, hardMode } = props;
 
@@ -13,7 +17,7 @@ export default function FishMenu(props) {
     
     fishArray = fishArray.map((fish, index) => ({
         ...fish,
-        src: `./fish_sprites/fish_sprite_${index+1}.png`
+        src: fish_sprites_src[index],
     }))
 
     const [fishChoice, setFishChoice] = React.useState(fishArray);

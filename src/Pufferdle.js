@@ -6,7 +6,6 @@ import './Pufferdle.css'
 
 import fishdata from './fishdata'
 
-import { useOutletContext } from "react-router-dom";
 import HelpModal from './Components/HelpModal'
 
 export default function Pufferdle({ daily }) {
@@ -19,7 +18,7 @@ export default function Pufferdle({ daily }) {
     const fishArray = fishdata.fish;
     const [targetFish, setTargetFish] = React.useState(fishArray[Math.floor(Math.random() * fishArray.length)]);
     // const [targetFish, setTargetFish] = React.useState(fishArray.filter(value => (value.name === "Stonefish"))[0]);
-    const [settings, setSettings] = React.useState(JSON.parse(localStorage.getItem("settings")));
+    const [settings, ] = React.useState(JSON.parse(localStorage.getItem("settings")));
 
     React.useEffect(() => {
         if (daily) {
@@ -71,7 +70,7 @@ export default function Pufferdle({ daily }) {
             }
         }
         // console.log("useEffectrun")
-    }, [daily, fishArray])
+    }, [daily, fishArray, settings])
 
     const endGame = (caught, treasure, perfect) => {
         setFishResults({

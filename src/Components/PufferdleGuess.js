@@ -58,6 +58,7 @@ export default function PufferdleGuess(props) {
                 ng: currentGuess,
             }));
         }
+        // eslint-disable-next-line
     }, [formattedGuesses, guessHistory, updatedFR, gameEnd, correct]);
 
     React.useEffect(() => {
@@ -69,6 +70,7 @@ export default function PufferdleGuess(props) {
 
     React.useEffect(() => {
         setTimeout(() => {(gameEnd && setShowModal(true))}, (skip[currentGuess-1] ? 0 : 2000))
+        // eslint-disable-next-line
     }, [gameEnd])
 
     const onGuess = (guessedFish) => {

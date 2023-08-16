@@ -29,7 +29,7 @@ function StatBar(props) {
 }
 
 function StatScreen() {
-    const [stats, setStats] = React.useState(JSON.parse(localStorage.getItem("stats")))
+    const [stats, ] = React.useState(JSON.parse(localStorage.getItem("stats")))
     const max = Math.max(...Object.values(stats).slice(0, 6))
     // console.log(Object.values(stats));
 

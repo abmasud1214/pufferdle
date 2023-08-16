@@ -292,6 +292,7 @@ export default function FishingGame(props){
                 setHit(false);
             }, 500)
         }
+        // eslint-disable-next-line
     }, [])
 
     return (

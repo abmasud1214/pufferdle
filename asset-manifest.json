@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/pufferdle/static/css/main.671db59f.css",
-    "main.js": "/pufferdle/static/js/main.00148b6d.js",
+    "main.js": "/pufferdle/static/js/main.f533f8d8.js",
     "static/media/svthin.ttf": "/pufferdle/static/media/svthin.027e4d6f8643d5bfc256.ttf",
     "static/media/svbold.ttf": "/pufferdle/static/media/svbold.3184580c4528744cd659.ttf",
     "index.html": "/pufferdle/index.html",
     "main.671db59f.css.map": "/pufferdle/static/css/main.671db59f.css.map",
-    "main.00148b6d.js.map": "/pufferdle/static/js/main.00148b6d.js.map"
+    "main.f533f8d8.js.map": "/pufferdle/static/js/main.f533f8d8.js.map"
   },
   "entrypoints": [
     "static/css/main.671db59f.css",
-    "static/js/main.00148b6d.js"
+    "static/js/main.f533f8d8.js"
   ]
 }

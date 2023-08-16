@@ -23,7 +23,7 @@ export default function PufferdleGuess(props) {
     const [skip, setSkip] = React.useState([...Array(6).fill(false)])
         
     React.useEffect(() => {
-        console.log(targetFish);
+        // console.log(targetFish);
 
         if (daily) {
             const day = JSON.parse(localStorage.getItem("dayInfo"))

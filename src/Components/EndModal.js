@@ -122,8 +122,8 @@ export default function EndModal(props) {
                 {daily && <StatScreen />}
                 <hr></hr>
                 <button onClick={() => {
-                    setClipboardText(guessesToString(guesses, numGuess, fishResults, daily, hardMode));
-                    console.log(guessesToString(guesses, numGuess, fishResults, daily, 0, hardMode));
+                    setClipboardText(guessesToString(guesses, numGuess, correct, fishResults, daily, hardMode));
+                    console.log(guessesToString(guesses, numGuess, correct, fishResults, daily, 0, hardMode));
                 }}>Copy to Clipboard</button>
                 <button onClick={onClose}>Close</button>
             </div>

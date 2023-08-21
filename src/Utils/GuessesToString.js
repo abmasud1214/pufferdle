@@ -11,13 +11,13 @@ function createRowFromGuess(guess) {
     return "\n" + emojiFromStr(guess.season) + emojiFromStr(guess.weather) + emojiFromStr(guess.location) + emojiFromStr(guess.time) + ((guess.correct) ? "🟩" : "⬛");
 }
 
-export default function guessesToString(guesses, numGuess, fishResults, daily, hardmode){
+export default function guessesToString(guesses, numGuess, correct, fishResults, daily, hardmode){
 
     const lines = guesses.map((guess, i) => ((i < numGuess) ? createRowFromGuess(guess) : ""));
 
     // console.log(FIRST_DAY, new Date(), differenceInDays(new Date(), FIRST_DAY));
 
-    return `Pufferdle ${daily ? `#${differenceInDays(new Date(), FIRST_DAY)}` : "Random"} ${numGuess}/6${hardmode ? "*" : ""}` +
+    return `Pufferdle ${daily ? `#${differenceInDays(new Date(), FIRST_DAY)}` : "Random"} ${correct ? numGuess : "X"}/6${hardmode ? "*" : ""}` +
     `\n${fishResults.caught ? "🎣" : ""}${fishResults.treasure ? "👑" : ""}${fishResults.perfect ? "⭐" : ""}` +
     lines.join("") + "\nhttps://pufferdle.com/";
 }

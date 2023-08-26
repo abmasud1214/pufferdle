@@ -6,8 +6,13 @@ const validTime = (guess, actual) => {
 }
 
 const identical_time = (guess, actual) => {
-    if (guess.length > 2 && actual.length > 2) return true;
-    return (guess[0] === actual[0] && guess[1] === actual[1]);
+    if (guess.length > 2 && actual.length > 2) {
+        return (identical_time(guess.slice(0, 2), actual.slice(0, 2)) && identical_time(guess.slice(2), actual.slice(2)))
+    } else if (guess.length > 2 || actual.length > 2) {
+        return false;
+    } else {
+        return (guess[0] === actual[0] && guess[1] === actual[1]);
+    }
 }
 
 const intersect = (guess, actual) => {

@@ -201,9 +201,9 @@ const router = createHashRouter([
                 element: <Pufferdle daily={false}/>,
             },
             {
-                path: "/fishtank",
+                path: "/fishtank/:fishName?",
                 element: <FishTank />,
-            },
+            }
         ],
         errorElement: <ErrorPage />,
     },

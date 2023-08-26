@@ -1,4 +1,6 @@
 import React from 'react'
+import {useParams} from 'react-router-dom';
+
 import FishGrid from './FishGrid';
 import fishdata from '../fishdata';
 
@@ -57,6 +59,8 @@ function FishingLevelUnit(props) {
 
 export default function FishTank() {
 
+    const { fishName } = useParams(); 
+
     const [inGame, setInGame] = React.useState(0);
 
     // eslint-disable-next-line 
@@ -94,6 +98,15 @@ export default function FishTank() {
             window.addEventListener('perfectCatchUpdated', eventcatch);
         }
     }, [])
+
+    React.useEffect(() => {
+        if (fishName !== null) {
+            const filteredArray = fishArray.filter(value => (value.name === fishName));
+            if (filteredArray.length > 0) {
+                setSelectedFish(filteredArray[0]);
+            }
+        }
+    }, [fishName])
 
     const onFishClick = (fish) => {
         setSelectedFish(fish);

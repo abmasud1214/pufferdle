@@ -1,6 +1,7 @@
-import React from 'react'
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
-import "./EndModal.css"
+import "./EndModal.css";
 
 import guessesToString from '../Utils/GuessesToString.js';
 
@@ -91,6 +92,8 @@ export default function EndModal(props) {
     
     const [clipboardText, setClipboardText] = React.useState("");
 
+    const navigate = useNavigate();
+
     React.useEffect(() => {
         if (clipboardText !== ""){
             const copyContent = async () => {
@@ -120,6 +123,9 @@ export default function EndModal(props) {
                 </div>
                 {daily && <hr></hr>}
                 {daily && <StatScreen />}
+                <hr></hr>
+                <h3>Try catching the fish again in the</h3>
+                <button onClick={() => {navigate(`/fishtank/${targetFish.name}`)}}>Fish Tank!</button>
                 <hr></hr>
                 <button onClick={() => {
                     setClipboardText(guessesToString(guesses, numGuess, correct, fishResults, daily, hardMode));

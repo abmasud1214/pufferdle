@@ -1,10 +1,18 @@
 # Pufferdle
 A Wordle Clone Based on Stardew Valley Fishing
 
-# Intro
-I've been wondering if certain difficult fish could be caught perfectly in Stardew Valley, but it wasn't worth attempting since those fish were rare and I'd fail 99% of the times, making each attempt a big waste of time. I wanted some kind of "practice" mode where I could just select the fish I wanted to catch and try it as much as possible.
+# Description
+Trying to guess what fish I'm currently reeling in based on its difficulty is a core part of my Stardew Valley fishing experience, so turning it into Wordle felt like a natural progression.
 
-While I was thinking about implementing that practice mode (the Fish Tank) into a React website, I thought to combine the fishing minigame with Wordle. When I reel in a fish while playing Stardew Valley, I always try to guess what it is before the game finishes based off of the difficulty of the game. If it's too easy, it's probably a carp. If it's hard it might be what I'm looking for. Since I was already guessing the fish just while playing the game, I figured it would be a pretty natural extension into Wordle.
+You can try it at https://pufferdle.com/
+
+• Catch a fish and then guess what you caught based off of the difficulty you experienced.
+
+• Use the fish's seasons, weather, location, and time to narrow down your guess, in a Wordle format.
+
+• Practice catching any fish you want as much as you want without having to go to the location in game and reeling it in the Fish Tank. (Free practice for the Legend!)
+
+Thanks to ConcernedApe for making the fishing mini game which is probably my favorite part of Stardew Valley (and because every asset in this was made by and belongs to him, including the code for the mini game itself which I copied into JavaScript for an identical experience.)
 
 # Tools
 This website was built in React using create-react-app.

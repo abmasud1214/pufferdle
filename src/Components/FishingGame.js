@@ -42,12 +42,20 @@ function Game(props){
         document.addEventListener("mouseup", handleMouseUp);
         document.addEventListener("touchstart", handleMouseDown);
         document.addEventListener("touchend", handleMouseUp);
+        document.addEventListener("keydown", (event) => {
+            if (event.key === 'c') handleMouseDown()
+        })
+        document.addEventListener("keyup", (event) => {
+            if (event.key === 'c') handleMouseUp()
+        })
         
         return () => {
             document.removeEventListener("mousedown", handleMouseDown);
             document.removeEventListener("mouseup", handleMouseUp);
             document.removeEventListener("touchstart", handleMouseDown);
             document.removeEventListener("touchend", handleMouseUp);
+            document.removeEventListener("keydown", handleMouseDown);
+            document.removeEventListener("keyup", handleMouseUp);
         }
     }, [])
 

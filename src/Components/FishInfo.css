@@ -81,10 +81,9 @@
     top: calc(100% + 15px);
     left: -100px;
     background-color: #ffc979;
-    border-color: #fa9305;
-    border-style: ridge;
-    border-width: 8px;
-    border-radius: 2%;
+    border: 8px solid transparent;
+    border-image: url('../Art/modal-border-small.png') 8 round;
+    border-radius: 10px;
     width: fit-content;
     z-index: 1;
 }

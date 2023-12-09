@@ -5,7 +5,7 @@ import "./SettingsModal.css";
 export const ToggleButton = (props) => {
     const {onClick, toggle} = props;
     return (
-        <div className="toggleButtonContainer" onClick={onClick}>
+        <div className={`toggleButtonContainer ${toggle ? 'toggleButtonContainerToggled' : ''}`} onClick={onClick}>
             {toggle && <div className="toggleButtonActive" style={{}}></div>}
         </div>
     )

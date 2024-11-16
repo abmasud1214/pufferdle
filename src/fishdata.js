@@ -126,7 +126,7 @@ const fishdata = {
             "behavior": "Mixed",
             "season": ["Spring", "Fall"],
             "weather": ["Rain"],
-            "time": [6, 12],
+            "time": [6, 24],
             "location": ["Town", "Forest", "Woods", "Swamp"],
             "description": "An uncommon fish found in streams."
         },

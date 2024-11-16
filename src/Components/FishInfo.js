@@ -45,6 +45,8 @@ const timeText = (timeArr) => {
             return `${num} AM`;
         } else if (num < 24) {
             return `${num === 12 ? 12 : num % 12} PM`;
+        } else if (num === 24) {
+            return "12 AM";
         } else {
             return `${num % 24} AM`;
         }
